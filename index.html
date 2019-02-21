@@ -260,8 +260,8 @@
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="o">{</span> <span class="s2">"actions"</span>: <span class="o">[</span> <span class="o">{</span><span class="s2">"timestamp"</span>: 1000000000, <span class="s2">"player_id"</span>: <span class="s2">"1001"</span><span class="o">}</span> <span class="o">]</span> <span class="o">}</span>
-https://api.12traits.com/v1/abc/actions
+-d <span class="s1">'{ "actions": [ {"timestamp": 1000000000, "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": { "item_id": "3003" }} ] }'</span>
+https://api.12traits.com/v1/games/abc/actions
 </code></pre><h3 id='action-parameters'>Action Parameters</h3>
 <table><thead>
 <tr>
@@ -304,7 +304,7 @@ https://api.12traits.com/v1/abc/actions
 </tbody></table>
 <h3 id='response'>Response</h3><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 actions have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 action(s) have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='errors'>Errors</h1>
