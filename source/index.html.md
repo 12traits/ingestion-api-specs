@@ -33,8 +33,8 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d { "actions": [ {"timestamp": 1000000000, "player_id": "1001"} ] }
-https://api.12traits.com/v1/abc/actions
+-d '{ "actions": [ {"timestamp": 1000000000, "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": { "item_id": "3003" }} ] }'
+https://api.12traits.com/v1/games/abc/actions
 ```
 
 ### Action Parameters
@@ -52,7 +52,7 @@ action_params|map[string]string| |Map of action params
 ```js
 {
   "code": 201,
-  "message": "50 actions have been successfully ingested",
+  "message": "50 action(s) have been successfully ingested",
   "data": null
 }
 ```
