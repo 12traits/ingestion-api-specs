@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;go&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,7 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="go">go</a>
+              <a href="#" data-language-name="shell">shell</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -223,6 +223,17 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#push-game-actions" class="toc-h1 toc-link" data-title="Push game actions">Push game actions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#action-parameters" class="toc-h2 toc-link" data-title="Action Parameters">Action Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -239,13 +250,63 @@
 <p>Welcome to the 12traits Ingestion API!</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
-<p>Send your API Key with the request:</p>
+<p>Send your API Key with the request.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XPOST -H “Authorization: Bearer &lt;API_KEY&gt;” https://api.12traits.com
+</code></pre><h1 id='push-game-actions'>Push game actions</h1>
+<blockquote>
+<p>Push the player’s actions. It is possible to push up to 1000 multiple actions at the same time.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H “Authorization: Bearer &lt;API_KEY&gt;” <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -d <span class="o">{</span> “actions”: <span class="o">[</span> <span class="o">{</span>“timestamp”: 1000000000, “player_id”: “1001”<span class="o">}</span> <span class="o">]</span> <span class="o">}</span>
 https://api.12traits.com/v1/abc/actions
+</code></pre><h3 id='action-parameters'>Action Parameters</h3>
+<table><thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Required</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>Unix Timestamp</td>
+<td>Yes</td>
+<td>UTC</td>
+</tr>
+<tr>
+<td>player_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique player ID</td>
+</tr>
+<tr>
+<td>action_id</td>
+<td>string</td>
+<td></td>
+<td>Action ID specific to the game</td>
+</tr>
+<tr>
+<td>action_name</td>
+<td>string</td>
+<td></td>
+<td>User-friendly name, for example: &quot;buy_item&quot;, &quot;start_fight&quot;</td>
+</tr>
+<tr>
+<td>action_params</td>
+<td>map[string]string</td>
+<td></td>
+<td>Map of action params</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 actions have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
 </code></pre><h1 id='errors'>Errors</h1>
 <p>The 12traits Ingestion API uses the following error codes:</p>
 
@@ -257,54 +318,26 @@ https://api.12traits.com/v1/abc/actions
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>Bad Request - Please check the Reference</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Unauthorized - API Key is not valid, or game ID is not valid</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Not Found - The specified resource not found</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>Internal Server Error - We had a problem with our server. Try again later.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="go">go</a>
+                <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
     </div>
