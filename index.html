@@ -252,15 +252,15 @@
 <blockquote>
 <p>Send your API Key with the request.</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -XPOST -H “Authorization: Bearer &lt;API_KEY&gt;” https://api.12traits.com
+<pre class="highlight shell tab-shell"><code>curl -XPOST -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com
 </code></pre><h1 id='push-game-actions'>Push game actions</h1>
 <blockquote>
 <p>Push the player’s actions. It is possible to push up to 1000 multiple actions at the same time.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
--H “Authorization: Bearer &lt;API_KEY&gt;” <span class="se">\</span>
+-H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="o">{</span> “actions”: <span class="o">[</span> <span class="o">{</span>“timestamp”: 1000000000, “player_id”: “1001”<span class="o">}</span> <span class="o">]</span> <span class="o">}</span>
+-d <span class="o">{</span> <span class="s2">"actions"</span>: <span class="o">[</span> <span class="o">{</span><span class="s2">"timestamp"</span>: 1000000000, <span class="s2">"player_id"</span>: <span class="s2">"1001"</span><span class="o">}</span> <span class="o">]</span> <span class="o">}</span>
 https://api.12traits.com/v1/abc/actions
 </code></pre><h3 id='action-parameters'>Action Parameters</h3>
 <table><thead>
