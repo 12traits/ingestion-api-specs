@@ -1,1 +1,0 @@
-# 12traits Ingestion API Reference
