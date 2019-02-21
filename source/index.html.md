@@ -33,7 +33,7 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "actions": [ {"timestamp": 1000000000, "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": { "item_id": "3003" }} ] }'
+-d '{ "actions": [ {"timestamp": 1000000000, "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": [ {"key": "item_id", "value": "3003" } ] ] }'
 https://api.12traits.com/v1/games/abc/actions
 ```
 
