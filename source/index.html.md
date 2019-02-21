@@ -41,7 +41,7 @@ https://api.12traits.com/v1/games/abc/actions
 
 **Field**|**Type**|**Required**|**Description**
 -----|-----|-----|-----
-timestamp|Unix Timestamp|Yes|UTC
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
 player_id|string|Yes|Unique player ID
 action_id|string| |Action ID specific to the game
 action_name|string| |User-friendly name, for example: "buy_item", "start_fight"
