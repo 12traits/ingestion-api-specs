@@ -43,8 +43,8 @@ https://api.12traits.com/v1/games/abc/actions
 -----|-----|-----|-----
 timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
 player_id|string|Yes|Unique player ID
-action_id|string| |Action ID specific to the game
-action_name|string| |User-friendly name, for example: "buy_item", "start_fight"
+action_id|string|Yes|Action ID specific to the game
+action_name|string|Yes|User-friendly name, for example: "buy_item", "start_fight"
 action_params|map[string]string| |Map of action params
 
 ### Response
