@@ -37,7 +37,7 @@ curl -XPOST \
 https://api.12traits.com/v1/games/abc/actions
 ```
 
-### Action Parameters
+### Action
 
 **Field**|**Type**|**Required**|**Description**
 -----|-----|-----|-----
@@ -45,7 +45,14 @@ timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
 player_id|string|Yes|Unique player ID
 action_id|string|Yes|Action ID specific to the game
 action_name|string|Yes|User-friendly name, for example: "buy_item", "start_fight"
-action_params|map[string]string| |Map of action params
+action_params|list<ActionParam>| |Map of action params
+
+### ActionParam
+
+**Field**|**Type**|**Required**|**Description**
+-----|-----|-----|-----
+key|string|Yes|Action param key
+value|string|Yes|Action param value
 
 ### Response
 
