@@ -45,7 +45,7 @@ timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
 player_id|string|Yes|Unique player ID
 action_id|string|Yes|Action ID specific to the game
 action_name|string|Yes|User-friendly name, for example: "buy_item", "start_fight"
-action_params|list<ActionParam>| |Map of action params
+action_params|list\<ActionParam\>| |Map of action params
 
 ### ActionParam
 
