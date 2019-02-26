@@ -225,6 +225,9 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
+            <a href="#api-limits" class="toc-h1 toc-link" data-title="API limits">API limits</a>
+          </li>
+          <li>
             <a href="#push-game-actions" class="toc-h1 toc-link" data-title="Push game actions">Push game actions</a>
               <ul class="toc-list-h2">
                   <li>
@@ -235,6 +238,17 @@
                   </li>
                   <li>
                     <a href="#response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#push-logged-in-players" class="toc-h1 toc-link" data-title="Push logged in players">Push logged in players</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#player" class="toc-h2 toc-link" data-title="Player">Player</a>
+                  </li>
+                  <li>
+                    <a href="#response-2" class="toc-h2 toc-link" data-title="Response">Response</a>
                   </li>
               </ul>
           </li>
@@ -256,14 +270,18 @@
 <p>Send your API Key with the request.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -XPOST -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com
-</code></pre><h1 id='push-game-actions'>Push game actions</h1>
+</code></pre><h1 id='api-limits'>API limits</h1>
+<ul>
+<li>It is possible to push up to 1000 multiple items at the same time.</li>
+</ul>
+<h1 id='push-game-actions'>Push game actions</h1>
 <blockquote>
-<p>Push the player’s actions. It is possible to push up to 1000 multiple actions at the same time.</p>
+<p>Push the player’s actions.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="s1">'{ "actions": [ {"timestamp": 1000000000, "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": [ {"key": "item_id", "value": "3003" } ] ] }'</span>
+-d <span class="s1">'{ "actions": [ { "timestamp": 1000000000, "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": [ {"key": "item_id", "value": "3003" } ] ] }'</span>
 https://api.12traits.com/v1/games/abc/actions
 </code></pre><h3 id='action'>Action</h3>
 <table><thead>
@@ -330,6 +348,66 @@ https://api.12traits.com/v1/games/abc/actions
 <h3 id='response'>Response</h3><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
   <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 action(s) have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre><h1 id='push-logged-in-players'>Push logged in players</h1>
+<blockquote>
+<p>Push information when players have logged in.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
+-H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-d <span class="s1">'{ "players": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US" }'</span>
+https://api.12traits.com/v1/games/abc/player-logins
+</code></pre><h3 id='player'>Player</h3>
+<table><thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Required</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>Timestamp</td>
+<td></td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+</tr>
+<tr>
+<td>player_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique player ID</td>
+</tr>
+<tr>
+<td>level</td>
+<td>int</td>
+<td></td>
+<td>Player&#39;s level or rank in the game</td>
+</tr>
+<tr>
+<td>device</td>
+<td>string</td>
+<td></td>
+<td>Device player is using. e.g. iPad, iPhone X</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>string</td>
+<td></td>
+<td>Platform player is using, e.g. Steam</td>
+</tr>
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+<td>Player&#39;s language in <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF format</a></td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 player(s) have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='errors'>Errors</h1>
