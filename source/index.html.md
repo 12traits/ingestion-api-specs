@@ -194,3 +194,33 @@ currency|string|Yes|Currency of the purchase, e.g. "gold","tokens","crowns"
   "data": null
 }
 ```
+
+# Push Level Ups
+
+> Push level-ups for each player. Levels refer to game-content levels, i.e. levels that represent the progress of a user through the game. These can have different names (tiers/stages/progress/ranks, etc.), these should always be increasing.
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: application/json" \
+-d '{ "purchases": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10 }'
+https://api.12traits.com/v1/games/<game_id>/level-ups
+```
+
+### LevelUp
+
+**Field**|**Type**|**Required**|**Description**
+-----|-----|-----|-----
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
+player_id|string|Yes|Unique player ID
+level|int|Yes|New level after level-up
+
+> Example response
+
+```js
+{
+  "code": 201,
+  "message": "50 level-up(s) have been successfully ingested",
+  "data": null
+}
+```
