@@ -17,7 +17,13 @@ search: true
 
 Welcome to the 12traits Ingestion API!
 
+The 12traits API is a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API, which accepts and returns JSON-encoded data, and uses standard HTTP response codes, authentication, and verbs.
+
 # Authentication
+
+The 12traits API uses API Keys to authenticate requests. You can view and manage your API Keys in the 12traits Dashboard.
+
+All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
 > Send your API Key with the request.
 
@@ -28,6 +34,7 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com
 # API limits
 
 - It is possible to push up to 1000 multiple items at the same time.
+- 
 
 # Push game actions
 
