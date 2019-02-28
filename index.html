@@ -320,13 +320,13 @@
 <blockquote>
 <p>Send your API Key with the request.</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -XPOST -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com
+<pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com/v1/games
 </code></pre><h1 id='api-limits'>API limits</h1>
 <ul>
 <li>It is possible to push up to 1000 multiple items at the same time.</li>
 </ul>
 <h1 id='list-your-games'>List your games</h1>
-<p>You will need to know your game ID in order to push data. You can get this ID by calling this endpoint.</p>
+<p>You will need to know your game ID in order to push data. You can find it in the 12traits Dashboard or cou can call this endpoint to list all your games.</p>
 
 <blockquote>
 <p>Request</p>
@@ -794,14 +794,17 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/social-dynamics
 </code></pre><h1 id='playfab-webhook-integration'>PlayFab Webhook Integration</h1>
 <p>If you are using PlayFab you are able to integrate it with 12traits by using <a href="https://api.playfab.com/docs/tutorials/landing-analytics/webhooks">PlayFab Webhooks</a>. You can simply configure PlayFab to send all events to 12traits by using this endpoint.</p>
 
-<p>Replace game_id and api_key.</p>
+<blockquote>
+<p>Replace <strong>game_id</strong> and <strong>api_key</strong></p>
+</blockquote>
 <pre class="highlight shell tab-shell"><code>https://api.12traits.com/v1/games/&lt;game_id&gt;/playfab?api_key<span class="o">=</span>&lt;api_key&gt;
 </code></pre><h3 id='how-to-configure-a-playfab-webhook'>How to configure a PlayFab webhook</h3>
 <ol>
 <li>Go to PlayFab Analytics</li>
 <li>Open &quot;Webhooks&quot; tab</li>
 <li>Click &quot;New Webhook&quot;</li>
-<li>Give it a name and add the above URL</li>
+<li>Give it a name</li>
+<li>Set Endpoint URL to <code>https://api.12traits.com/v1/games/&lt;game_id&gt;/playfab?api_key=&lt;api_key&gt;</code> (replace <strong>game_id</strong> and <strong>api_key</strong>)</li>
 </ol>
 <h1 id='errors'>Errors</h1>
 <p>12traits API uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the <code>2xx</code> range indicate success. Codes in the <code>4xx</code> range indicate an error that failed given the information provided. Codes in the <code>5xx</code> range indicate an error with 12traits servers (these are rare).</p>
