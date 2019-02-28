@@ -250,6 +250,14 @@
               </ul>
           </li>
           <li>
+            <a href="#push-purchases" class="toc-h1 toc-link" data-title="Push Purchases">Push Purchases</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#purchase" class="toc-h2 toc-link" data-title="Purchase">Purchase</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -377,12 +385,12 @@ https://api.12traits.com/v1/&lt;game_id&gt;/abc/actions
 <span class="p">}</span>
 </code></pre><h1 id='push-logged-in-players'>Push logged in players</h1>
 <blockquote>
-<p>Push information when players have logged in.</p>
+<p>Push information when players have logged in into the game.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="s1">'{ "players": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US" }'</span>
+-d <span class="s1">'{ "players": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US", "platform": "Apple" }'</span>
 https://api.12traits.com/v1/games/&lt;game_id&gt;/player-logins
 </code></pre><h3 id='player'>Player</h3>
 <table><thead>
@@ -437,6 +445,70 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/player-logins
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
   <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 player(s) have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre><h1 id='push-purchases'>Push Purchases</h1>
+<blockquote>
+<p>Push information related to the real-money purchases made by each user.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
+-H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-d <span class="s1">'{ "purchases": [ { "timestamp": 1000000000, "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" }'</span>
+https://api.12traits.com/v1/games/&lt;game_id&gt;/purchases
+</code></pre><h3 id='purchase'>Purchase</h3>
+<table><thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Required</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>Timestamp</td>
+<td></td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+</tr>
+<tr>
+<td>player_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique player ID</td>
+</tr>
+<tr>
+<td>item_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>In game Item ID</td>
+</tr>
+<tr>
+<td>count</td>
+<td>int</td>
+<td>Yes</td>
+<td>Number of items purchased</td>
+</tr>
+<tr>
+<td>price</td>
+<td>float</td>
+<td>Yes</td>
+<td>Total money spent on the purchase</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>string</td>
+<td></td>
+<td>Platform player is using, e.g. Steam</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 purchase(s) have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='errors'>Errors</h1>
