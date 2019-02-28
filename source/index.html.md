@@ -93,7 +93,7 @@ value|string|Yes|Action param value
 ```js
 {
   "code": 201,
-  "message": "50 action(s) have been successfully ingested",
+  "message": "50 action have been successfully ingested",
   "data": null
 }
 ```
@@ -128,7 +128,7 @@ language|string||Player's language in [IETF format](https://en.wikipedia.org/wik
 ```js
 {
   "code": 201,
-  "message": "50 player(s) have been successfully ingested",
+  "message": "50 player have been successfully ingested",
   "data": null
 }
 ```
@@ -163,7 +163,7 @@ platform|string||Platform player is using, e.g. Steam
 ```js
 {
   "code": 201,
-  "message": "50 purchase(s) have been successfully ingested",
+  "message": "50 purchase have been successfully ingested",
   "data": null
 }
 ```
@@ -198,7 +198,7 @@ currency|string|Yes|Currency of the purchase, e.g. "gold","tokens","crowns"
 ```js
 {
   "code": 201,
-  "message": "50 virtual purchase(s) have been successfully ingested",
+  "message": "50 virtual purchase have been successfully ingested",
   "data": null
 }
 ```
@@ -230,7 +230,7 @@ level|int|Yes|New level after level-up
 ```js
 {
   "code": 201,
-  "message": "50 level-up(s) have been successfully ingested",
+  "message": "50 level-up have been successfully ingested",
   "data": null
 }
 ```
@@ -264,7 +264,41 @@ type|string||Item type, e.g. "weapon"
 ```js
 {
   "code": 201,
-  "message": "50 item(s) have been successfully ingested",
+  "message": "50 items have been successfully ingested",
+  "data": null
+}
+```
+
+# Push Social Dynamics
+
+Push information on the social dynamics of the game, i.e. interactions between players.
+
+> Request
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: application/json" \
+-d '{ "social_dynamics": [ { "timestamp": 1000000000, "player_id": "1001", "target_player_id": "1002", "connection": "linked", "interaction": "friend" } ] }'
+https://api.12traits.com/v1/games/<game_id>/social-dynamics
+```
+
+### SocialDynamics
+
+**Field**|**Type**|**Required**|**Description**
+-----|-----|-----|-----
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
+player_id|string|Yes|Unique player ID
+target_player_id|string|Yes|ID of the player with whom a link is made or who is unlinked
+connection|string|Yes|"linked" or "unllinked"
+interaction|string|Yes|"friend" or "party"
+
+> Example response
+
+```js
+{
+  "code": 201,
+  "message": "50 social dynamics have been successfully ingested",
   "data": null
 }
 ```
