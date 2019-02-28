@@ -98,13 +98,13 @@ value|string|Yes|Action param value
 
 # Push logged in players
 
-> Push information when players have logged in.
+> Push information when players have logged in into the game.
 
 ```shell
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "players": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US" }'
+-d '{ "players": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US", "platform": "Apple" }'
 https://api.12traits.com/v1/games/<game_id>/player-logins
 ```
 
@@ -125,6 +125,39 @@ language|string||Player's language in [IETF format](https://en.wikipedia.org/wik
 {
   "code": 201,
   "message": "50 player(s) have been successfully ingested",
+  "data": null
+}
+```
+
+# Push Purchases
+
+> Push information related to the real-money purchases made by each user.
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: application/json" \
+-d '{ "purchases": [ { "timestamp": 1000000000, "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" }'
+https://api.12traits.com/v1/games/<game_id>/purchases
+```
+
+### Purchase
+
+**Field**|**Type**|**Required**|**Description**
+-----|-----|-----|-----
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
+player_id|string|Yes|Unique player ID
+item_id|string|Yes|In game Item ID
+count|int|Yes|Number of items purchased
+price|float|Yes|Total money spent on the purchase
+platform|string||Platform player is using, e.g. Steam
+
+> Example response
+
+```js
+{
+  "code": 201,
+  "message": "50 purchase(s) have been successfully ingested",
   "data": null
 }
 ```
