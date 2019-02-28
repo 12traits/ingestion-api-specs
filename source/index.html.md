@@ -28,7 +28,7 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
 > Send your API Key with the request.
 
 ```shell
-curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com
+curl -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/games
 ```
 
 # API limits
@@ -37,7 +37,7 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com
 
 # List your games
 
-You will need to know your game ID in order to push data. You can get this ID by calling this endpoint.
+You will need to know your game ID in order to push data. You can find it in the 12traits Dashboard or cou can call this endpoint to list all your games.
 
 > Request
 
@@ -307,7 +307,7 @@ interaction|string|Yes|"friend" or "party"
 
 If you are using PlayFab you are able to integrate it with 12traits by using [PlayFab Webhooks](https://api.playfab.com/docs/tutorials/landing-analytics/webhooks). You can simply configure PlayFab to send all events to 12traits by using this endpoint.
 
-Replace game_id and api_key.
+> Replace **game_id** and **api_key**
 
 ```shell
 https://api.12traits.com/v1/games/<game_id>/playfab?api_key=<api_key>
@@ -318,4 +318,5 @@ https://api.12traits.com/v1/games/<game_id>/playfab?api_key=<api_key>
 1. Go to PlayFab Analytics
 2. Open "Webhooks" tab
 3. Click "New Webhook"
-4. Give it a name and add the above URL
+4. Give it a name
+5. Set Endpoint URL to `https://api.12traits.com/v1/games/<game_id>/playfab?api_key=<api_key>` (replace **game_id** and **api_key**)

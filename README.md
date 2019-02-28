@@ -1,6 +1,6 @@
 # 12traits Ingestion API Reference
 
-https://12traits.github.io/ingestion-api-specs/
+http://docs.api.12traits.com
 
 ## Deploy to GitHub Pages
 
