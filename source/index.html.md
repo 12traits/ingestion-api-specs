@@ -34,7 +34,28 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com
 # API limits
 
 - It is possible to push up to 1000 multiple items at the same time.
-- 
+
+# List your games
+
+You will need to know your game ID in order to push data. You can get this ID by calling this endpoint.
+
+> Request
+
+```shell
+curl https://api.12traits.com/v1/games
+```
+
+> Example response
+
+```js
+{
+  "code": 200,
+  "message": "",
+  "data": [
+    { "game_id": "123", "name": "Fortnite" }
+  ]
+}
+```
 
 # Push game actions
 
@@ -45,7 +66,7 @@ curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 -d '{ "actions": [ { "timestamp": 1000000000, "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": [ {"key": "item_id", "value": "3003" } ] ] }'
-https://api.12traits.com/v1/games/abc/actions
+https://api.12traits.com/v1/<game_id>/abc/actions
 ```
 
 ### Action
@@ -65,7 +86,7 @@ action_params|list\<ActionParam\>| |Map of action params
 key|string|Yes|Action param key
 value|string|Yes|Action param value
 
-### Response
+> Example response
 
 ```js
 {
@@ -84,7 +105,7 @@ curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 -d '{ "players": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US" }'
-https://api.12traits.com/v1/games/abc/player-logins
+https://api.12traits.com/v1/games/<game_id>/player-logins
 ```
 
 ### Player
@@ -98,7 +119,7 @@ device|string||Device player is using. e.g. iPad, iPhone X
 platform|string||Platform player is using, e.g. Steam
 language|string||Player's language in [IETF format](https://en.wikipedia.org/wiki/IETF_language_tag)
 
-### Response
+> Example response
 
 ```js
 {
