@@ -93,7 +93,7 @@ value|string|Yes|Action param value
 ```js
 {
   "code": 201,
-  "message": "50 action have been successfully ingested",
+  "message": "50 actions have been successfully ingested",
   "data": null
 }
 ```
@@ -128,7 +128,7 @@ language|string||Player's language in [IETF format](https://en.wikipedia.org/wik
 ```js
 {
   "code": 201,
-  "message": "50 player have been successfully ingested",
+  "message": "50 players have been successfully ingested",
   "data": null
 }
 ```
@@ -163,7 +163,7 @@ platform|string||Platform player is using, e.g. Steam
 ```js
 {
   "code": 201,
-  "message": "50 purchase have been successfully ingested",
+  "message": "50 purchases have been successfully ingested",
   "data": null
 }
 ```
@@ -198,7 +198,7 @@ currency|string|Yes|Currency of the purchase, e.g. "gold","tokens","crowns"
 ```js
 {
   "code": 201,
-  "message": "50 virtual purchase have been successfully ingested",
+  "message": "50 virtual purchases have been successfully ingested",
   "data": null
 }
 ```
@@ -230,7 +230,7 @@ level|int|Yes|New level after level-up
 ```js
 {
   "code": 201,
-  "message": "50 level-up have been successfully ingested",
+  "message": "50 level-ups have been successfully ingested",
   "data": null
 }
 ```
@@ -312,3 +312,10 @@ Replace game_id and api_key.
 ```shell
 https://api.12traits.com/v1/games/<game_id>/playfab?api_key=<api_key>
 ```
+
+### How to configure a PlayFab webhook
+
+1. Go to PlayFab Analytics
+2. Open "Webhooks" tab
+3. Click "New Webhook"
+4. Give it a name and add the above URL
