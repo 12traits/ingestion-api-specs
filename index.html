@@ -291,6 +291,11 @@
           </li>
           <li>
             <a href="#playfab-webhook-integration" class="toc-h1 toc-link" data-title="PlayFab Webhook Integration">PlayFab Webhook Integration</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#how-to-configure-a-playfab-webhook" class="toc-h2 toc-link" data-title="How to configure a PlayFab webhook">How to configure a PlayFab webhook</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -417,7 +422,7 @@ https://api.12traits.com/v1/&lt;game_id&gt;/abc/actions
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 action have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 actions have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-logged-in-players'>Push logged in players</h1>
@@ -483,7 +488,7 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/player-logins
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 player have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 players have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-purchases'>Push Purchases</h1>
@@ -549,7 +554,7 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/purchases
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 purchase have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 purchases have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-virtual-purchases'>Push Virtual Purchases</h1>
@@ -615,7 +620,7 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/virtual-purchases
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 virtual purchase have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 virtual purchases have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-level-ups'>Push Level Ups</h1>
@@ -663,7 +668,7 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/level-ups
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 level-up have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 level-ups have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-items'>Push Items</h1>
@@ -791,7 +796,14 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/social-dynamics
 
 <p>Replace game_id and api_key.</p>
 <pre class="highlight shell tab-shell"><code>https://api.12traits.com/v1/games/&lt;game_id&gt;/playfab?api_key<span class="o">=</span>&lt;api_key&gt;
-</code></pre><h1 id='errors'>Errors</h1>
+</code></pre><h3 id='how-to-configure-a-playfab-webhook'>How to configure a PlayFab webhook</h3>
+<ol>
+<li>Go to PlayFab Analytics</li>
+<li>Open &quot;Webhooks&quot; tab</li>
+<li>Click &quot;New Webhook&quot;</li>
+<li>Give it a name and add the above URL</li>
+</ol>
+<h1 id='errors'>Errors</h1>
 <p>12traits API uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the <code>2xx</code> range indicate success. Codes in the <code>4xx</code> range indicate an error that failed given the information provided. Codes in the <code>5xx</code> range indicate an error with 12traits servers (these are rare).</p>
 
 <p>The 12traits Ingestion API uses the following error codes:</p>
