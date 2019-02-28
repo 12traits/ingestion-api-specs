@@ -108,7 +108,7 @@ Push information when players have logged in into the game.
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "players": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US", "platform": "Apple" }'
+-d '{ "players": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US", "platform": "Apple" } ] }'
 https://api.12traits.com/v1/games/<game_id>/player-logins
 ```
 
@@ -143,7 +143,7 @@ Push information related to the real-money purchases made by each user.
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "purchases": [ { "timestamp": 1000000000, "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" }'
+-d '{ "purchases": [ { "timestamp": 1000000000, "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" } ] }'
 https://api.12traits.com/v1/games/<game_id>/purchases
 ```
 
@@ -178,11 +178,11 @@ Push information related to in-game virtual currency purchases made by each user
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "purchases": [ { "timestamp": 1000000000, "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "currency": "gold" }'
+-d '{ "virtual_purchases": [ { "timestamp": 1000000000, "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "currency": "gold" } ] }'
 https://api.12traits.com/v1/games/<game_id>/virtual-purchases
 ```
 
-### VietualPurchase
+### VirtualPurchase
 
 **Field**|**Type**|**Required**|**Description**
 -----|-----|-----|-----
@@ -213,7 +213,7 @@ Push level-ups for each player. Levels refer to game-content levels, i.e. levels
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "purchases": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10 }'
+-d '{ "level_ups": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10 } ] }'
 https://api.12traits.com/v1/games/<game_id>/level-ups
 ```
 
@@ -235,11 +235,45 @@ level|int|Yes|New level after level-up
 }
 ```
 
+# Push Items
+
+Push detailed information about each item.
+
+> Request
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: application/json" \
+-d '{ "items": [ { "item_id": "1001", "price": 25.50, "currency": "USD", "name": "Axe", "type": "weapon" } ] }'
+https://api.12traits.com/v1/games/<game_id>/items
+```
+
+### Item
+
+**Field**|**Type**|**Required**|**Description**
+-----|-----|-----|-----
+item_id|string|Yes|Unique item ID
+price|float|Yes|Price of the item
+currency|string|Yes|Currency of the price, e.g. "JPY", "CNY", "USD", "gold"
+name|string|Yes|Item name
+type|string||Item type, e.g. "weapon"
+
+> Example response
+
+```js
+{
+  "code": 201,
+  "message": "50 item(s) have been successfully ingested",
+  "data": null
+}
+```
+
 # PlayFab Webhook Integration
 
 If you are using PlayFab you are able to integrate it with 12traits by using [PlayFab Webhooks](https://api.playfab.com/docs/tutorials/landing-analytics/webhooks). You can simply configure PlayFab to send all events to 12traits by using this endpoint.
 
-> Webhook URL. Replace game_id and api_key.
+Replace game_id and api_key.
 
 ```shell
 https://api.12traits.com/v1/games/<game_id>/playfab?api_key=<api_key>
