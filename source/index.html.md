@@ -59,7 +59,9 @@ curl https://api.12traits.com/v1/games
 
 # Push game actions
 
-> Push the player’s actions.
+Push the player’s actions.
+
+> Request
 
 ```shell
 curl -XPOST \
@@ -98,7 +100,9 @@ value|string|Yes|Action param value
 
 # Push logged in players
 
-> Push information when players have logged in into the game.
+Push information when players have logged in into the game.
+
+> Request
 
 ```shell
 curl -XPOST \
@@ -131,7 +135,9 @@ language|string||Player's language in [IETF format](https://en.wikipedia.org/wik
 
 # Push Purchases
 
-> Push information related to the real-money purchases made by each user.
+Push information related to the real-money purchases made by each user.
+
+> Request
 
 ```shell
 curl -XPOST \
@@ -164,7 +170,9 @@ platform|string||Platform player is using, e.g. Steam
 
 # Push Virtual Purchases
 
-> Push information related to in-game virtual currency purchases made by each user. Please note: If an item is bought by first converting real money to in-game money, it should appear in both purchases and virtual purchases.
+Push information related to in-game virtual currency purchases made by each user. Please note: If an item is bought by first converting real money to in-game money, it should appear in both purchases and virtual purchases.
+
+> Request
 
 ```shell
 curl -XPOST \
@@ -197,7 +205,9 @@ currency|string|Yes|Currency of the purchase, e.g. "gold","tokens","crowns"
 
 # Push Level Ups
 
-> Push level-ups for each player. Levels refer to game-content levels, i.e. levels that represent the progress of a user through the game. These can have different names (tiers/stages/progress/ranks, etc.), these should always be increasing.
+Push level-ups for each player. Levels refer to game-content levels, i.e. levels that represent the progress of a user through the game. These can have different names (tiers/stages/progress/ranks, etc.), these should always be increasing.
+
+> Request
 
 ```shell
 curl -XPOST \
@@ -223,4 +233,14 @@ level|int|Yes|New level after level-up
   "message": "50 level-up(s) have been successfully ingested",
   "data": null
 }
+```
+
+# PlayFab Webhook Integration
+
+If you are using PlayFab you are able to integrate it with 12traits by using [PlayFab Webhooks](https://api.playfab.com/docs/tutorials/landing-analytics/webhooks). You can simply configure PlayFab to send all events to 12traits by using this endpoint.
+
+> Webhook URL. Replace game_id and api_key.
+
+```shell
+https://api.12traits.com/v1/games/<game_id>/playfab?api_key=<api_key>
 ```
