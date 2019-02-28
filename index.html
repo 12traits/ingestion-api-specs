@@ -282,6 +282,14 @@
               </ul>
           </li>
           <li>
+            <a href="#push-social-dynamics" class="toc-h1 toc-link" data-title="Push Social Dynamics">Push Social Dynamics</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#socialdynamics" class="toc-h2 toc-link" data-title="SocialDynamics">SocialDynamics</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#playfab-webhook-integration" class="toc-h1 toc-link" data-title="PlayFab Webhook Integration">PlayFab Webhook Integration</a>
           </li>
           <li>
@@ -409,7 +417,7 @@ https://api.12traits.com/v1/&lt;game_id&gt;/abc/actions
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 action(s) have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 action have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-logged-in-players'>Push logged in players</h1>
@@ -475,7 +483,7 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/player-logins
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 player(s) have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 player have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-purchases'>Push Purchases</h1>
@@ -541,7 +549,7 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/purchases
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 purchase(s) have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 purchase have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-virtual-purchases'>Push Virtual Purchases</h1>
@@ -607,7 +615,7 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/virtual-purchases
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 virtual purchase(s) have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 virtual purchase have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-level-ups'>Push Level Ups</h1>
@@ -655,7 +663,7 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/level-ups
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 level-up(s) have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 level-up have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-items'>Push Items</h1>
@@ -715,7 +723,67 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/items
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 item(s) have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 items have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre><h1 id='push-social-dynamics'>Push Social Dynamics</h1>
+<p>Push information on the social dynamics of the game, i.e. interactions between players.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
+-H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-d <span class="s1">'{ "social_dynamics": [ { "timestamp": 1000000000, "player_id": "1001", "target_player_id": "1002", "connection": "linked", "interaction": "friend" } ] }'</span>
+https://api.12traits.com/v1/games/&lt;game_id&gt;/social-dynamics
+</code></pre><h3 id='socialdynamics'>SocialDynamics</h3>
+<table><thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Required</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>Timestamp</td>
+<td></td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+</tr>
+<tr>
+<td>player_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique player ID</td>
+</tr>
+<tr>
+<td>target_player_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>ID of the player with whom a link is made or who is unlinked</td>
+</tr>
+<tr>
+<td>connection</td>
+<td>string</td>
+<td>Yes</td>
+<td>&quot;linked&quot; or &quot;unllinked&quot;</td>
+</tr>
+<tr>
+<td>interaction</td>
+<td>string</td>
+<td>Yes</td>
+<td>&quot;friend&quot; or &quot;party&quot;</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 social dynamics have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='playfab-webhook-integration'>PlayFab Webhook Integration</h1>
