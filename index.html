@@ -274,6 +274,9 @@
               </ul>
           </li>
           <li>
+            <a href="#playfab-webhook-integration" class="toc-h1 toc-link" data-title="PlayFab Webhook Integration">PlayFab Webhook Integration</a>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -320,8 +323,10 @@
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-game-actions'>Push game actions</h1>
-<blockquote>
 <p>Push the player’s actions.</p>
+
+<blockquote>
+<p>Request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
@@ -400,8 +405,10 @@ https://api.12traits.com/v1/&lt;game_id&gt;/abc/actions
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-logged-in-players'>Push logged in players</h1>
-<blockquote>
 <p>Push information when players have logged in into the game.</p>
+
+<blockquote>
+<p>Request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
@@ -464,8 +471,10 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/player-logins
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-purchases'>Push Purchases</h1>
-<blockquote>
 <p>Push information related to the real-money purchases made by each user.</p>
+
+<blockquote>
+<p>Request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
@@ -528,8 +537,10 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/purchases
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-virtual-purchases'>Push Virtual Purchases</h1>
-<blockquote>
 <p>Push information related to in-game virtual currency purchases made by each user. Please note: If an item is bought by first converting real money to in-game money, it should appear in both purchases and virtual purchases.</p>
+
+<blockquote>
+<p>Request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
@@ -592,8 +603,10 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/virtual-purchases
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-level-ups'>Push Level Ups</h1>
-<blockquote>
 <p>Push level-ups for each player. Levels refer to game-content levels, i.e. levels that represent the progress of a user through the game. These can have different names (tiers/stages/progress/ranks, etc.), these should always be increasing.</p>
+
+<blockquote>
+<p>Request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
@@ -637,6 +650,13 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/level-ups
   <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 level-up(s) have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
+</code></pre><h1 id='playfab-webhook-integration'>PlayFab Webhook Integration</h1>
+<p>If you are using PlayFab you are able to integrate it with 12traits by using <a href="https://api.playfab.com/docs/tutorials/landing-analytics/webhooks">PlayFab Webhooks</a>. You can simply configure PlayFab to send all events to 12traits by using this endpoint.</p>
+
+<blockquote>
+<p>Webhook URL. Replace game_id and api_key.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>https://api.12traits.com/v1/games/&lt;game_id&gt;/playfab?api_key<span class="o">=</span>&lt;api_key&gt;
 </code></pre><h1 id='errors'>Errors</h1>
 <p>12traits API uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the <code>2xx</code> range indicate success. Codes in the <code>4xx</code> range indicate an error that failed given the information provided. Codes in the <code>5xx</code> range indicate an error with 12traits servers (these are rare).</p>
 
