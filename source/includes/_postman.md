@@ -7,7 +7,7 @@
 1. Download collection configuration file.
 2. Open Postman
 3. Click Import -> Import from link
-4. Paste the following URL: 
+4. Paste the following URL: https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6
 5. Set your API Key environment variables.
 
 ### 12traits API variables
