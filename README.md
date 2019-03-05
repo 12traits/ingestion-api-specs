@@ -9,4 +9,4 @@ bundle install
 ./deploy.sh
 ```
 
-Then go to https://github.com/12traits/ingestion-api-specs/settings and set `Custom domain` to `docs.api.12traits.com`.
+Custom domain is configured in https://github.com/12traits/ingestion-api-specs/settings using CNAME of `docs.api.12traits.com`.

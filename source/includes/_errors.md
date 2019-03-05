@@ -10,3 +10,15 @@ Error Code | Meaning
 401 | Unauthorized - API Key is not valid, or game ID is not valid
 404 | Not Found - The specified resource not found
 500 | Internal Server Error - We had a problem with our server. Try again later.
+
+## Error Response Format
+
+```shell
+{
+    "code": 400,
+    "message": "bad request",
+    "errors": {
+        "email": "must be a valid email address"
+    }
+}
+```

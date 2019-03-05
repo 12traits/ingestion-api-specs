@@ -307,7 +307,7 @@ interaction|string|Yes|"friend" or "party"
 
 If you are using PlayFab you are able to integrate it with 12traits by using [PlayFab Webhooks](https://api.playfab.com/docs/tutorials/landing-analytics/webhooks). You can simply configure PlayFab to send all events to 12traits by using this endpoint.
 
-> Replace **game_id** and **api_key**
+> Endpoint URL. Replace **game_id** and **api_key**
 
 ```shell
 https://api.12traits.com/v1/games/<game_id>/playfab?api_key=<api_key>
@@ -319,4 +319,4 @@ https://api.12traits.com/v1/games/<game_id>/playfab?api_key=<api_key>
 2. Open "Webhooks" tab
 3. Click "New Webhook"
 4. Give it a name
-5. Set Endpoint URL to `https://api.12traits.com/v1/games/<game_id>/playfab?api_key=<api_key>` (replace **game_id** and **api_key**)
+5. Set Endpoint URL
