@@ -299,6 +299,11 @@
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#error-response-format" class="toc-h2 toc-link" data-title="Error Response Format">Error Response Format</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -795,7 +800,7 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/social-dynamics
 <p>If you are using PlayFab you are able to integrate it with 12traits by using <a href="https://api.playfab.com/docs/tutorials/landing-analytics/webhooks">PlayFab Webhooks</a>. You can simply configure PlayFab to send all events to 12traits by using this endpoint.</p>
 
 <blockquote>
-<p>Replace <strong>game_id</strong> and <strong>api_key</strong></p>
+<p>Endpoint URL. Replace <strong>game_id</strong> and <strong>api_key</strong></p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>https://api.12traits.com/v1/games/&lt;game_id&gt;/playfab?api_key<span class="o">=</span>&lt;api_key&gt;
 </code></pre><h3 id='how-to-configure-a-playfab-webhook'>How to configure a PlayFab webhook</h3>
@@ -804,7 +809,7 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/social-dynamics
 <li>Open &quot;Webhooks&quot; tab</li>
 <li>Click &quot;New Webhook&quot;</li>
 <li>Give it a name</li>
-<li>Set Endpoint URL to <code>https://api.12traits.com/v1/games/&lt;game_id&gt;/playfab?api_key=&lt;api_key&gt;</code> (replace <strong>game_id</strong> and <strong>api_key</strong>)</li>
+<li>Set Endpoint URL</li>
 </ol>
 <h1 id='errors'>Errors</h1>
 <p>12traits API uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the <code>2xx</code> range indicate success. Codes in the <code>4xx</code> range indicate an error that failed given the information provided. Codes in the <code>5xx</code> range indicate an error with 12traits servers (these are rare).</p>
@@ -834,7 +839,14 @@ https://api.12traits.com/v1/games/&lt;game_id&gt;/social-dynamics
 <td>Internal Server Error - We had a problem with our server. Try again later.</td>
 </tr>
 </tbody></table>
-
+<h2 id='error-response-format'>Error Response Format</h2><pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"code"</span>: 400,
+    <span class="s2">"message"</span>: <span class="s2">"bad request"</span>,
+    <span class="s2">"errors"</span>: <span class="o">{</span>
+        <span class="s2">"email"</span>: <span class="s2">"must be a valid email address"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
