@@ -13,6 +13,8 @@ Error Code | Meaning
 
 ## Error Response Format
 
+> Bad Request
+
 ```shell
 {
     "code": 400,

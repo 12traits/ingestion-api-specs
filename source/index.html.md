@@ -9,6 +9,7 @@ toc_footers:
 
 includes:
   - errors
+  - postman
 
 search: true
 ---
@@ -37,7 +38,9 @@ curl -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/games
 
 # List your games
 
-You will need to know your game ID in order to push data. You can find it in the 12traits Dashboard or cou can call this endpoint to list all your games.
+You will need to know your Game ID in order to push data. You can find it in the 12traits Dashboard or cou can call this endpoint to list all your games.
+
+Replace `:game_id` in the following endpoints with your own Game ID.
 
 > Request
 
@@ -52,14 +55,15 @@ curl https://api.12traits.com/v1/games
   "code": 200,
   "message": "",
   "data": [
-    { "game_id": "123", "name": "Fortnite" }
+    { "game_id": "1001", "name": "Fortnite", "created": 1551796728 },
+    { "game_id": "1002", "name": "Unreal Tournament", "created": 1549152000 },
   ]
 }
 ```
 
 # Push game actions
 
-Push the player’s actions.
+Push the player’s actions. It can be any set of actions your game generates.
 
 > Request
 
@@ -67,8 +71,8 @@ Push the player’s actions.
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "actions": [ { "timestamp": 1000000000, "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": [ {"key": "item_id", "value": "3003" } ] ] }'
-https://api.12traits.com/v1/<game_id>/abc/actions
+-d '{ "actions": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": [ {"key": "item_id", "value": "3003" } ] } ] }' \
+https://api.12traits.com/v1/games/:game_id/actions
 ```
 
 ### Action
@@ -108,8 +112,8 @@ Push information when players have logged in into the game.
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "players": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US", "platform": "Apple" } ] }'
-https://api.12traits.com/v1/games/<game_id>/player-logins
+-d '{ "players": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US", "platform": "Apple" } ] }' \
+https://api.12traits.com/v1/games/:game_id/player-logins
 ```
 
 ### Player
@@ -143,8 +147,8 @@ Push information related to the real-money purchases made by each user.
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "purchases": [ { "timestamp": 1000000000, "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" } ] }'
-https://api.12traits.com/v1/games/<game_id>/purchases
+-d '{ "purchases": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" } ] }' \
+https://api.12traits.com/v1/games/:game_id/purchases
 ```
 
 ### Purchase
@@ -178,8 +182,8 @@ Push information related to in-game virtual currency purchases made by each user
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "virtual_purchases": [ { "timestamp": 1000000000, "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "currency": "gold" } ] }'
-https://api.12traits.com/v1/games/<game_id>/virtual-purchases
+-d '{ "virtual_purchases": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "item_id": "2002", "count": 1, "virtual_price": 25.50, "currency": "gold" } ] }' \
+https://api.12traits.com/v1/games/:game_id/virtual-purchases
 ```
 
 ### VirtualPurchase
@@ -190,7 +194,7 @@ timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
 player_id|string|Yes|Unique player ID
 item_id|string|Yes|In game Item ID
 count|int|Yes|Number of items purchased
-virtualPrice|float|Yes|Total virtual currency spent on the purchase
+virtual_price|float|Yes|Total virtual currency spent on the purchase
 currency|string|Yes|Currency of the purchase, e.g. "gold","tokens","crowns"
 
 > Example response
@@ -213,8 +217,8 @@ Push level-ups for each player. Levels refer to game-content levels, i.e. levels
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "level_ups": [ { "timestamp": 1000000000, "player_id": "1001", "level": 10 } ] }'
-https://api.12traits.com/v1/games/<game_id>/level-ups
+-d '{ "level_ups": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "level": 10 } ] }' \
+https://api.12traits.com/v1/games/:game_id/level-ups
 ```
 
 ### LevelUp
@@ -245,8 +249,8 @@ Push detailed information about each item.
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "items": [ { "item_id": "1001", "price": 25.50, "currency": "USD", "name": "Axe", "type": "weapon" } ] }'
-https://api.12traits.com/v1/games/<game_id>/items
+-d '{ "items": [ { "item_id": "1001", "price": 25.50, "currency": "USD", "name": "Axe", "type": "weapon" } ] }' \
+https://api.12traits.com/v1/games/:game_id/items
 ```
 
 ### Item
@@ -279,8 +283,8 @@ Push information on the social dynamics of the game, i.e. interactions between p
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "social_dynamics": [ { "timestamp": 1000000000, "player_id": "1001", "target_player_id": "1002", "connection": "linked", "interaction": "friend" } ] }'
-https://api.12traits.com/v1/games/<game_id>/social-dynamics
+-d '{ "social_dynamics": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "target_player_id": "1002", "connection": "linked", "interaction": "friend" } ] }' \
+https://api.12traits.com/v1/games/:game_id/social-dynamics
 ```
 
 ### SocialDynamics
@@ -307,10 +311,10 @@ interaction|string|Yes|"friend" or "party"
 
 If you are using PlayFab you are able to integrate it with 12traits by using [PlayFab Webhooks](https://api.playfab.com/docs/tutorials/landing-analytics/webhooks). You can simply configure PlayFab to send all events to 12traits by using this endpoint.
 
-> Endpoint URL. Replace **game_id** and **api_key**
+> Endpoint URL. Replace **:game_id** and **:api_key** with your own Game ID and API Key.
 
 ```shell
-https://api.12traits.com/v1/games/<game_id>/playfab?api_key=<api_key>
+https://api.12traits.com/v1/games/:game_id/playfab?api_key=:api_key
 ```
 
 ### How to configure a PlayFab webhook
