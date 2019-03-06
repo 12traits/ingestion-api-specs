@@ -9,7 +9,6 @@ toc_footers:
 
 includes:
   - errors
-  - postman
 
 search: true
 ---
@@ -35,6 +34,24 @@ curl -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/games
 # API limits
 
 - It is possible to push up to 1000 multiple items at the same time.
+
+# Postman Collection
+
+[Postman](https://www.getpostman.com/) can be very helpful when you just started an integration with 12traits API. With Postman you're able to call and debug the specific response data and any error messages is a powerful way.
+
+## How to use 12traits API Postman Collection
+
+1. Open Postman
+2. Click Import -> Import from link
+3. Paste the following URL: [https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6](https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6)
+4. Set your environment variables.
+
+### 12traits API variables
+
+- **API_KEY** - Paste your API Key here
+- **GAME_ID** - Paste your Game ID here
+
+Now you are ready to test 12traits API endpoints from Postman!
 
 # List your games
 
