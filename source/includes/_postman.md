@@ -4,11 +4,10 @@
 
 ## How to use 12traits API Postman Collection
 
-1. Download collection configuration file.
-2. Open Postman
-3. Click Import -> Import from link
-4. Paste the following URL: [https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6](https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6)
-5. Set your API Key environment variables.
+1. Open Postman
+2. Click Import -> Import from link
+3. Paste the following URL: [https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6](https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6)
+4. Set your environment variables.
 
 ### 12traits API variables
 
