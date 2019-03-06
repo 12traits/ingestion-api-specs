@@ -228,6 +228,14 @@
             <a href="#api-limits" class="toc-h1 toc-link" data-title="API limits">API limits</a>
           </li>
           <li>
+            <a href="#postman-collection" class="toc-h1 toc-link" data-title="Postman Collection">Postman Collection</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#how-to-use-12traits-api-postman-collection" class="toc-h2 toc-link" data-title="How to use 12traits API Postman Collection">How to use 12traits API Postman Collection</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#list-your-games" class="toc-h1 toc-link" data-title="List your games">List your games</a>
           </li>
           <li>
@@ -305,14 +313,6 @@
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#postman-collection" class="toc-h1 toc-link" data-title="Postman Collection">Postman Collection</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#how-to-use-12traits-api-postman-collection" class="toc-h2 toc-link" data-title="How to use 12traits API Postman Collection">How to use 12traits API Postman Collection</a>
-                  </li>
-              </ul>
-          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://12traits.com'>Sign Up to get API Key</a></li>
@@ -338,6 +338,22 @@
 <ul>
 <li>It is possible to push up to 1000 multiple items at the same time.</li>
 </ul>
+<h1 id='postman-collection'>Postman Collection</h1>
+<p><a href="https://www.getpostman.com/">Postman</a> can be very helpful when you just started an integration with 12traits API. With Postman you&#39;re able to call and debug the specific response data and any error messages is a powerful way.</p>
+<h2 id='how-to-use-12traits-api-postman-collection'>How to use 12traits API Postman Collection</h2>
+<ol>
+<li>Open Postman</li>
+<li>Click Import -&gt; Import from link</li>
+<li>Paste the following URL: <a href="https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6">https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6</a></li>
+<li>Set your environment variables.</li>
+</ol>
+<h3 id='12traits-api-variables'>12traits API variables</h3>
+<ul>
+<li><strong>API_KEY</strong> - Paste your API Key here</li>
+<li><strong>GAME_ID</strong> - Paste your Game ID here</li>
+</ul>
+
+<p>Now you are ready to test 12traits API endpoints from Postman!</p>
 <h1 id='list-your-games'>List your games</h1>
 <p>You will need to know your Game ID in order to push data. You can find it in the 12traits Dashboard or cou can call this endpoint to list all your games.</p>
 
@@ -861,23 +877,7 @@ https://api.12traits.com/v1/games/:game_id/social-dynamics
         <span class="s2">"email"</span>: <span class="s2">"must be a valid email address"</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre><h1 id='postman-collection'>Postman Collection</h1>
-<p><a href="https://www.getpostman.com/">Postman</a> can be very helpful when you are trying to integrate 12traits API with your game. With Postman you able to call itand debug the specific response data and any error messages is a powerful way.</p>
-<h2 id='how-to-use-12traits-api-postman-collection'>How to use 12traits API Postman Collection</h2>
-<ol>
-<li>Open Postman</li>
-<li>Click Import -&gt; Import from link</li>
-<li>Paste the following URL: <a href="https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6">https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6</a></li>
-<li>Set your environment variables.</li>
-</ol>
-<h3 id='12traits-api-variables'>12traits API variables</h3>
-<ul>
-<li><strong>API_KEY</strong> - Paste your API Key here</li>
-<li><strong>GAME_ID</strong> - Paste your Game ID here</li>
-</ul>
-
-<p>Now you are ready to test 12traits API endpoints from Postman.</p>
-
+</code></pre>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
