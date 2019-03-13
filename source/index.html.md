@@ -19,6 +19,21 @@ Welcome to the 12traits Ingestion API!
 
 The 12traits API is a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API, which accepts and returns JSON-encoded data, and uses standard HTTP response codes, authentication, and verbs.
 
+# REST API Endpoints
+
+We value security, so only HTTPS is supported.
+
+## Production
+
+[https://api.12traits.com](https://api.12traits.com)
+
+## Sandbox
+
+[https://sandbox.api.12traits.com](https://sandbox.api.12traits.com)
+
+- Use the Sandbox endpoint and Sandbox API Keys during the implementation phase.
+- Switch to the Production endpoint and Production API Keys once the testing is completed.
+
 # Authentication
 
 The 12traits API uses API Keys to authenticate requests. You can view and manage your API Keys in the 12traits Dashboard.
