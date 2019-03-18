@@ -111,7 +111,7 @@ https://api.12traits.com/v1/games/:game_id/actions
 
 **Field**|**Type**|**Required**|**Description**
 -----|-----|-----|-----
-timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
 player_id|string|Yes|Unique player ID
 action_id|string|Yes|Action ID specific to the game
 action_name|string|Yes|User-friendly name, for example: "buy_item", "start_fight"
@@ -144,7 +144,7 @@ Push information when players have logged in into the game.
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "players": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "level": 10, "device": "iPhone X", "language": "en-US", "platform": "Apple" } ] }' \
+-d '{ "players": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "clan_id": "2002", "level": 10, "device": "iPhone X", "country": "US", "language": "en-US", "platform": "Apple", "" } ] }' \
 https://api.12traits.com/v1/games/:game_id/player-logins
 ```
 
@@ -152,12 +152,16 @@ https://api.12traits.com/v1/games/:game_id/player-logins
 
 **Field**|**Type**|**Required**|**Description**
 -----|-----|-----|-----
-timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
 player_id|string|Yes|Unique player ID
+clan_id|string||Clan/guild/organization the user belongs to
 level|int||Player's level or rank in the game
 device|string||Device player is using. e.g. iPad, iPhone X
+country|string||Country from where player has logged in in ISO Alpha-2 format (2 letters)
 platform|string||Platform player is using, e.g. Steam
 language|string||Player's language in [IETF format](https://en.wikipedia.org/wiki/IETF_language_tag)
+register_date|string||YYYY-MM-DD
+last_login_timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
 
 > Example response
 
@@ -187,7 +191,7 @@ https://api.12traits.com/v1/games/:game_id/purchases
 
 **Field**|**Type**|**Required**|**Description**
 -----|-----|-----|-----
-timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
 player_id|string|Yes|Unique player ID
 item_id|string|Yes|In game Item ID
 count|int|Yes|Number of items purchased
@@ -222,7 +226,7 @@ https://api.12traits.com/v1/games/:game_id/virtual-purchases
 
 **Field**|**Type**|**Required**|**Description**
 -----|-----|-----|-----
-timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
 player_id|string|Yes|Unique player ID
 item_id|string|Yes|In game Item ID
 count|int|Yes|Number of items purchased
@@ -257,7 +261,7 @@ https://api.12traits.com/v1/games/:game_id/level-ups
 
 **Field**|**Type**|**Required**|**Description**
 -----|-----|-----|-----
-timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
 player_id|string|Yes|Unique player ID
 level|int|Yes|New level after level-up
 
@@ -323,7 +327,7 @@ https://api.12traits.com/v1/games/:game_id/social-dynamics
 
 **Field**|**Type**|**Required**|**Description**
 -----|-----|-----|-----
-timestamp|Timestamp||YYYY-MM-DD HH:MM:SS
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
 player_id|string|Yes|Unique player ID
 target_player_id|string|Yes|ID of the player with whom a link is made or who is unlinked
 connection|string|Yes|"linked" or "unllinked"
