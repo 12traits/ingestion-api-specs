@@ -247,9 +247,6 @@
               </ul>
           </li>
           <li>
-            <a href="#list-your-games" class="toc-h1 toc-link" data-title="List your games">List your games</a>
-          </li>
-          <li>
             <a href="#push-game-actions" class="toc-h1 toc-link" data-title="Push game actions">Push game actions</a>
               <ul class="toc-list-h2">
                   <li>
@@ -355,7 +352,7 @@
 <blockquote>
 <p>Send your API Key with the request.</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com/v1/games
+<pre class="highlight shell tab-shell"><code>curl -XPOST -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com/v1/games/...
 </code></pre><h1 id='api-limits'>API limits</h1>
 <ul>
 <li>It is possible to push up to 1000 multiple items at the same time.</li>
@@ -372,32 +369,10 @@
 <h3 id='12traits-api-variables'>12traits API variables</h3>
 <ul>
 <li><strong>API_KEY</strong> - Paste your API Key here</li>
-<li><strong>GAME_ID</strong> - Paste your Game ID here</li>
 </ul>
 
 <p>Now you are ready to test 12traits API endpoints from Postman!</p>
-<h1 id='list-your-games'>List your games</h1>
-<p>You will need to know your Game ID in order to push data. You can find it in the 12traits Dashboard or cou can call this endpoint to list all your games.</p>
-
-<p>Replace <code>:game_id</code> in the following endpoints with your own Game ID.</p>
-
-<blockquote>
-<p>Request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.12traits.com/v1/games
-</code></pre>
-<blockquote>
-<p>Example response</p>
-</blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span> <span class="s2">"game_id"</span><span class="p">:</span> <span class="s2">"1001"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Fortnite"</span><span class="p">,</span> <span class="s2">"created"</span><span class="p">:</span> <span class="mi">1551796728</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s2">"game_id"</span><span class="p">:</span> <span class="s2">"1002"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Unreal Tournament"</span><span class="p">,</span> <span class="s2">"created"</span><span class="p">:</span> <span class="mi">1549152000</span> <span class="p">},</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</code></pre><h1 id='push-game-actions'>Push game actions</h1>
+<h1 id='push-game-actions'>Push game actions</h1>
 <p>Push the player’s actions. It can be any set of actions your game generates.</p>
 
 <blockquote>
@@ -407,7 +382,7 @@
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -d <span class="s1">'{ "actions": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": [ {"key": "item_id", "value": "3003" } ] } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/:game_id/actions
+https://api.12traits.com/v1/games/actions
 </code></pre><h3 id='action'>Action</h3>
 <table><thead>
 <tr>
@@ -489,7 +464,7 @@ https://api.12traits.com/v1/games/:game_id/actions
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -d <span class="s1">'{ "players": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "clan_id": "2002", "level": 10, "device": "iPhone X", "country": "US", "language": "en-US", "platform": "Apple", "" } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/:game_id/player-logins
+https://api.12traits.com/v1/games/player-logins
 </code></pre><h3 id='player'>Player</h3>
 <table><thead>
 <tr>
@@ -579,7 +554,7 @@ https://api.12traits.com/v1/games/:game_id/player-logins
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -d <span class="s1">'{ "purchases": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/:game_id/purchases
+https://api.12traits.com/v1/games/purchases
 </code></pre><h3 id='purchase'>Purchase</h3>
 <table><thead>
 <tr>
@@ -645,7 +620,7 @@ https://api.12traits.com/v1/games/:game_id/purchases
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -d <span class="s1">'{ "virtual_purchases": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "item_id": "2002", "count": 1, "virtual_price": 25.50, "currency": "gold" } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/:game_id/virtual-purchases
+https://api.12traits.com/v1/games/virtual-purchases
 </code></pre><h3 id='virtualpurchase'>VirtualPurchase</h3>
 <table><thead>
 <tr>
@@ -711,7 +686,7 @@ https://api.12traits.com/v1/games/:game_id/virtual-purchases
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -d <span class="s1">'{ "level_ups": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "level": 10 } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/:game_id/level-ups
+https://api.12traits.com/v1/games/level-ups
 </code></pre><h3 id='levelup'>LevelUp</h3>
 <table><thead>
 <tr>
@@ -759,7 +734,7 @@ https://api.12traits.com/v1/games/:game_id/level-ups
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -d <span class="s1">'{ "items": [ { "item_id": "1001", "price": 25.50, "currency": "USD", "name": "Axe", "type": "weapon" } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/:game_id/items
+https://api.12traits.com/v1/games/items
 </code></pre><h3 id='item'>Item</h3>
 <table><thead>
 <tr>
@@ -819,7 +794,7 @@ https://api.12traits.com/v1/games/:game_id/items
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -d <span class="s1">'{ "social_dynamics": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "target_player_id": "1002", "connection": "linked", "interaction": "friend" } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/:game_id/social-dynamics
+https://api.12traits.com/v1/games/social-dynamics
 </code></pre><h3 id='socialdynamics'>SocialDynamics</h3>
 <table><thead>
 <tr>
@@ -875,7 +850,7 @@ https://api.12traits.com/v1/games/:game_id/social-dynamics
 <blockquote>
 <p>Endpoint URL. Replace <strong>:game_id</strong> and <strong>:api_key</strong> with your own Game ID and API Key.</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>https://api.12traits.com/v1/games/:game_id/playfab?api_key<span class="o">=</span>:api_key
+<pre class="highlight shell tab-shell"><code>https://api.12traits.com/v1/games/playfab?api_key<span class="o">=</span>:api_key
 </code></pre><h3 id='how-to-configure-a-playfab-webhook'>How to configure a PlayFab webhook</h3>
 <ol>
 <li>Go to PlayFab Analytics</li>
