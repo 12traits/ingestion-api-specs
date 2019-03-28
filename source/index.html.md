@@ -344,7 +344,7 @@ curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 -d '{ "events": [ { "ts": 1501643068378, "appid": "1001", "type": "appStart", "userid": "901", "sessionid": "3213218932893", "platform": "iPhone", "sdk_ver": "1.2.3", "debug_device": false, "user_agent": "CFNetwork/808.1.4", "submit_time": 1501643088378 } ] }' \
-https://api.12traits.com/v1/games/app-start-events
+https://api.12traits.com/v1/games/unity/app-start-events
 ```
 
 ### AppStartEvent
@@ -370,7 +370,7 @@ curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 -d '{ "events": [ { "ts": 1501643068378, "appid": "1001", "type": "appRunning", "userid": "901", "sessionid": "3213218932893", "platform": "iPhone", "sdk_ver": "1.2.3", "debug_device": false, "user_agent": "CFNetwork/808.1.4", "submit_time": 1501643088378, "duration": 32832918 } ] }' \
-https://api.12traits.com/v1/games/app-running-events
+https://api.12traits.com/v1/games/unity/app-running-events
 ```
 
 ### AppRunningEvent
@@ -397,7 +397,7 @@ curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 -d '{ "events": [ { "ts": 1501643068378, "appid": "1001", "type": "deviceInfo", "userid": "901", "sessionid": "3213218932893", "platform": "iPhone", "sdk_ver": "1.2.3", "debug_device": false, "user_agent": "CFNetwork/808.1.4", "submit_time": 1501643088378, "debug_build": true, "rooted_jailbroken": false, "processor_type": "my_processor", "system_memory_size": "3902193", "make": "Apple", "app_ver": "1.3.4", "license_type": "advanced_pro", "app_instal_mode": "store", "model": "iPhone XS Max", "engine_ver": "1.3.2", "os_ver": "Mac OS X 10.11.5", "app_name": "com.Package.myGame", "timezone": "GMT+1", "ads_tracking": false } ] }' \
-https://api.12traits.com/v1/games/device-info-events
+https://api.12traits.com/v1/games/unity/device-info-events
 ```
 
 ### DeviceInfoEvent
@@ -438,7 +438,7 @@ curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 -d '{ "events": [ { "ts": 1501643068378, "appid": "1001", "type": "transaction", "userid": "901", "sessionid": "3213218932893", "platform": "iPhone", "sdk_ver": "1.2.3", "debug_device": false, "user_agent": "CFNetwork/808.1.4", "submit_time": 1501643088378, "receipt": { "data": "", "signature": "a4fe9582f23dea98cf" }, "currency": "EUR", "amount": 10.0, "transactionid": 9302931, "productid": "app03" } ] }' \
-https://api.12traits.com/v1/games/transaction-events
+https://api.12traits.com/v1/games/unity/transaction-events
 ```
 
 ### TransactionEvent
@@ -476,7 +476,7 @@ curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 -d '{ "events": [ { "ts": 1501643068378, "appid": "1001", "type": "custom", "userid": "901", "sessionid": "3213218932893", "platform": "iPhone", "sdk_ver": "1.2.3", "debug_device": false, "user_agent": "CFNetwork/808.1.4", "submit_time": 1501643088378, "name": "my_custom_event" } ] }' \
-https://api.12traits.com/v1/games/custom-events
+https://api.12traits.com/v1/games/unity/custom-events
 ```
 
 ### CustomEvent
