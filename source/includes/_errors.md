@@ -20,7 +20,7 @@ Error Code | Meaning
     "code": 400,
     "message": "bad request",
     "errors": {
-        "email": "must be a valid email address"
+        "price": "price must have a positive float value"
     }
 }
 ```

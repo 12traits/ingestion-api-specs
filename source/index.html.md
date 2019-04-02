@@ -31,8 +31,8 @@ We value security, so only HTTPS is supported.
 
 [https://sandbox.api.12traits.com](https://sandbox.api.12traits.com)
 
-- Use the Sandbox endpoint and Sandbox API Keys during the implementation phase.
-- Switch to the Production endpoint and Production API Keys once the testing is completed.
+- Use the Sandbox endpoint during the implementation phase.
+- Switch to the Production endpoint once the testing is completed.
 
 # Authentication
 
