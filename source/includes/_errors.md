@@ -11,9 +11,7 @@ Error Code | Meaning
 404 | Not Found - The specified resource not found
 500 | Internal Server Error - We had a problem with our server. Try again later.
 
-## Error Response Format
-
-> Bad Request
+> Error Response Format
 
 ```shell
 {

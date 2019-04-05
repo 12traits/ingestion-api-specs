@@ -52,7 +52,7 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/gam
 
 # Postman Collection
 
-[Postman](https://www.getpostman.com/) can be very helpful when you just started an integration with 12traits API. With Postman you're able to call and debug the specific response data and any error messages is a powerful way.
+<a href="https://www.getpostman.com/" target="_blank">Postman</a> is helpful when first integrating with the 12traits API. Postman is a powerful tool that will help you call and debug specific response data, as well as any error messages.
 
 ## How to use 12traits API Postman Collection
 
@@ -67,9 +67,9 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/gam
 
 Now you are ready to test 12traits API endpoints from Postman!
 
-# Push game actions
+# Push Game Actions
 
-Push the player’s actions. It can be any set of actions your game generates.
+Push the player’s actions. This can be any set of actions that your game generates.
 
 > Request
 
@@ -108,9 +108,9 @@ value|string|Yes|Action param value
 }
 ```
 
-# Push logged in players
+# Push Logged In Players
 
-Push information when players have logged in into the game.
+Push information when players log into the game.
 
 > Request
 
@@ -149,7 +149,7 @@ last_login_timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
 
 # Push Purchases
 
-Push information related to the real-money purchases made by each user.
+Push information related to the real-money purchases made by each player.
 
 > Request
 
@@ -184,7 +184,9 @@ platform|string||Platform player is using, e.g. Steam
 
 # Push Virtual Purchases
 
-Push information related to in-game virtual currency purchases made by each user. Please note: If an item is bought by first converting real money to in-game money, it should appear in both purchases and virtual purchases.
+Push information related to in-game virtual currency purchases made by each player.
+
+Please note: If an item is bought by first converting real money to in-game money, it should appear in both purchases and virtual purchases.
 
 > Request
 
