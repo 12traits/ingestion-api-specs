@@ -247,7 +247,7 @@
               </ul>
           </li>
           <li>
-            <a href="#push-game-actions" class="toc-h1 toc-link" data-title="Push game actions">Push game actions</a>
+            <a href="#push-game-actions" class="toc-h1 toc-link" data-title="Push Game Actions">Push Game Actions</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#action" class="toc-h2 toc-link" data-title="Action">Action</a>
@@ -258,7 +258,7 @@
               </ul>
           </li>
           <li>
-            <a href="#push-logged-in-players" class="toc-h1 toc-link" data-title="Push logged in players">Push logged in players</a>
+            <a href="#push-logged-in-players" class="toc-h1 toc-link" data-title="Push Logged In Players">Push Logged In Players</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#player" class="toc-h2 toc-link" data-title="Player">Player</a>
@@ -315,11 +315,6 @@
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#error-response-format" class="toc-h2 toc-link" data-title="Error Response Format">Error Response Format</a>
-                  </li>
-              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -358,7 +353,7 @@
 <li>It is possible to push up to 1000 multiple items at the same time.</li>
 </ul>
 <h1 id='postman-collection'>Postman Collection</h1>
-<p><a href="https://www.getpostman.com/">Postman</a> can be very helpful when you just started an integration with 12traits API. With Postman you&#39;re able to call and debug the specific response data and any error messages is a powerful way.</p>
+<p><a href="https://www.getpostman.com/" target="_blank">Postman</a> is helpful when first integrating with the 12traits API. Postman is a powerful tool that will help you call and debug specific response data, as well as any error messages.</p>
 <h2 id='how-to-use-12traits-api-postman-collection'>How to use 12traits API Postman Collection</h2>
 <ol>
 <li>Open Postman</li>
@@ -372,8 +367,8 @@
 </ul>
 
 <p>Now you are ready to test 12traits API endpoints from Postman!</p>
-<h1 id='push-game-actions'>Push game actions</h1>
-<p>Push the player’s actions. It can be any set of actions your game generates.</p>
+<h1 id='push-game-actions'>Push Game Actions</h1>
+<p>Push the player’s actions. This can be any set of actions that your game generates.</p>
 
 <blockquote>
 <p>Request</p>
@@ -454,8 +449,8 @@ https://api.12traits.com/v1/games/actions
   <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 actions have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre><h1 id='push-logged-in-players'>Push logged in players</h1>
-<p>Push information when players have logged in into the game.</p>
+</code></pre><h1 id='push-logged-in-players'>Push Logged In Players</h1>
+<p>Push information when players log into the game.</p>
 
 <blockquote>
 <p>Request</p>
@@ -545,7 +540,7 @@ https://api.12traits.com/v1/games/player-logins
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-purchases'>Push Purchases</h1>
-<p>Push information related to the real-money purchases made by each user.</p>
+<p>Push information related to the real-money purchases made by each player.</p>
 
 <blockquote>
 <p>Request</p>
@@ -611,7 +606,9 @@ https://api.12traits.com/v1/games/purchases
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-virtual-purchases'>Push Virtual Purchases</h1>
-<p>Push information related to in-game virtual currency purchases made by each user. Please note: If an item is bought by first converting real money to in-game money, it should appear in both purchases and virtual purchases.</p>
+<p>Push information related to in-game virtual currency purchases made by each player.</p>
+
+<p>Please note: If an item is bought by first converting real money to in-game money, it should appear in both purchases and virtual purchases.</p>
 
 <blockquote>
 <p>Request</p>
@@ -887,9 +884,9 @@ https://api.12traits.com/v1/games/social-dynamics
 <td>Internal Server Error - We had a problem with our server. Try again later.</td>
 </tr>
 </tbody></table>
-<h2 id='error-response-format'>Error Response Format</h2>
+
 <blockquote>
-<p>Bad Request</p>
+<p>Error Response Format</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"code"</span>: 400,
