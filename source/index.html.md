@@ -36,7 +36,7 @@ We value security, so only HTTPS is supported.
 
 # Authentication
 
-The 12traits API uses API Keys to authenticate requests. You can view and manage your API Keys in the 12traits Dashboard.
+The 12traits API uses API Keys to authenticate requests. You can view and manage your API Keys in the 12traits Dashboard. Each game has its own API Key.
 
 All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
@@ -63,7 +63,7 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/gam
 
 ### 12traits API variables
 
-- **API_KEY** - Paste your API Key here
+- **API_KEY** - Paste your game API Key here
 
 Now you are ready to test 12traits API endpoints from Postman!
 
@@ -321,7 +321,7 @@ interaction|string|Yes|"friend" or "party"
 
 If you are using PlayFab you are able to integrate it with 12traits by using [PlayFab Webhooks](https://api.playfab.com/docs/tutorials/landing-analytics/webhooks). You can simply configure PlayFab to send all events to 12traits by using this endpoint.
 
-> Endpoint URL. Replace **:game_id** and **:api_key** with your own Game ID and API Key.
+> Endpoint URL. Replace **:api_key** with your game API Key.
 
 ```shell
 https://api.12traits.com/v1/games/playfab?api_key=:api_key
