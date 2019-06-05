@@ -108,6 +108,54 @@ value|string|Yes|Action param value
 }
 ```
 
+# Push Game KPIs
+
+Push the player’s KPIs. You can choose between 12traits' predefined KPIs and your custom KPIs.
+
+> Request
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: application/json" \
+-d '{ "kpis": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "kpi_id": "LTV", "value": 10.25 } ] }' \
+https://api.12traits.com/v1/games/kpis
+```
+
+### KPI
+
+**Field**|**Type**|**Required**|**Description**
+-----|-----|-----|-----
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
+player_id|string|Yes|Unique player ID
+kpi_id|string|Yes, or kpi_custom_title|ID from the list of available KPIs
+kpi_custom_title|string|Yes, or kpi_id|Custom KPI title
+value|float|Yes|KPI value
+
+### Available KPIs
+
+**ID**|**Title**|**Measurement**
+-----|-----|-----
+ARPU|Average Revenue Per User (ARPU)|$
+CPI|Cost Per Install (CPI)|$
+CCR|Customer Conversion Rate|%
+LTV|Customer Lifetime Value (LTV)|$
+ER|Engagement Rate|%
+RD3|Retention Day 3 (D3)|%
+RD7|Retention Day 7 (D7)|%
+RD30|Retention Day 30 (D30)|%
+RD60|Retention Day 60 (D60)|%
+
+> Example response
+
+```js
+{
+  "code": 201,
+  "message": "50 kpis have been successfully ingested",
+  "data": null
+}
+```
+
 # Push Logged In Players
 
 Push information when players log into the game.
