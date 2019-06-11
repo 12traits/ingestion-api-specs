@@ -137,14 +137,24 @@ value|float|Yes|KPI value
 **ID**|**Title**|**Measurement**
 -----|-----|-----
 ARPU|Average Revenue Per User (ARPU)|$
+ASESSD1|Average Session Length Day 1|Decimal
+ASESSD3|Average Session Length Day 3|Decimal
+ASESSD7|Average Session Length Day 7|Decimal
 CPI|Cost Per Install (CPI)|$
 CCR|Customer Conversion Rate|%
+LTPC|Lifetime Payments Count|Number
 LTV|Customer Lifetime Value (LTV)|$
 ER|Engagement Rate|%
+REVD1|Revenue Day 1|$
+REVD3|Revenue Day 3|$
+REVD7|Revenue Day 7|$
 RD3|Retention Day 3 (D3)|%
 RD7|Retention Day 7 (D7)|%
 RD30|Retention Day 30 (D30)|%
 RD60|Retention Day 60 (D60)|%
+SESSD1|Count of Sessions Day 1|Number
+SESSD3|Count of Sessions Day 3|Number
+SESSD7|Count of Sessions Day 7|Number
 
 > Example response
 
