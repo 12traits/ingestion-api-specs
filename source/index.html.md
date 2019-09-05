@@ -108,7 +108,7 @@ value|string|Yes|Action param value
 }
 ```
 
-# Push Game KPIs
+# Push Player KPIs
 
 Push the player's KPIs. You can choose between 12traits' predefined KPIs and your custom KPIs. This endpoint expects per-day per-player values.
 
