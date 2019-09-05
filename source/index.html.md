@@ -136,19 +136,14 @@ value|float|Yes|KPI value
 
 **ID**|**Title**|**Measurement**
 -----|-----|-----
-CPI|Cost Per Install (CPI)|$
-CCR|Customer Conversion Rate|%
+CPI|Cost Per Install|$
+CPA|Cost Per Acquisition|$
 LTPC|Lifetime Payments Count|Number
-LTV|Customer Lifetime Value (LTV)|$
-ER|Engagement Rate|%
+LTV|Customer Lifetime Value|$
 REVD1|Revenue Day 1|$
 REVD3|Revenue Day 3|$
 REVD7|Revenue Day 7|$
 REVD30|Revenue Day 30|$
-RD3|Retention Day 3 (D3)|%
-RD7|Retention Day 7 (D7)|%
-RD30|Retention Day 30 (D30)|%
-RD60|Retention Day 60 (D60)|%
 ASLD1|Average Session Length Day 1|Decimal
 ASLD3|Average Session Length Day 3|Decimal
 ASLD7|Average Session Length Day 7|Decimal
@@ -157,10 +152,6 @@ SESSD1|Count of Sessions Day 1|Number
 SESSD3|Count of Sessions Day 3|Number
 SESSD7|Count of Sessions Day 7|Number
 SESSD30|Count of Sessions Day 30|Number
-APSD1|Actions per session Day 1|Decimal
-APSD3|Actions per session Day 3|Decimal
-APSD7|Actions per session Day 7|Decimal
-APSD30|Actions per session Day 30|Decimal
 
 > Example response
 
