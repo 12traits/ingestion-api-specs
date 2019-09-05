@@ -157,10 +157,10 @@ SESSD1|Count of Sessions Day 1|Number
 SESSD3|Count of Sessions Day 3|Number
 SESSD7|Count of Sessions Day 7|Number
 SESSD30|Count of Sessions Day 30|Number
-APSD1|Actions per session Day 1|Number
-APSD3|Actions per session Day 3|Number
-APSD7|Actions per session Day 7|Number
-APSD30|Actions per session Day 30|Number
+APSD1|Actions per session Day 1|Decimal
+APSD3|Actions per session Day 3|Decimal
+APSD7|Actions per session Day 7|Decimal
+APSD30|Actions per session Day 30|Decimal
 
 > Example response
 
