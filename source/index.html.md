@@ -110,7 +110,7 @@ value|string|Yes|Action param value
 
 # Push Game KPIs
 
-Push the player’s KPIs. You can choose between 12traits' predefined KPIs and your custom KPIs.
+Push the player's KPIs. You can choose between 12traits' predefined KPIs and your custom KPIs. This endpoint expects per-day per-player values.
 
 > Request
 
@@ -134,24 +134,14 @@ value|float|Yes|KPI value
 
 ### Available KPIs
 
-**ID**|**Title**|**Measurement**
------|-----|-----
-CPI|Cost Per Install|$
-CPA|Cost Per Acquisition|$
-LTPC|Lifetime Payments Count|Number
-LTV|Customer Lifetime Value|$
-REVD1|Revenue Day 1|$
-REVD3|Revenue Day 3|$
-REVD7|Revenue Day 7|$
-REVD30|Revenue Day 30|$
-ASLD1|Average Session Length Day 1|Decimal
-ASLD3|Average Session Length Day 3|Decimal
-ASLD7|Average Session Length Day 7|Decimal
-ASLD30|Average Session Length Day 30|Decimal
-SESSD1|Count of Sessions Day 1|Number
-SESSD3|Count of Sessions Day 3|Number
-SESSD7|Count of Sessions Day 7|Number
-SESSD30|Count of Sessions Day 30|Number
+**ID**|**Title**|**Measurement**|**Notes**
+-----|-----|-----|-----
+CPI|Cost Per Install|$|Can be sent only once
+CPA|Cost Per Acquisition|$|Can be sent only once
+PAYMENTS|Payments Count|Number|
+REV|Revenue of Player|$|
+AVGSESSLEN|Average Player Session Length|Decimal|
+SESSIONS|Count of Player Sessions|Number|
 
 > Example response
 
