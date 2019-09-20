@@ -147,16 +147,16 @@ https://api.12traits.com/v1/games/kpis
 timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC.
 player_id|string|Yes|Unique player ID.
 register_date|Timestamp||YYYY-MM-DD. Optional, required for new players only.
-cpi|float|In USD. Upload only once per player, can be empty later.
-cpa|float|In USD. Upload only once per player, can be empty later.
-purchases_count|integer|Total amount of player purchases for specific date. Can be skipped if there were no purchases.
-purchases_value|float|Total value in USD of all purchases.
-items_purchased|integer|Total amount of items purchased. Can be empty or 0.
-sessions_count|integer|Total count of player's sessions.
-avg_sessions_interval|float|Average interval between player's sessions in minutes.
-sessions_length|float|Total player's sessions length in minutes.
-actions_count|integer|Count of player's actions for the specifc actions. Example actions: player started a combat, player updated inventory.
-ltv|float|Player's LTV at this date.
+cpi|float||In USD. Upload only once per player, can be empty later.
+cpa|float||In USD. Upload only once per player, can be empty later.
+purchases_count|integer||Total amount of player purchases for specific date. Can be skipped if there were no purchases.
+purchases_value|float||Total value in USD of all purchases.
+items_purchased|integer||Total amount of items purchased. Can be empty or 0.
+sessions_count|integer||Total count of player's sessions.
+avg_sessions_interval|float||Average interval between player's sessions in minutes.
+sessions_length|float||Total player's sessions length in minutes.
+actions_count|integer||Count of player's actions for the specifc actions. Example actions: player started a combat, player updated inventory.
+ltv|float||Player's LTV at this date.
 
 # Push Logged In Players
 
