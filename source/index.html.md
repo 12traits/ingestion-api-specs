@@ -110,7 +110,7 @@ value|string|Yes|Action param value
 
 # Push Player KPIs
 
-Push the player's KPIs. You can choose between 12traits' predefined KPIs and your custom KPIs. This endpoint expects per-day per-player values.
+Push the player's KPIs. This endpoint expects per-day per-player values.
 
 > Request
 
@@ -118,7 +118,25 @@ Push the player's KPIs. You can choose between 12traits' predefined KPIs and you
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
--d '{ "kpis": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "kpi_id": "LTV", "value": 10.25 } ] }' \
+-d '{
+    "kpis": [
+        {
+            "timestamp": "2019-01-01 15:04:05",
+            "player_id": "1001",
+            "register_date": "2019-01-01",
+            "cpi": 0.15,
+            "cpa": 0.20,
+            "purchases_count": 2,
+            "purchases_value": 10.31,
+            "items_purchased": 3,
+            "sessions_count": 5,
+            "avg_sessions_interval": 20.12,
+            "sessions_length": 15.97,
+            "actions_count": 23,
+            "ltv": 101.34
+        }
+    ]
+}' \
 https://api.12traits.com/v1/games/kpis
 ```
 
@@ -126,32 +144,19 @@ https://api.12traits.com/v1/games/kpis
 
 **Field**|**Type**|**Required**|**Description**
 -----|-----|-----|-----
-timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
-player_id|string|Yes|Unique player ID
-kpi_id|string|Yes, or kpi_custom_title|ID from the list of available KPIs
-kpi_custom_title|string|Yes, or kpi_id|Custom KPI title
-value|float|Yes|KPI value
-
-### Available KPIs
-
-**ID**|**Title**|**Measurement**|**Notes**
------|-----|-----|-----
-CPI|Cost Per Install|$|Can be sent only once
-CPA|Cost Per Acquisition|$|Can be sent only once
-PAYMENTS|Payments Count|Number|
-REV|Revenue of Player|$|
-AVGSESSLEN|Average Player Session Length|Decimal|
-SESSIONS|Count of Player Sessions|Number|
-
-> Example response
-
-```js
-{
-  "code": 201,
-  "message": "50 kpis have been successfully ingested",
-  "data": null
-}
-```
+timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC.
+player_id|string|Yes|Unique player ID.
+register_date|Timestamp||YYYY-MM-DD. Optional, required for new players only.
+cpi|float|In USD. Upload only once per player, can be empty later.
+cpa|float|In USD. Upload only once per player, can be empty later.
+purchases_count|integer|Total amount of player purchases for specific date. Can be skipped if there were no purchases.
+purchases_value|float|Total value in USD of all purchases.
+items_purchased|integer|Total amount of items purchased. Can be empty or 0.
+sessions_count|integer|Total count of player's sessions.
+avg_sessions_interval|float|Average interval between player's sessions in minutes.
+sessions_length|float|Total player's sessions length in minutes.
+actions_count|integer|Count of player's actions for the specifc actions. Example actions: player started a combat, player updated inventory.
+ltv|float|Player's LTV at this date.
 
 # Push Logged In Players
 
