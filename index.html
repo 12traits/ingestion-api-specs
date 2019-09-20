@@ -263,9 +263,6 @@
                   <li>
                     <a href="#kpi" class="toc-h2 toc-link" data-title="KPI">KPI</a>
                   </li>
-                  <li>
-                    <a href="#available-kpis" class="toc-h2 toc-link" data-title="Available KPIs">Available KPIs</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -461,7 +458,7 @@ https://api.12traits.com/v1/games/actions
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-player-kpis'>Push Player KPIs</h1>
-<p>Push the player&#39;s KPIs. You can choose between 12traits&#39; predefined KPIs and your custom KPIs. This endpoint expects per-day per-player values.</p>
+<p>Push the player&#39;s KPIs. This endpoint expects per-day per-player values.</p>
 
 <blockquote>
 <p>Request</p>
@@ -469,7 +466,25 @@ https://api.12traits.com/v1/games/actions
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="s1">'{ "kpis": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "kpi_id": "LTV", "value": 10.25 } ] }'</span> <span class="se">\</span>
+-d <span class="s1">'{
+    "kpis": [
+        {
+            "timestamp": "2019-01-01 15:04:05",
+            "player_id": "1001",
+            "register_date": "2019-01-01",
+            "cpi": 0.15,
+            "cpa": 0.20,
+            "purchases_count": 2,
+            "purchases_value": 10.31,
+            "items_purchased": 3,
+            "sessions_count": 5,
+            "avg_sessions_interval": 20.12,
+            "sessions_length": 15.97,
+            "actions_count": 23,
+            "ltv": 101.34
+        }
+    ]
+}'</span> <span class="se">\</span>
 https://api.12traits.com/v1/games/kpis
 </code></pre><h3 id='kpi'>KPI</h3>
 <table><thead>
@@ -484,89 +499,82 @@ https://api.12traits.com/v1/games/kpis
 <td>timestamp</td>
 <td>Timestamp</td>
 <td></td>
-<td>YYYY-MM-DD HH:MM:SS in UTC</td>
+<td>YYYY-MM-DD HH:MM:SS in UTC.</td>
 </tr>
 <tr>
 <td>player_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>Unique player ID</td>
+<td>Unique player ID.</td>
 </tr>
 <tr>
-<td>kpi_id</td>
-<td>string</td>
-<td>Yes, or kpi_custom_title</td>
-<td>ID from the list of available KPIs</td>
+<td>register_date</td>
+<td>Timestamp</td>
+<td></td>
+<td>YYYY-MM-DD. Optional, required for new players only.</td>
 </tr>
 <tr>
-<td>kpi_custom_title</td>
-<td>string</td>
-<td>Yes, or kpi_id</td>
-<td>Custom KPI title</td>
-</tr>
-<tr>
-<td>value</td>
+<td>cpi</td>
 <td>float</td>
-<td>Yes</td>
-<td>KPI value</td>
+<td>In USD. Upload only once per player, can be empty later.</td>
+<td></td>
+</tr>
+<tr>
+<td>cpa</td>
+<td>float</td>
+<td>In USD. Upload only once per player, can be empty later.</td>
+<td></td>
+</tr>
+<tr>
+<td>purchases_count</td>
+<td>integer</td>
+<td>Total amount of player purchases for specific date. Can be skipped if there were no purchases.</td>
+<td></td>
+</tr>
+<tr>
+<td>purchases_value</td>
+<td>float</td>
+<td>Total value in USD of all purchases.</td>
+<td></td>
+</tr>
+<tr>
+<td>items_purchased</td>
+<td>integer</td>
+<td>Total amount of items purchased. Can be empty or 0.</td>
+<td></td>
+</tr>
+<tr>
+<td>sessions_count</td>
+<td>integer</td>
+<td>Total count of player&#39;s sessions.</td>
+<td></td>
+</tr>
+<tr>
+<td>avg_sessions_interval</td>
+<td>float</td>
+<td>Average interval between player&#39;s sessions in minutes.</td>
+<td></td>
+</tr>
+<tr>
+<td>sessions_length</td>
+<td>float</td>
+<td>Total player&#39;s sessions length in minutes.</td>
+<td></td>
+</tr>
+<tr>
+<td>actions_count</td>
+<td>integer</td>
+<td>Count of player&#39;s actions for the specifc actions. Example actions: player started a combat, player updated inventory.</td>
+<td></td>
+</tr>
+<tr>
+<td>ltv</td>
+<td>float</td>
+<td>Player&#39;s LTV at this date.</td>
+<td></td>
 </tr>
 </tbody></table>
-<h3 id='available-kpis'>Available KPIs</h3>
-<table><thead>
-<tr>
-<th><strong>ID</strong></th>
-<th><strong>Title</strong></th>
-<th><strong>Measurement</strong></th>
-<th><strong>Notes</strong></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>CPI</td>
-<td>Cost Per Install</td>
-<td>$</td>
-<td>Can be sent only once</td>
-</tr>
-<tr>
-<td>CPA</td>
-<td>Cost Per Acquisition</td>
-<td>$</td>
-<td>Can be sent only once</td>
-</tr>
-<tr>
-<td>PAYMENTS</td>
-<td>Payments Count</td>
-<td>Number</td>
-<td></td>
-</tr>
-<tr>
-<td>REV</td>
-<td>Revenue of Player</td>
-<td>$</td>
-<td></td>
-</tr>
-<tr>
-<td>AVGSESSLEN</td>
-<td>Average Player Session Length</td>
-<td>Decimal</td>
-<td></td>
-</tr>
-<tr>
-<td>SESSIONS</td>
-<td>Count of Player Sessions</td>
-<td>Number</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Example response</p>
-</blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 kpis have been successfully ingested"</span><span class="p">,</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
-<span class="p">}</span>
-</code></pre><h1 id='push-logged-in-players'>Push Logged In Players</h1>
+<h1 id='push-logged-in-players'>Push Logged In Players</h1>
 <p>Push information when players log into the game.</p>
 
 <blockquote>
