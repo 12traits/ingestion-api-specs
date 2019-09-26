@@ -156,7 +156,7 @@ sessions_count|integer||Total count of player's sessions.
 avg_sessions_interval|float||Average interval between player's sessions in minutes.
 sessions_length|float||Total player's sessions length in minutes.
 actions_count|integer||Count of player's actions for the specifc actions. Example actions: player started a combat, player updated inventory.
-ltv|float||Player's LTV at this date.
+ltv|float||Player's LTV prior to timestamp.
 
 # Push Logged In Players
 
