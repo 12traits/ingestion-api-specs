@@ -56,13 +56,13 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/gam
 
 ## How to use 12traits API Postman Collection
 
-1. Open Postman
-2. Click Import -> Import from link
-3. Paste the following URL: [https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6](https://www.getpostman.com/collections/9c1dc99852e00ff5c8b6)
-4. Set your environment variables.
+1. Go to https://documenter.getpostman.com/view/6074213/SVtZvRPm
+2. Click "Run in Postman"
+3. Set your environment variables in Postman App
 
 ### 12traits API variables
 
+- **BASE_URL** - Production - https://api.12traits.com, or sandbox - https://sandbox.api.12traits.com
 - **API_KEY** - Paste your game API Key here
 
 Now you are ready to test 12traits API endpoints from Postman!
