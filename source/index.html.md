@@ -147,8 +147,8 @@ https://api.12traits.com/v1/games/kpis
 timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC.
 player_id|string|Yes|Unique player ID.
 register_date|Timestamp||YYYY-MM-DD. Optional, required for new players only.
-cpi|float||In USD. Upload only once per player, can be empty later.
-cpa|float||In USD. Upload only once per player, can be empty later.
+cpi|float||In USD.
+cpa|float||In USD.
 ltv|float||Player's LTV prior to timestamp.
 purchases_count|integer||Total amount of player purchases for specific date. Can be skipped if there were no purchases.
 purchases_value|float||Total value in USD of all purchases.
