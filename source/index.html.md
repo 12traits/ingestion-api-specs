@@ -108,7 +108,7 @@ value|string|Yes|Action param value
 }
 ```
 
-# Push Player KPIs
+# Push Player KPIs as JSON
 
 Push the player's KPIs. This endpoint expects per-day per-player values.
 
@@ -149,14 +149,28 @@ player_id|string|Yes|Unique player ID.
 register_date|Timestamp||YYYY-MM-DD. Optional, required for new players only.
 cpi|float||In USD. Upload only once per player, can be empty later.
 cpa|float||In USD. Upload only once per player, can be empty later.
+ltv|float||Player's LTV prior to timestamp.
 purchases_count|integer||Total amount of player purchases for specific date. Can be skipped if there were no purchases.
 purchases_value|float||Total value in USD of all purchases.
 items_purchased|integer||Total amount of items purchased. Can be empty or 0.
 sessions_count|integer||Total count of player's sessions.
 avg_sessions_interval|float||Average interval between player's sessions in minutes.
 sessions_length|float||Total player's sessions length in minutes.
-actions_count|integer||Count of player's actions for the specifc actions. Example actions: player started a combat, player updated inventory.
-ltv|float||Player's LTV prior to timestamp.
+actions_count|integer||Count of player's in-game actions. Example actions: player started a combat, player updated inventory.
+
+# Push Player KPIs as CSV
+
+You can combine daily KPIs for all players in a single CSV file and send it at once. The CSV file should follow the [following format](https://storage.googleapis.com/12traits/12traits_kpis_template_v1.csv). The name of the file must be in `YYYY-MM-DD.csv` format.
+
+> Request
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: multipart/form-data" \
+-F file=@2019-09-23.csv \
+https://api.12traits.com/v1/games/kpis/csv
+```
 
 # Push Logged In Players
 
