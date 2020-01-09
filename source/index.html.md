@@ -108,56 +108,6 @@ value|string|Yes|Action param value
 }
 ```
 
-# Push Player KPIs as JSON
-
-Push the player's KPIs. This endpoint expects per-day per-player values.
-
-> Request
-
-```shell
-curl -XPOST \
--H "Authorization: Bearer <API_KEY>" \
--H "Content-Type: application/json" \
--d '{
-    "kpis": [
-        {
-            "timestamp": "2019-01-01 15:04:05",
-            "player_id": "1001",
-            "register_date": "2019-01-01",
-            "cpi": 0.15,
-            "cpa": 0.20,
-            "purchases_count": 2,
-            "purchases_value": 10.31,
-            "items_purchased": 3,
-            "sessions_count": 5,
-            "avg_sessions_interval": 20.12,
-            "sessions_length": 15.97,
-            "actions_count": 23,
-            "ltv": 101.34
-        }
-    ]
-}' \
-https://api.12traits.com/v1/games/kpis
-```
-
-### KPI
-
-**Field**|**Type**|**Required**|**Description**
------|-----|-----|-----
-timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC.
-player_id|string|Yes|Unique player ID.
-register_date|Timestamp||YYYY-MM-DD. Optional, required for new players only.
-cpi|float||In USD.
-cpa|float||In USD.
-ltv|float||Player's LTV prior to timestamp.
-purchases_count|integer||Total amount of player purchases for specific date. Can be skipped if there were no purchases.
-purchases_value|float||Total value in USD of all purchases.
-items_purchased|integer||Total amount of items purchased. Can be empty or 0.
-sessions_count|integer||Total count of player's sessions.
-avg_sessions_interval|float||Average interval between player's sessions in minutes.
-sessions_length|float||Total player's sessions length in minutes.
-actions_count|integer||Count of player's in-game actions. Example actions: player started a combat, player updated inventory.
-
 # Push Player KPIs as CSV
 
 You can combine daily KPIs for all players in a single CSV file and send it at once. The CSV file should follow the [following format](https://storage.googleapis.com/12traits/12traits_kpis_template_v1.csv). The name of the file must be in `YYYY-MM-DD.csv` format.
