@@ -247,6 +247,9 @@
               </ul>
           </li>
           <li>
+            <a href="#push-player-kpis-as-csv" class="toc-h1 toc-link" data-title="Push Player KPIs as CSV">Push Player KPIs as CSV</a>
+          </li>
+          <li>
             <a href="#push-game-actions" class="toc-h1 toc-link" data-title="Push Game Actions">Push Game Actions</a>
               <ul class="toc-list-h2">
                   <li>
@@ -256,9 +259,6 @@
                     <a href="#actionparam" class="toc-h2 toc-link" data-title="ActionParam">ActionParam</a>
                   </li>
               </ul>
-          </li>
-          <li>
-            <a href="#push-player-kpis-as-csv" class="toc-h1 toc-link" data-title="Push Player KPIs as CSV">Push Player KPIs as CSV</a>
           </li>
           <li>
             <a href="#push-logged-in-players" class="toc-h1 toc-link" data-title="Push Logged In Players">Push Logged In Players</a>
@@ -370,7 +370,18 @@
 </ul>
 
 <p>Now you are ready to test 12traits API endpoints from Postman!</p>
-<h1 id='push-game-actions'>Push Game Actions</h1>
+<h1 id='push-player-kpis-as-csv'>Push Player KPIs as CSV</h1>
+<p>You can combine daily KPIs for all players in a single CSV file and send it at once. The CSV file should follow the <a href="https://storage.googleapis.com/12traits/12traits_kpis_template_v1.csv">following format</a>.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
+-H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: multipart/form-data"</span> <span class="se">\</span>
+-F <span class="nv">file</span><span class="o">=</span>@2019-09-23.csv <span class="se">\</span>
+https://api.12traits.com/v1/games/kpis/csv
+</code></pre><h1 id='push-game-actions'>Push Game Actions</h1>
 <p>Push the player’s actions. This can be any set of actions that your game generates.</p>
 
 <blockquote>
@@ -452,17 +463,6 @@ https://api.12traits.com/v1/games/actions
   <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 actions have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre><h1 id='push-player-kpis-as-csv'>Push Player KPIs as CSV</h1>
-<p>You can combine daily KPIs for all players in a single CSV file and send it at once. The CSV file should follow the <a href="https://storage.googleapis.com/12traits/12traits_kpis_template_v1.csv">following format</a>.</p>
-
-<blockquote>
-<p>Request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
--H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: multipart/form-data"</span> <span class="se">\</span>
--F <span class="nv">file</span><span class="o">=</span>@2019-09-23.csv <span class="se">\</span>
-https://api.12traits.com/v1/games/kpis/csv
 </code></pre><h1 id='push-logged-in-players'>Push Logged In Players</h1>
 <p>Push information when players log into the game.</p>
 
