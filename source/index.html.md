@@ -67,6 +67,20 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/gam
 
 Now you are ready to test 12traits API endpoints from Postman!
 
+# Push Player KPIs as CSV
+
+You can combine daily KPIs for all players in a single CSV file and send it at once. The CSV file should follow the [following format](https://storage.googleapis.com/12traits/12traits_kpis_template_v1.csv).
+
+> Request
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: multipart/form-data" \
+-F file=@2019-09-23.csv \
+https://api.12traits.com/v1/games/kpis/csv
+```
+
 # Push Game Actions
 
 Push the player’s actions. This can be any set of actions that your game generates.
@@ -106,20 +120,6 @@ value|string|Yes|Action param value
   "message": "50 actions have been successfully ingested",
   "data": null
 }
-```
-
-# Push Player KPIs as CSV
-
-You can combine daily KPIs for all players in a single CSV file and send it at once. The CSV file should follow the [following format](https://storage.googleapis.com/12traits/12traits_kpis_template_v1.csv).
-
-> Request
-
-```shell
-curl -XPOST \
--H "Authorization: Bearer <API_KEY>" \
--H "Content-Type: multipart/form-data" \
--F file=@2019-09-23.csv \
-https://api.12traits.com/v1/games/kpis/csv
 ```
 
 # Push Logged In Players
