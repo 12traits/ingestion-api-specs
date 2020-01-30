@@ -67,6 +67,20 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/gam
 
 Now you are ready to test 12traits API endpoints from Postman!
 
+# Push Player Custom Data
+
+You can send any custom player data from your own surveys by uploading a CSV file in the [following format](https://storage.googleapis.com/12traits/12traits_custom_data_template.csv).
+
+> Request
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: multipart/form-data" \
+-F file=@2019-09-23.csv \
+https://api.12traits.com/v1/games/player-attributes/csv
+```
+
 # Push Player KPIs as CSV
 
 You can combine daily KPIs for all players in a single CSV file and send it at once. The CSV file should follow the [following format](https://storage.googleapis.com/12traits/12traits_kpis_template_v1.csv).
