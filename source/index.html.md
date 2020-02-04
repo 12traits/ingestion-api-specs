@@ -83,7 +83,7 @@ https://api.12traits.com/v1/games/player-attributes/csv
 
 # Push Player KPIs as CSV
 
-You can combine daily KPIs for all players in a single CSV file and send it at once. The CSV file should follow the [following format](https://storage.googleapis.com/12traits/12traits_kpis_template_v1.csv).
+You can combine daily KPIs for all players in a single CSV file and send it at once. The CSV file should follow the [following format](https://storage.googleapis.com/12traits/kpis_template.csv).
 
 > Request
 
