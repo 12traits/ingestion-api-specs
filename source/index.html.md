@@ -69,8 +69,6 @@ Now you are ready to test 12traits API endpoints from Postman!
 
 # Push Custom Survey Data
 
-You can send any custom data from your own surveys by uploading a CSV file in the [following format](https://storage.googleapis.com/12traits/12traits_custom_data_template.csv).
-
 > Request
 
 ```shell
@@ -81,9 +79,21 @@ curl -XPOST \
 https://api.12traits.com/v1/survey-data/csv
 ```
 
-# Push KPIs as CSV
+> Response
 
-You can combine daily KPIs for all users in a single CSV file and send it at once. The CSV file should follow the [following format](https://storage.googleapis.com/12traits/kpis_template.csv).
+```js
+{
+    "code": 201,
+    "message": "ingestion has been started",
+    "data": {
+        "estimated_time_to_complete": 125
+    }
+}
+```
+
+You can send any custom data from your own surveys by uploading a CSV file in the [following format](https://storage.googleapis.com/12traits/12traits_custom_data_template.csv).
+
+# Push KPIs as CSV
 
 > Request
 
@@ -94,6 +104,20 @@ curl -XPOST \
 -F file=@2019-09-23.csv \
 https://api.12traits.com/v1/kpis/csv
 ```
+
+> Response
+
+```js
+{
+    "code": 201,
+    "message": "ingestion has been started",
+    "data": {
+        "estimated_time_to_complete": 125
+    }
+}
+```
+
+You can combine daily KPIs for all users in a single CSV file and send it at once. The CSV file should follow the [following format](https://storage.googleapis.com/12traits/kpis_template.csv).
 
 # Push User Actions
 
