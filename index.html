@@ -247,13 +247,13 @@
               </ul>
           </li>
           <li>
-            <a href="#push-player-custom-data" class="toc-h1 toc-link" data-title="Push Player Custom Data">Push Player Custom Data</a>
+            <a href="#push-custom-survey-data" class="toc-h1 toc-link" data-title="Push Custom Survey Data">Push Custom Survey Data</a>
           </li>
           <li>
-            <a href="#push-player-kpis-as-csv" class="toc-h1 toc-link" data-title="Push Player KPIs as CSV">Push Player KPIs as CSV</a>
+            <a href="#push-kpis-as-csv" class="toc-h1 toc-link" data-title="Push KPIs as CSV">Push KPIs as CSV</a>
           </li>
           <li>
-            <a href="#push-game-actions" class="toc-h1 toc-link" data-title="Push Game Actions">Push Game Actions</a>
+            <a href="#push-user-actions" class="toc-h1 toc-link" data-title="Push User Actions">Push User Actions</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#action" class="toc-h2 toc-link" data-title="Action">Action</a>
@@ -264,10 +264,10 @@
               </ul>
           </li>
           <li>
-            <a href="#push-logged-in-players" class="toc-h1 toc-link" data-title="Push Logged In Players">Push Logged In Players</a>
+            <a href="#push-logins" class="toc-h1 toc-link" data-title="Push Logins">Push Logins</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#player" class="toc-h2 toc-link" data-title="Player">Player</a>
+                    <a href="#user" class="toc-h2 toc-link" data-title="User">User</a>
                   </li>
               </ul>
           </li>
@@ -346,14 +346,14 @@
 <li>Switch to the Production endpoint once the testing is completed.</li>
 </ul>
 <h1 id='authentication'>Authentication</h1>
-<p>The 12traits API uses API Keys to authenticate requests. You can view and manage your API Keys in the 12traits Dashboard. Each game has its own API Key.</p>
+<p>The 12traits API uses API Keys to authenticate requests. You can view and manage your API Keys in the 12traits Dashboard. Each dashboard has its own API Key.</p>
 
 <p>All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.</p>
 
 <blockquote>
 <p>Send your API Key with the request.</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -XPOST -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com/v1/games/...
+<pre class="highlight shell tab-shell"><code>curl -XPOST -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com/v1/...
 </code></pre><h1 id='api-limits'>API limits</h1>
 <ul>
 <li>It is possible to push up to 1000 multiple items at the same time.</li>
@@ -369,13 +369,11 @@
 <h3 id='12traits-api-variables'>12traits API variables</h3>
 <ul>
 <li><strong>BASE_URL</strong> - Production - https://api.12traits.com, or sandbox - https://sandbox.api.12traits.com</li>
-<li><strong>API_KEY</strong> - Paste your game API Key here</li>
+<li><strong>API_KEY</strong> - Paste your own API Key here</li>
 </ul>
 
 <p>Now you are ready to test 12traits API endpoints from Postman!</p>
-<h1 id='push-player-custom-data'>Push Player Custom Data</h1>
-<p>You can send any custom player data from your own surveys by uploading a CSV file in the <a href="https://storage.googleapis.com/12traits/12traits_custom_data_template.csv">following format</a>.</p>
-
+<h1 id='push-custom-survey-data'>Push Custom Survey Data</h1>
 <blockquote>
 <p>Request</p>
 </blockquote>
@@ -383,10 +381,21 @@
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: multipart/form-data"</span> <span class="se">\</span>
 -F <span class="nv">file</span><span class="o">=</span>@2019-09-23.csv <span class="se">\</span>
-https://api.12traits.com/v1/games/player-attributes/csv
-</code></pre><h1 id='push-player-kpis-as-csv'>Push Player KPIs as CSV</h1>
-<p>You can combine daily KPIs for all players in a single CSV file and send it at once. The CSV file should follow the <a href="https://storage.googleapis.com/12traits/kpis_template.csv">following format</a>.</p>
-
+https://api.12traits.com/v1/survey-data/csv
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="p">{</span>
+    <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+    <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"ingestion has been started"</span><span class="p">,</span>
+    <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"estimated_time_to_complete"</span><span class="p">:</span> <span class="mi">125</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>You can send any custom data from your own surveys by uploading a CSV file in the <a href="https://storage.googleapis.com/12traits/12traits_custom_data_template.csv">following format</a>.</p>
+<h1 id='push-kpis-as-csv'>Push KPIs as CSV</h1>
 <blockquote>
 <p>Request</p>
 </blockquote>
@@ -394,9 +403,22 @@ https://api.12traits.com/v1/games/player-attributes/csv
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: multipart/form-data"</span> <span class="se">\</span>
 -F <span class="nv">file</span><span class="o">=</span>@2019-09-23.csv <span class="se">\</span>
-https://api.12traits.com/v1/games/kpis/csv
-</code></pre><h1 id='push-game-actions'>Push Game Actions</h1>
-<p>Push the player’s actions. This can be any set of actions that your game generates.</p>
+https://api.12traits.com/v1/kpis/csv
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="p">{</span>
+    <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+    <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"ingestion has been started"</span><span class="p">,</span>
+    <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"estimated_time_to_complete"</span><span class="p">:</span> <span class="mi">125</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>You can combine daily KPIs for all users in a single CSV file and send it at once. The CSV file should follow the <a href="https://storage.googleapis.com/12traits/kpis_template.csv">following format</a>.</p>
+<h1 id='push-user-actions'>Push User Actions</h1>
+<p>Push user actions. This can be any set of actions that your app generates.</p>
 
 <blockquote>
 <p>Request</p>
@@ -404,8 +426,8 @@ https://api.12traits.com/v1/games/kpis/csv
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="s1">'{ "actions": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": [ {"key": "item_id", "value": "3003" } ] } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/actions
+-d <span class="s1">'{ "actions": [ { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "2002", "action_name": "buy_item", "action_params": [ {"key": "item_id", "value": "3003" } ] } ] }'</span> <span class="se">\</span>
+https://api.12traits.com/v1/actions
 </code></pre><h3 id='action'>Action</h3>
 <table><thead>
 <tr>
@@ -422,16 +444,16 @@ https://api.12traits.com/v1/games/actions
 <td>YYYY-MM-DD HH:MM:SS in UTC</td>
 </tr>
 <tr>
-<td>player_id</td>
+<td>user_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>Unique player ID</td>
+<td>Unique user ID</td>
 </tr>
 <tr>
 <td>action_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>Action ID specific to the game</td>
+<td>Action ID specific to your app</td>
 </tr>
 <tr>
 <td>action_name</td>
@@ -477,8 +499,8 @@ https://api.12traits.com/v1/games/actions
   <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 actions have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre><h1 id='push-logged-in-players'>Push Logged In Players</h1>
-<p>Push information when players log into the game.</p>
+</code></pre><h1 id='push-logins'>Push Logins</h1>
+<p>Push information when users log into the app.</p>
 
 <blockquote>
 <p>Request</p>
@@ -486,9 +508,9 @@ https://api.12traits.com/v1/games/actions
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="s1">'{ "players": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "clan_id": "2002", "level": 10, "device": "iPhone X", "country": "US", "language": "en-US", "platform": "Apple", "register_date": "2018-11-14", "last_login_timestamp": "2019-01-01 11:10:06" } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/player-logins
-</code></pre><h3 id='player'>Player</h3>
+-d <span class="s1">'{ "users": [ { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "clan_id": "2002", "level": 10, "device": "iPhone X", "country": "US", "language": "en-US", "platform": "Apple", "register_date": "2018-11-14", "last_login_timestamp": "2019-01-01 11:10:06" } ] }'</span> <span class="se">\</span>
+https://api.12traits.com/v1/logins
+</code></pre><h3 id='user'>User</h3>
 <table><thead>
 <tr>
 <th><strong>Field</strong></th>
@@ -504,10 +526,10 @@ https://api.12traits.com/v1/games/player-logins
 <td>YYYY-MM-DD HH:MM:SS in UTC</td>
 </tr>
 <tr>
-<td>player_id</td>
+<td>user_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>Unique player ID</td>
+<td>Unique user ID</td>
 </tr>
 <tr>
 <td>clan_id</td>
@@ -519,31 +541,31 @@ https://api.12traits.com/v1/games/player-logins
 <td>level</td>
 <td>int</td>
 <td></td>
-<td>Player&#39;s level or rank in the game</td>
+<td>User&#39;s level or rank in the app</td>
 </tr>
 <tr>
 <td>device</td>
 <td>string</td>
 <td></td>
-<td>Device player is using. e.g. iPad, iPhone X</td>
+<td>Device of the user. e.g. iPad, iPhone X</td>
 </tr>
 <tr>
 <td>country</td>
 <td>string</td>
 <td></td>
-<td>Country from where player has logged in in ISO Alpha-2 format (2 letters)</td>
+<td>Country from where user has logged in in ISO Alpha-2 format (2 letters)</td>
 </tr>
 <tr>
 <td>platform</td>
 <td>string</td>
 <td></td>
-<td>Platform player is using, e.g. Steam</td>
+<td>Platform user is using, e.g. Steam</td>
 </tr>
 <tr>
 <td>language</td>
 <td>string</td>
 <td></td>
-<td>Player&#39;s language in <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF format</a></td>
+<td>User&#39;s language in <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF format</a></td>
 </tr>
 <tr>
 <td>register_date</td>
@@ -564,11 +586,11 @@ https://api.12traits.com/v1/games/player-logins
 </blockquote>
 <pre class="highlight javascript"><code><span class="p">{</span>
   <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 players have been successfully ingested"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 users have been successfully ingested"</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-purchases'>Push Purchases</h1>
-<p>Push information related to the real-money purchases made by each player.</p>
+<p>Push information related to the real-money purchases made by each user.</p>
 
 <blockquote>
 <p>Request</p>
@@ -576,8 +598,8 @@ https://api.12traits.com/v1/games/player-logins
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="s1">'{ "purchases": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/purchases
+-d <span class="s1">'{ "purchases": [ { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" } ] }'</span> <span class="se">\</span>
+https://api.12traits.com/v1/purchases
 </code></pre><h3 id='purchase'>Purchase</h3>
 <table><thead>
 <tr>
@@ -594,16 +616,16 @@ https://api.12traits.com/v1/games/purchases
 <td>YYYY-MM-DD HH:MM:SS in UTC</td>
 </tr>
 <tr>
-<td>player_id</td>
+<td>user_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>Unique player ID</td>
+<td>Unique user ID</td>
 </tr>
 <tr>
 <td>item_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>In game Item ID</td>
+<td>In app Item ID</td>
 </tr>
 <tr>
 <td>count</td>
@@ -621,7 +643,7 @@ https://api.12traits.com/v1/games/purchases
 <td>platform</td>
 <td>string</td>
 <td></td>
-<td>Platform player is using, e.g. Steam</td>
+<td>Platform user is using, e.g. Steam</td>
 </tr>
 </tbody></table>
 
@@ -634,9 +656,9 @@ https://api.12traits.com/v1/games/purchases
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-virtual-purchases'>Push Virtual Purchases</h1>
-<p>Push information related to in-game virtual currency purchases made by each player.</p>
+<p>Push information related to in-app virtual currency purchases made by each user.</p>
 
-<p>Please note: If an item is bought by first converting real money to in-game money, it should appear in both purchases and virtual purchases.</p>
+<p>Please note: If an item is bought by first converting real money to in-app money, it should appear in both purchases and virtual purchases.</p>
 
 <blockquote>
 <p>Request</p>
@@ -644,8 +666,8 @@ https://api.12traits.com/v1/games/purchases
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="s1">'{ "virtual_purchases": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "item_id": "2002", "count": 1, "virtual_price": 25.50, "currency": "gold" } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/virtual-purchases
+-d <span class="s1">'{ "virtual_purchases": [ { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "item_id": "2002", "count": 1, "virtual_price": 25.50, "currency": "gold" } ] }'</span> <span class="se">\</span>
+https://api.12traits.com/v1/virtual-purchases
 </code></pre><h3 id='virtualpurchase'>VirtualPurchase</h3>
 <table><thead>
 <tr>
@@ -662,16 +684,16 @@ https://api.12traits.com/v1/games/virtual-purchases
 <td>YYYY-MM-DD HH:MM:SS in UTC</td>
 </tr>
 <tr>
-<td>player_id</td>
+<td>user_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>Unique player ID</td>
+<td>Unique user ID</td>
 </tr>
 <tr>
 <td>item_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>In game Item ID</td>
+<td>In-app Item ID</td>
 </tr>
 <tr>
 <td>count</td>
@@ -702,7 +724,7 @@ https://api.12traits.com/v1/games/virtual-purchases
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-level-ups'>Push Level Ups</h1>
-<p>Push level-ups for each player. Levels refer to game-content levels, i.e. levels that represent the progress of a user through the game. These can have different names (tiers/stages/progress/ranks, etc.), these should always be increasing.</p>
+<p>Push level-ups for each user. Levels refer to app-content levels, i.e. levels that represent the progress of a user through the app. These can have different names (tiers/stages/progress/ranks, etc.), these should always be increasing.</p>
 
 <blockquote>
 <p>Request</p>
@@ -710,8 +732,8 @@ https://api.12traits.com/v1/games/virtual-purchases
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="s1">'{ "level_ups": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "level": 10 } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/level-ups
+-d <span class="s1">'{ "level_ups": [ { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "level": 10 } ] }'</span> <span class="se">\</span>
+https://api.12traits.com/v1/level-ups
 </code></pre><h3 id='levelup'>LevelUp</h3>
 <table><thead>
 <tr>
@@ -728,10 +750,10 @@ https://api.12traits.com/v1/games/level-ups
 <td>YYYY-MM-DD HH:MM:SS in UTC</td>
 </tr>
 <tr>
-<td>player_id</td>
+<td>user_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>Unique player ID</td>
+<td>Unique user ID</td>
 </tr>
 <tr>
 <td>level</td>
@@ -759,7 +781,7 @@ https://api.12traits.com/v1/games/level-ups
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -d <span class="s1">'{ "items": [ { "item_id": "1001", "price": 25.50, "currency": "USD", "name": "Axe", "type": "weapon" } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/items
+https://api.12traits.com/v1/items
 </code></pre><h3 id='item'>Item</h3>
 <table><thead>
 <tr>
@@ -810,7 +832,7 @@ https://api.12traits.com/v1/games/items
   <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre><h1 id='push-social-dynamics'>Push Social Dynamics</h1>
-<p>Push information on the social dynamics of the game, i.e. interactions between players.</p>
+<p>Push information on the social dynamics of the user, i.e. interactions between users.</p>
 
 <blockquote>
 <p>Request</p>
@@ -818,8 +840,8 @@ https://api.12traits.com/v1/games/items
 <pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
 -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="s1">'{ "social_dynamics": [ { "timestamp": "2019-01-01 15:04:05", "player_id": "1001", "target_player_id": "1002", "connection": "linked", "interaction": "friend" } ] }'</span> <span class="se">\</span>
-https://api.12traits.com/v1/games/social-dynamics
+-d <span class="s1">'{ "social_dynamics": [ { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "target_user_id": "1002", "connection": "linked", "interaction": "friend" } ] }'</span> <span class="se">\</span>
+https://api.12traits.com/v1/social-dynamics
 </code></pre><h3 id='socialdynamics'>SocialDynamics</h3>
 <table><thead>
 <tr>
@@ -836,16 +858,16 @@ https://api.12traits.com/v1/games/social-dynamics
 <td>YYYY-MM-DD HH:MM:SS in UTC</td>
 </tr>
 <tr>
-<td>player_id</td>
+<td>user_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>Unique player ID</td>
+<td>Unique user ID</td>
 </tr>
 <tr>
-<td>target_player_id</td>
+<td>target_user_id</td>
 <td>string</td>
 <td>Yes</td>
-<td>ID of the player with whom a link is made or who is unlinked</td>
+<td>ID of the user with whom a link is made or who is unlinked</td>
 </tr>
 <tr>
 <td>connection</td>
@@ -873,9 +895,9 @@ https://api.12traits.com/v1/games/social-dynamics
 <p>If you are using PlayFab you are able to integrate it with 12traits by using <a href="https://api.playfab.com/docs/tutorials/landing-analytics/webhooks">PlayFab Webhooks</a>. You can simply configure PlayFab to send all events to 12traits by using this endpoint.</p>
 
 <blockquote>
-<p>Endpoint URL. Replace <strong>:api_key</strong> with your game API Key.</p>
+<p>Endpoint URL. Replace <strong>:api_key</strong> with your own API Key.</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>https://api.12traits.com/v1/games/playfab?api_key<span class="o">=</span>:api_key
+<pre class="highlight shell tab-shell"><code>https://api.12traits.com/v1/playfab?api_key<span class="o">=</span>:api_key
 </code></pre><h3 id='how-to-configure-a-playfab-webhook'>How to configure a PlayFab webhook</h3>
 <ol>
 <li>Go to PlayFab Analytics</li>
@@ -912,7 +934,7 @@ https://api.12traits.com/v1/games/social-dynamics
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized - API Key is not valid, or game ID is not valid</td>
+<td>Unauthorized - API Key is not valid</td>
 </tr>
 <tr>
 <td>404</td>
