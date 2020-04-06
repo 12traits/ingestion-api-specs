@@ -4,14 +4,13 @@ steps:
       args:
         - '-c'
         - | 
-          [[ "$BRANCH_NAME" == "develop" ]] \
-          && (gem install bundler:1.1.0 && bundle install && bundle exec middleman build --clean)
+          gem install bundler:1.1.0 && bundle install && bundle exec middleman build --clean
     - name: gcr.io/cloud-builders/gsutil
       entrypoint: 'bash'
       args:
         - '-c'
         - |
           [[ "$BRANCH_NAME" == "develop" ]] \
-          && gsutil -m cp -r ./build gs://$$BUCKET/docs-staging-api/ || echo "skipping docker staging deployment"
+          && gsutil -m cp -r ./build/* gs://$$BUCKET/docs-api/ || echo "skipping docker staging deployment"
       env:
         - 'BUCKET=12traits-cdn-staging'
