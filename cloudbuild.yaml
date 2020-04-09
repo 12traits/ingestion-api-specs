@@ -1,0 +1,16 @@
+steps:
+    - name: ruby:2.3.3
+      entrypoint: 'bash'
+      args:
+        - '-c'
+        - | 
+          gem install bundler:1.1.0 && bundle install && bundle exec middleman build --clean
+    - name: gcr.io/cloud-builders/gsutil
+      entrypoint: 'bash'
+      args:
+        - '-c'
+        - |
+          [[ "$BRANCH_NAME" == "develop" ]] \
+          && gsutil -m cp -r ./build/* gs://$$BUCKET/docs-api/ || echo "skipping docker staging deployment"
+      env:
+        - 'BUCKET=12traits-cdn-staging'

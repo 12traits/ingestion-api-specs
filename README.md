@@ -1,6 +1,7 @@
 # 12traits Ingestion API Reference
 
-http://docs.api.12traits.com
+Production: http://docs.api.12traits.com
+Staging: https://cdn.staging.12traits.com/docs-api/index.html
 
 ## Deploy to GitHub Pages
 
