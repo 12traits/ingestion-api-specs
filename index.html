@@ -320,6 +320,9 @@
               </ul>
           </li>
           <li>
+            <a href="#get-assessment-response-status" class="toc-h1 toc-link" data-title="Get Assessment Response Status">Get Assessment Response Status</a>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -906,6 +909,31 @@ https://api.12traits.com/v1/social-dynamics
 <li>Give it a name</li>
 <li>Set Endpoint URL</li>
 </ol>
+<h1 id='get-assessment-response-status'>Get Assessment Response Status</h1>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XGET <span class="se">\</span>
+-H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+https://api.12traits.com/v1/assessment/user/status?id<span class="o">=</span>:userid
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="p">{</span>
+    <span class="s2">"code"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">"message"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"completed"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"completed_at"</span><span class="p">:</span> <span class="mi">1585806949</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>This endpoint allows you to check if user has completed survey or not.</p>
+
+<aside class="notice">
+Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
+</aside>
 <h1 id='errors'>Errors</h1>
 <blockquote>
 <p>Error Response Format</p>
