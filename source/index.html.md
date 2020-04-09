@@ -388,3 +388,32 @@ https://api.12traits.com/v1/playfab?api_key=:api_key
 3. Click "New Webhook"
 4. Give it a name
 5. Set Endpoint URL
+
+# Get Assessment Response Status
+
+> Request
+
+```shell
+curl -XGET \
+-H "Authorization: Bearer <API_KEY>" \
+https://api.12traits.com/v1/assessment/user/status?id=:userid
+```
+
+> Response
+
+```js
+{
+    "code": 200,
+    "message": "",
+    "data": {
+        "completed": true,
+        "completed_at": 1585806949
+    }
+}
+```
+
+This endpoint allows you to check if user has completed survey or not.
+
+<aside class="notice">
+Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
+</aside>
