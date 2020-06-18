@@ -56,7 +56,7 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/...
 
 ## How to use 12traits API Postman Collection
 
-1. Go to <a href="https://documenter.getpostman.com/view/6074213/SzYZ2Jst">https://documenter.getpostman.com/view/6074213/SzYZ2Jst</a>
+1. Go to <a href="https://documenter.getpostman.com/view/6074213/Szzkdxfm">https://documenter.getpostman.com/view/6074213/Szzkdxfm</a>
 2. Click "Run in Postman"
 3. Set your environment variables in Postman App
 
