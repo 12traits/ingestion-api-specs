@@ -482,15 +482,11 @@ Purpose: track arbitrary user actions. This data type provides a flexible struct
 
 Please provide a real-time, event-based collection of the data instead of aggregates if possible.
 
-> NDJSON Example 1 (user won a fight):
-
 > An action indicating a fight won by a player (with ID 1001) against an enemy player (with ID 5005).
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "2002", "action_name": "fight_win", "action_params": [ {"key": "enemy_id", "value": "5005" } ] }
 ```
-
-> NDJSON Example 2 (user equipped a different skin):
 
 > An action indicating that a player (with ID 1001) chose to equip a new skin with ID 345344.
 
@@ -498,15 +494,11 @@ Please provide a real-time, event-based collection of the data instead of aggreg
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "4322", "action_name": "skin_equipped", "action_params": [ {"key": "skin_id", "value": "345344" } ] }
 ```
 
-> NDJSON Example 3 (user traveled):
-
 > An action indicating that the player with ID 1001 (fast-)traveled on the game’s map from Kingdom A (located on the map by the following 2D coordinates: X 12.3111 and Y 44.3111) to Kingdom B (X 33.4543 and Y 43.222).
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "6765", "action_name": "fast_travel", "action_params": [ {"key": "from_x", "value": "12.3111" }, {"key": "from_y", "value": "44.3111" }, {"key": "to_x", "value": "33.4543" }, {"key": "to_y", "value": "43.222" }, {"key": "from_location_id", "value": "kingdom_a" }, {"key": "to_location_id", "value": "kingdom_b" } ] }
 ```
-
-> NDJSON Example 4 (user used an item):
 
 > An action indicating that the user has used a certain item (ID: 34454).
 
@@ -514,15 +506,13 @@ Please provide a real-time, event-based collection of the data instead of aggreg
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "3222", "action_name": "item_used", "action_params": [ {"key": "item_id", "value": "34454" } ] }
 ```
 
-> NDJSON Example 5 (user died):
+> An action indicating that player has died.
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "3222", "action_name": "user_died", "action_params": [ {"key": "died_reason", "value": "blunt-trauma" } ] }
 ```
 
-> NDJSON Example 6 (sequence of actions during a PvP fight)
-
-> This example demonstrates multiple actions captured during a sample PvP fight:
+> These example demonstrate multiple actions captured during a sample PvP fight:
 
 > User 1001 equipped a medieval knight armour skin
 
@@ -572,7 +562,7 @@ Expected folder: `logins/`
 
 Purpose: track user log ins and information about users.
 
-> NDJSON Example 1 (user logged in):
+> User logged in:
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "clan_id": "2002", "level": 10, "device": "iPhone X", "country": "US", "language": "en-US", "platform": "Apple", "register_date": "2018-11-14", "last_login_timestamp": "2019-01-01 11:10:06" }
@@ -584,7 +574,7 @@ Expected folder: `purchases/`
 
 Track real-money purchases. Please provide a real-time, event-based collection of the data instead of aggregates if possible.
 
-> NDJSON Example 1 (user made in-app purchase):
+> User made in-app purchase:
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" }
@@ -596,7 +586,7 @@ Expected folder: `virtual_purchases/`
 
 Track virtual purchases. Please provide a real-time, event-based collection of the data instead of aggregates if possible.
 
-> NDJSON Example 1 (user made in-app virtual purchase):
+> User made in-app virtual purchase:
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "item_id": "2002", "count": 1, "virtual_price": 25.50, "currency": "gold" }
@@ -608,7 +598,7 @@ Expected folder: `level_ups/`
 
 Purpose: track level-ups for each user. Please provide a real-time, event-based collection of the data instead of aggregates if possible.
 
-> NDJSON Example 1 (initial user level):
+> Initial user level:
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "level": 10 }
@@ -620,7 +610,7 @@ Expected folder: `items/`
 
 Purpose: track detailed information about each item.
 
-> NDJSON Example 1 (weapon example):
+> Weapon example:
 
 ```json
 { "item_id": "1001", "price": 25.50, "currency": "USD", "name": "Axe", "type": "weapon" }
@@ -632,25 +622,25 @@ Expected folder: `social_dynamics/`
 
 Purpose: track information on the social dynamics of the user, i.e. interactions between users. Please provide a real-time, event-based collection of the data instead of aggregates if possible.
 
-> NDJSON Example 1 (user sent a message to another user):
+> User sent a message to another user:
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "target_user_id": "1002", "interaction": "message_sent", "interaction_params": [ {"key": "message_body", "value": "Hey! How are you? Long time no see!"} ] }
 ```
 
-> NDJSON Example 2 (user befriended another user):
+> User befriended another user:
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "target_user_id": "1002", "interaction": "added_as_friend", "interaction_params": [ ] }
 ```
 
-> NDJSON Example 3 (user removed another user from their friends list):
+> User removed another user from their friends list:
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "target_user_id": "1002", "interaction": "unfriend", "interaction_params": [ ] }
 ```
 
-> NDJSON Example 4 (user gifted an item to another user):
+> User gifted an item to another user:
 
 ```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "target_user_id": "1002", "interaction": "gift_sent", "interaction_params": [ {"key": "item_id", "value": "54645"}, {"key": "message", "value": "Thanks for helping out the another day!"} ] }
@@ -661,6 +651,8 @@ Purpose: track information on the social dynamics of the user, i.e. interactions
 Expected folder: `kpis/`
 
 Purpose: track detailed KPI data associated with a particular player. Any time granularity is supported, but we encourage at least daily KPIs.
+
+> KPIs example
 
 ```json
 {"timestamp": "2020-03-12 00:00:00", "user_id": "1001", "register_date": "2019-11-18", "churn_date": "", "kpi_id": "transaction_count", "value": 3.0 }
