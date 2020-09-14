@@ -1007,42 +1007,32 @@ Ensure that 12traits can access the storage.
 <p>Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
 
 <blockquote>
-<p>NDJSON Example 1 (user won a fight):</p>
-
 <p>An action indicating a fight won by a player (with ID 1001) against an enemy player (with ID 5005).</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_win"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5005"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>NDJSON Example 2 (user equipped a different skin):</p>
-
 <p>An action indicating that a player (with ID 1001) chose to equip a new skin with ID 345344.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4322"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_equipped"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345344"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>NDJSON Example 3 (user traveled):</p>
-
 <p>An action indicating that the player with ID 1001 (fast-)traveled on the game’s map from Kingdom A (located on the map by the following 2D coordinates: X 12.3111 and Y 44.3111) to Kingdom B (X 33.4543 and Y 43.222).</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6765"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fast_travel"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from_x"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.3111"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from_y"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44.3111"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to_x"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33.4543"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to_y"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43.222"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from_location_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kingdom_a"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to_location_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kingdom_b"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>NDJSON Example 4 (user used an item):</p>
-
 <p>An action indicating that the user has used a certain item (ID: 34454).</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3222"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_used"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34454"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>NDJSON Example 5 (user died):</p>
+<p>An action indicating that player has died.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3222"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_died"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"died_reason"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blunt-trauma"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>NDJSON Example 6 (sequence of actions during a PvP fight)</p>
-
-<p>This example demonstrates multiple actions captured during a sample PvP fight:</p>
+<p>These example demonstrate multiple actions captured during a sample PvP fight:</p>
 
 <p>User 1001 equipped a medieval knight armour skin</p>
 </blockquote>
@@ -1083,7 +1073,7 @@ Ensure that 12traits can access the storage.
 <p>Purpose: track user log ins and information about users.</p>
 
 <blockquote>
-<p>NDJSON Example 1 (user logged in):</p>
+<p>User logged in:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"clan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iPhone X"</span><span class="p">,</span><span class="w"> </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w"> </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en-US"</span><span class="p">,</span><span class="w"> </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="s2">"register_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-14"</span><span class="p">,</span><span class="w"> </span><span class="s2">"last_login_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 11:10:06"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='purchases'>Purchases</h3>
@@ -1092,7 +1082,7 @@ Ensure that 12traits can access the storage.
 <p>Track real-money purchases. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
 
 <blockquote>
-<p>NDJSON Example 1 (user made in-app purchase):</p>
+<p>User made in-app purchase:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.50</span><span class="p">,</span><span class="w"> </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Steam"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='virtual-purchases'>Virtual Purchases</h3>
@@ -1101,7 +1091,7 @@ Ensure that 12traits can access the storage.
 <p>Track virtual purchases. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
 
 <blockquote>
-<p>NDJSON Example 1 (user made in-app virtual purchase):</p>
+<p>User made in-app virtual purchase:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"virtual_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.50</span><span class="p">,</span><span class="w"> </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gold"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='level-ups'>Level Ups</h3>
@@ -1110,7 +1100,7 @@ Ensure that 12traits can access the storage.
 <p>Purpose: track level-ups for each user. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
 
 <blockquote>
-<p>NDJSON Example 1 (initial user level):</p>
+<p>Initial user level:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='items'>Items</h3>
@@ -1119,7 +1109,7 @@ Ensure that 12traits can access the storage.
 <p>Purpose: track detailed information about each item.</p>
 
 <blockquote>
-<p>NDJSON Example 1 (weapon example):</p>
+<p>Weapon example:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.50</span><span class="p">,</span><span class="w"> </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Axe"</span><span class="p">,</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"weapon"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='social-dynamics'>Social Dynamics</h3>
@@ -1128,28 +1118,32 @@ Ensure that 12traits can access the storage.
 <p>Purpose: track information on the social dynamics of the user, i.e. interactions between users. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
 
 <blockquote>
-<p>NDJSON Example 1 (user sent a message to another user):</p>
+<p>User sent a message to another user:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message_sent"</span><span class="p">,</span><span class="w"> </span><span class="s2">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message_body"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hey! How are you? Long time no see!"</span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>NDJSON Example 2 (user befriended another user):</p>
+<p>User befriended another user:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added_as_friend"</span><span class="p">,</span><span class="w"> </span><span class="s2">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>NDJSON Example 3 (user removed another user from their friends list):</p>
+<p>User removed another user from their friends list:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unfriend"</span><span class="p">,</span><span class="w"> </span><span class="s2">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>NDJSON Example 4 (user gifted an item to another user):</p>
+<p>User gifted an item to another user:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gift_sent"</span><span class="p">,</span><span class="w"> </span><span class="s2">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54645"</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thanks for helping out the another day!"</span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='kpis'>KPIs</h3>
 <p>Expected folder: <code>kpis/</code></p>
 
 <p>Purpose: track detailed KPI data associated with a particular player. Any time granularity is supported, but we encourage at least daily KPIs.</p>
+
+<blockquote>
+<p>KPIs example</p>
+</blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-12 00:00:00"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"register_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-18"</span><span class="p">,</span><span class="w"> </span><span class="s2">"churn_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"kpi_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_count"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='errors'>Errors</h1>
 <blockquote>
