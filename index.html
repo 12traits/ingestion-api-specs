@@ -968,7 +968,9 @@ Replace <b>:userid</b> with exactly the same encrypted ID you used to send user 
 <h2 id='integration-steps'>Integration steps</h2><h3 id='configure-access'>Configure access</h3>
 <p>Store your files separated by their category in the cloud object storage of your choice. Please include separate root directories for the various data types: <code>purchases</code>, <code>logins</code>, <code>actions</code>, <code>kpis</code>, <code>virtual_purchases</code>, <code>level_ups</code>, <code>items</code>, and <code>social_dynamics</code>. Directories can have any number of subfolders, for example <code>purchases/date=16000000000/load_id=fgdhb4gwv34t/purchases.csv</code> (Hive-partitioned directory structure). If using a flat directory structure (files right in the root directories), please include a timestamp or some other time-based UUID in the filenames. For example, <code>purchases/purchases_1600089751.csv</code>, <code>purchases/purchases_1600089777.csv</code>, etc.</p>
 
-<p>Ensure that 12traits can access the storage.</p>
+<aside class="notice">
+Ensure that 12traits can access the storage.
+</aside>
 <h4 id='aws-s3'>AWS S3</h4>
 <ul>
 <li>Set IAM policy for 12traits&#39; AWS user (will be provided to you) enabling LIST and GET operations on the contents of the S3 bucket, or</li>
@@ -976,13 +978,13 @@ Replace <b>:userid</b> with exactly the same encrypted ID you used to send user 
 </ul>
 <h4 id='google-storage'>Google Storage</h4>
 <ul>
-<li>Set appropriate IAM (list, get) for 12traits&#39; GCP user (service account ID), or</li>
+<li>Set IAM policy for 12traits&#39; GCP service account (will be provided to you) enabling LIST and GET operations on the contents of the GCS bucket, or</li>
 <li>Share service account key in JSON format</li>
 </ul>
 <h4 id='microsoft-azure-storage'>Microsoft Azure Storage</h4>
 <ul>
 <li>Make sure that your storage account’s firewall settings <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#change-the-default-network-access-rule">allow connectivity</a></li>
-<li>Share a <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/security-recommendations">Shared Access Token (SAS)</a> with list and get ACL on your files with 12traits</li>
+<li>Share a <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/security-recommendations">Shared Access Token (SAS)</a> with LIST and GET ACL on your files with 12traits</li>
 </ul>
 
 <p>12traits will attempt to connect to your cloud storage, test connectivity, and validate file contents. We will send a notification in case of error:</p>
@@ -1035,8 +1037,8 @@ Replace <b>:userid</b> with exactly the same encrypted ID you used to send user 
 <blockquote>
 <p>NDJSON Example 5 (user died):</p>
 </blockquote>
-<pre class="highlight plaintext"><code>{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "3222", "action_name": "user_died", "action_params": [ {"key": "died_reason", "value": "blunt-trauma" } ] }
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3222"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_died"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"died_reason"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blunt-trauma"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
 <blockquote>
 <p>NDJSON Example 6 (sequence of actions during a PvP fight)</p>
 
