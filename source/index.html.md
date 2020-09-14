@@ -516,7 +516,7 @@ Please provide a real-time, event-based collection of the data instead of aggreg
 
 > NDJSON Example 5 (user died):
 
-```
+```json
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "3222", "action_name": "user_died", "action_params": [ {"key": "died_reason", "value": "blunt-trauma" } ] }
 ```
 
