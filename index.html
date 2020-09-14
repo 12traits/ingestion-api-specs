@@ -335,7 +335,28 @@
                     <a href="#integration-steps" class="toc-h2 toc-link" data-title="Integration steps">Integration steps</a>
                   </li>
                   <li>
-                    <a href="#data-types" class="toc-h2 toc-link" data-title="Data Types">Data Types</a>
+                    <a href="#user-actions" class="toc-h2 toc-link" data-title="User Actions">User Actions</a>
+                  </li>
+                  <li>
+                    <a href="#logins" class="toc-h2 toc-link" data-title="Logins">Logins</a>
+                  </li>
+                  <li>
+                    <a href="#purchases" class="toc-h2 toc-link" data-title="Purchases">Purchases</a>
+                  </li>
+                  <li>
+                    <a href="#virtual-purchases" class="toc-h2 toc-link" data-title="Virtual Purchases">Virtual Purchases</a>
+                  </li>
+                  <li>
+                    <a href="#level-ups" class="toc-h2 toc-link" data-title="Level Ups">Level Ups</a>
+                  </li>
+                  <li>
+                    <a href="#items" class="toc-h2 toc-link" data-title="Items">Items</a>
+                  </li>
+                  <li>
+                    <a href="#social-dynamics" class="toc-h2 toc-link" data-title="Social Dynamics">Social Dynamics</a>
+                  </li>
+                  <li>
+                    <a href="#kpis" class="toc-h2 toc-link" data-title="KPIs">KPIs</a>
                   </li>
               </ul>
           </li>
@@ -999,7 +1020,7 @@ Ensure that 12traits can access the storage.
 <p>You can write any amount of data into your cloud object storage area of choice. New data files will be automatically identified and processed by 12traits. A frequent pattern of automation could be daily scheduled upload of data to the cloud storage. Please upload new files instead of overwriting existing ones.</p>
 
 <p>We expect only new changes to the data to be shared (incremental load pattern) instead of pushing full dataset repeatedly.</p>
-<h2 id='data-types'>Data Types</h2><h3 id='user-actions'>User Actions</h3>
+<h2 id='user-actions'>User Actions</h2>
 <p>Expected folder: <code>actions/</code></p>
 
 <p>Purpose: track arbitrary user actions. This data type provides a flexible structure to identify a wide variety of actions or activities that the user may take in the game. The differentiation between different actions (on top of setting their specific ID, name, and associated parameters) is completely up to you, but we advise you to keep the actions small, granular, and easy to associate with a specific player.</p>
@@ -1067,7 +1088,7 @@ Ensure that 12traits can access the storage.
 <p>User 1033 won the fight</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:35"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8006"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_won"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_health"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456354345"</span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='logins'>Logins</h3>
+</span></code></pre><h2 id='logins'>Logins</h2>
 <p>Expected folder: <code>logins/</code></p>
 
 <p>Purpose: track user log ins and information about users.</p>
@@ -1076,7 +1097,7 @@ Ensure that 12traits can access the storage.
 <p>User logged in:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"clan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iPhone X"</span><span class="p">,</span><span class="w"> </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w"> </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en-US"</span><span class="p">,</span><span class="w"> </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="s2">"register_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-14"</span><span class="p">,</span><span class="w"> </span><span class="s2">"last_login_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 11:10:06"</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='purchases'>Purchases</h3>
+</span></code></pre><h2 id='purchases'>Purchases</h2>
 <p>Expected folder: <code>purchases/</code></p>
 
 <p>Track real-money purchases. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
@@ -1085,7 +1106,7 @@ Ensure that 12traits can access the storage.
 <p>User made in-app purchase:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.50</span><span class="p">,</span><span class="w"> </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Steam"</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='virtual-purchases'>Virtual Purchases</h3>
+</span></code></pre><h2 id='virtual-purchases'>Virtual Purchases</h2>
 <p>Expected folder: <code>virtual_purchases/</code></p>
 
 <p>Track virtual purchases. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
@@ -1094,7 +1115,7 @@ Ensure that 12traits can access the storage.
 <p>User made in-app virtual purchase:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"virtual_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.50</span><span class="p">,</span><span class="w"> </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gold"</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='level-ups'>Level Ups</h3>
+</span></code></pre><h2 id='level-ups'>Level Ups</h2>
 <p>Expected folder: <code>level_ups/</code></p>
 
 <p>Purpose: track level-ups for each user. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
@@ -1103,7 +1124,7 @@ Ensure that 12traits can access the storage.
 <p>Initial user level:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='items'>Items</h3>
+</span></code></pre><h2 id='items'>Items</h2>
 <p>Expected folder: <code>items/</code></p>
 
 <p>Purpose: track detailed information about each item.</p>
@@ -1112,7 +1133,7 @@ Ensure that 12traits can access the storage.
 <p>Weapon example:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.50</span><span class="p">,</span><span class="w"> </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Axe"</span><span class="p">,</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"weapon"</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='social-dynamics'>Social Dynamics</h3>
+</span></code></pre><h2 id='social-dynamics'>Social Dynamics</h2>
 <p>Expected folder: <code>social_dynamics/</code></p>
 
 <p>Purpose: track information on the social dynamics of the user, i.e. interactions between users. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
@@ -1136,7 +1157,7 @@ Ensure that 12traits can access the storage.
 <p>User gifted an item to another user:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gift_sent"</span><span class="p">,</span><span class="w"> </span><span class="s2">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54645"</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thanks for helping out the another day!"</span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='kpis'>KPIs</h3>
+</span></code></pre><h2 id='kpis'>KPIs</h2>
 <p>Expected folder: <code>kpis/</code></p>
 
 <p>Purpose: track detailed KPI data associated with a particular player. Any time granularity is supported, but we encourage at least daily KPIs.</p>
