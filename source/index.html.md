@@ -418,7 +418,7 @@ This endpoint allows you to check if user has completed survey or not.
 Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
 </aside>
 
-# Behavioral Data Integration
+# Behavioural Data Integration
 
 In order to support larger data volumes, 12traits provides support for cloud-based object storage technologies. These solutions are optimized, cost-effective, and secure ways of storing and sharing arbitrarily large datasets (Big Data).
 
