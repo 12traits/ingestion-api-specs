@@ -483,31 +483,69 @@ Please provide a real-time, event-based collection of the data instead of aggreg
 > An action indicating a fight won by a player (with ID 1001) against an enemy player (with ID 5005).
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "2002", "action_name": "fight_win", "action_params": [ {"key": "enemy_id", "value": "5005" } ] }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "action_id": "2002",
+  "action_name": "fight_win",
+  "action_params": [{ "key": "enemy_id", "value": "5005" }]
+}
+
 ```
 
 > An action indicating that a player (with ID 1001) chose to equip a new skin with ID 345344.
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "4322", "action_name": "skin_equipped", "action_params": [ {"key": "skin_id", "value": "345344" } ] }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "action_id": "4322",
+  "action_name": "skin_equipped",
+  "action_params": [{ "key": "skin_id", "value": "345344" }]
+}
 ```
 
 > An action indicating that the player with ID 1001 (fast-)traveled on the game’s map from Kingdom A (located on the map by the following 2D coordinates: X 12.3111 and Y 44.3111) to Kingdom B (X 33.4543 and Y 43.222).
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "6765", "action_name": "fast_travel", "action_params": [ {"key": "from_x", "value": "12.3111" }, {"key": "from_y", "value": "44.3111" }, {"key": "to_x", "value": "33.4543" }, {"key": "to_y", "value": "43.222" }, {"key": "from_location_id", "value": "kingdom_a" }, {"key": "to_location_id", "value": "kingdom_b" } ] }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "action_id": "6765",
+  "action_name": "fast_travel",
+  "action_params": [
+    { "key": "from_x", "value": "12.3111" },
+    { "key": "from_y", "value": "44.3111" },
+    { "key": "to_x", "value": "33.4543" },
+    { "key": "to_y", "value": "43.222" },
+    { "key": "from_location_id", "value": "kingdom_a" },
+    { "key": "to_location_id", "value": "kingdom_b" }
+  ]
+}
 ```
 
 > An action indicating that the user has used a certain item (ID: 34454).
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "3222", "action_name": "item_used", "action_params": [ {"key": "item_id", "value": "34454" } ] }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "action_id": "3222",
+  "action_name": "item_used",
+  "action_params": [{ "key": "item_id", "value": "34454" }]
+}
 ```
 
 > An action indicating that player has died.
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "3222", "action_name": "user_died", "action_params": [ {"key": "died_reason", "value": "blunt-trauma" } ] }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "action_id": "3222",
+  "action_name": "user_died",
+  "action_params": [{ "key": "died_reason", "value": "blunt-trauma" }]
+}
 ```
 
 > These example demonstrate multiple actions captured during a sample PvP fight:
@@ -515,43 +553,110 @@ Please provide a real-time, event-based collection of the data instead of aggreg
 > User 1001 equipped a medieval knight armour skin
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "action_id": "3222", "action_name": "skin_equipped", "action_params": [ {"key": "skin_id", "value": "654" }, {"key": "skin_name", "value": "medieval-knight-armor" } ] }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "action_id": "3222",
+  "action_name": "skin_equipped",
+  "action_params": [
+    { "key": "skin_id", "value": "654" },
+    { "key": "skin_name", "value": "medieval-knight-armor" }
+  ]
+}
 ```
 
 > User 1001 used a health potion that restored 100 health points
 
 ```json
-{ "timestamp": "2019-01-01 15:11:11", "user_id": "1001", "action_id": "4001", "action_name": "item_used", "action_params": [ {"key": "item_id", "value": "232" }, {"key": "item_name", "value": "health-potion" }, {"key": "potion_strength", "value": "100" } ] }
+{
+  "timestamp": "2019-01-01 15:11:11",
+  "user_id": "1001",
+  "action_id": "4001",
+  "action_name": "item_used",
+  "action_params": [
+    { "key": "item_id", "value": "232" },
+    { "key": "item_name", "value": "health-potion" },
+    { "key": "potion_strength", "value": "100" }
+  ]
+}
 ```
 
 > User 1001 started a fight against user 1033
 
 ```json
-{ "timestamp": "2019-01-01 15:12:30", "user_id": "1001", "action_id": "8000", "action_name": "fight_started", "action_params": [ {"key": "enemy_id", "value": "1033" }, {"key": "enemy_health", "value": "20000" }, {"key": "fight_id", "value": "456354345"} ] }
+{
+  "timestamp": "2019-01-01 15:12:30",
+  "user_id": "1001",
+  "action_id": "8000",
+  "action_name": "fight_started",
+  "action_params": [
+    { "key": "enemy_id", "value": "1033" },
+    { "key": "enemy_health", "value": "20000" },
+    { "key": "fight_id", "value": "456354345" }
+  ]
+}
 ```
 
 > User 1033 used a weapon against user 1001
 
 ```json
-{ "timestamp": "2019-01-01 15:12:33", "user_id": "1033", "action_id": "8001", "action_name": "use_weapon", "action_params": [ {"key": "enemy_id", "value": "1001" }, {"key": "damage", "value": "200" } ] }
+{
+  "timestamp": "2019-01-01 15:12:33",
+  "user_id": "1033",
+  "action_id": "8001",
+  "action_name": "use_weapon",
+  "action_params": [
+    { "key": "enemy_id", "value": "1001" },
+    { "key": "damage", "value": "200" }
+  ]
+}
 ```
 
 > User 1001 suffered a large damage and died
 
 ```json
-{ "timestamp": "2019-01-01 15:12:35", "user_id": "1001", "action_id": "6661", "action_name": "user_died", "action_params": [ {"key": "died_reason", "value": "blunt-trauma" }, { "key": "killed_by_user", "value": "1033"} ] }
+{
+  "timestamp": "2019-01-01 15:12:35",
+  "user_id": "1001",
+  "action_id": "6661",
+  "action_name": "user_died",
+  "action_params": [
+    { "key": "died_reason", "value": "blunt-trauma" },
+    { "key": "killed_by_user", "value": "1033" }
+  ]
+}
 ```
 
 > User 1001 lost the fight
 
 ```json
-{ "timestamp": "2019-01-01 15:12:35", "user_id": "1001", "action_id": "8005", "action_name": "fight_lost", "action_params": [ {"key": "enemy_id", "value": "1033" }, {"key": "enemy_health", "value": "20000" }, {"key": "fight_id", "value": "456354345"} ] }
+{
+  "timestamp": "2019-01-01 15:12:35",
+  "user_id": "1001",
+  "action_id": "8005",
+  "action_name": "fight_lost",
+  "action_params": [
+    { "key": "enemy_id", "value": "1033" },
+    { "key": "enemy_health", "value": "20000" },
+    { "key": "fight_id", "value": "456354345" }
+  ]
+}
 ```
 
 > User 1033 won the fight
 
 ```json
-{ "timestamp": "2019-01-01 15:12:35", "user_id": "1033", "action_id": "8006", "action_name": "fight_won", "action_params": [ {"key": "enemy_id", "value": "1001" }, {"key": "enemy_health", "value": "0" }, {"key": "fight_id", "value": "456354345"} ] }
+{
+  "timestamp": "2019-01-01 15:12:35",
+  "user_id": "1033",
+  "action_id": "8006",
+  "action_name": "fight_won",
+  "action_params": [
+    { "key": "enemy_id", "value": "1001" },
+    { "key": "enemy_health", "value": "0" },
+    { "key": "fight_id", "value": "456354345" }
+  ]
+}
 ```
 
 ## Logins
@@ -563,7 +668,18 @@ Purpose: track user log ins and information about users.
 > User logged in:
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "clan_id": "2002", "level": 10, "device": "iPhone X", "country": "US", "language": "en-US", "platform": "Apple", "register_date": "2018-11-14", "last_login_timestamp": "2019-01-01 11:10:06" }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "clan_id": "2002",
+  "level": 10,
+  "device": "iPhone X",
+  "country": "US",
+  "language": "en-US",
+  "platform": "Apple",
+  "register_date": "2018-11-14",
+  "last_login_timestamp": "2019-01-01 11:10:06"
+}
 ```
 
 ## Purchases
@@ -575,7 +691,14 @@ Track real-money purchases. Please provide a real-time, event-based collection o
 > User made in-app purchase:
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "item_id": "2002",
+  "count": 1,
+  "price": 25.5,
+  "platform": "Steam"
+}
 ```
 
 ## Virtual Purchases
@@ -587,7 +710,14 @@ Track virtual purchases. Please provide a real-time, event-based collection of t
 > User made in-app virtual purchase:
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "item_id": "2002", "count": 1, "virtual_price": 25.50, "currency": "gold" }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "item_id": "2002",
+  "count": 1,
+  "virtual_price": 25.5,
+  "currency": "gold"
+}
 ```
 
 ## Level Ups
@@ -611,7 +741,13 @@ Purpose: track detailed information about each item.
 > Weapon example:
 
 ```json
-{ "item_id": "1001", "price": 25.50, "currency": "USD", "name": "Axe", "type": "weapon" }
+{
+  "item_id": "1001",
+  "price": 25.5,
+  "currency": "USD",
+  "name": "Axe",
+  "type": "weapon"
+}
 ```
 
 ## Social Dynamics
@@ -623,25 +759,54 @@ Purpose: track information on the social dynamics of the user, i.e. interactions
 > User sent a message to another user:
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "target_user_id": "1002", "interaction": "message_sent", "interaction_params": [ {"key": "message_body", "value": "Hey! How are you? Long time no see!"} ] }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "target_user_id": "1002",
+  "interaction": "message_sent",
+  "interaction_params": [
+    { "key": "message_body", "value": "Hey! How are you? Long time no see!" }
+  ]
+}
 ```
 
 > User befriended another user:
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "target_user_id": "1002", "interaction": "added_as_friend", "interaction_params": [ ] }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "target_user_id": "1002",
+  "interaction": "added_as_friend",
+  "interaction_params": []
+}
 ```
 
 > User removed another user from their friends list:
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "target_user_id": "1002", "interaction": "unfriend", "interaction_params": [ ] }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "target_user_id": "1002",
+  "interaction": "unfriend",
+  "interaction_params": []
+}
 ```
 
 > User gifted an item to another user:
 
 ```json
-{ "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "target_user_id": "1002", "interaction": "gift_sent", "interaction_params": [ {"key": "item_id", "value": "54645"}, {"key": "message", "value": "Thanks for helping out the another day!"} ] }
+{
+  "timestamp": "2019-01-01 15:04:05",
+  "user_id": "1001",
+  "target_user_id": "1002",
+  "interaction": "gift_sent",
+  "interaction_params": [
+    { "key": "item_id", "value": "54645" },
+    { "key": "message", "value": "Thanks for helping out the another day!" }
+  ]
+}
 ```
 
 ## KPIs
@@ -653,6 +818,13 @@ Purpose: track detailed KPI data associated with a particular player. Any time g
 > KPIs example
 
 ```json
-{"timestamp": "2020-03-12 00:00:00", "user_id": "1001", "register_date": "2019-11-18", "churn_date": "", "kpi_id": "transaction_count", "value": 3.0 }
+{
+  "timestamp": "2020-03-12 00:00:00",
+  "user_id": "1001",
+  "register_date": "2019-11-18",
+  "churn_date": "",
+  "kpi_id": "transaction_count",
+  "value": 3.0
+}
 ```
  
