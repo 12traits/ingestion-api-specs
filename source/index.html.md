@@ -472,9 +472,7 @@ You can write any amount of data into your cloud object storage area of choice. 
 
 We expect only new changes to the data to be shared (incremental load pattern) instead of pushing full dataset repeatedly.
 
-## Data Types
-
-### User Actions
+## User Actions
 
 Expected folder: `actions/`
 
@@ -556,7 +554,7 @@ Please provide a real-time, event-based collection of the data instead of aggreg
 { "timestamp": "2019-01-01 15:12:35", "user_id": "1033", "action_id": "8006", "action_name": "fight_won", "action_params": [ {"key": "enemy_id", "value": "1001" }, {"key": "enemy_health", "value": "0" }, {"key": "fight_id", "value": "456354345"} ] }
 ```
 
-### Logins
+## Logins
 
 Expected folder: `logins/`
 
@@ -568,7 +566,7 @@ Purpose: track user log ins and information about users.
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "clan_id": "2002", "level": 10, "device": "iPhone X", "country": "US", "language": "en-US", "platform": "Apple", "register_date": "2018-11-14", "last_login_timestamp": "2019-01-01 11:10:06" }
 ```
 
-### Purchases
+## Purchases
 
 Expected folder: `purchases/`
 
@@ -580,7 +578,7 @@ Track real-money purchases. Please provide a real-time, event-based collection o
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "item_id": "2002", "count": 1, "price": 25.50, "platform": "Steam" }
 ```
 
-### Virtual Purchases
+## Virtual Purchases
 
 Expected folder: `virtual_purchases/`
 
@@ -592,7 +590,7 @@ Track virtual purchases. Please provide a real-time, event-based collection of t
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "item_id": "2002", "count": 1, "virtual_price": 25.50, "currency": "gold" }
 ```
 
-### Level Ups
+## Level Ups
 
 Expected folder: `level_ups/`
 
@@ -604,7 +602,7 @@ Purpose: track level-ups for each user. Please provide a real-time, event-based 
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "level": 10 }
 ```
 
-### Items
+## Items
 
 Expected folder: `items/`
 
@@ -616,7 +614,7 @@ Purpose: track detailed information about each item.
 { "item_id": "1001", "price": 25.50, "currency": "USD", "name": "Axe", "type": "weapon" }
 ```
 
-### Social Dynamics
+## Social Dynamics
 
 Expected folder: `social_dynamics/`
 
@@ -646,7 +644,7 @@ Purpose: track information on the social dynamics of the user, i.e. interactions
 { "timestamp": "2019-01-01 15:04:05", "user_id": "1001", "target_user_id": "1002", "interaction": "gift_sent", "interaction_params": [ {"key": "item_id", "value": "54645"}, {"key": "message", "value": "Thanks for helping out the another day!"} ] }
 ```
 
-### KPIs
+## KPIs
 
 Expected folder: `kpis/`
 
