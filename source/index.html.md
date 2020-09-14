@@ -440,7 +440,9 @@ In order to support larger data volumes, 12traits provides support for cloud-bas
 
 Store your files separated by their category in the cloud object storage of your choice. Please include separate root directories for the various data types: `purchases`, `logins`, `actions`, `kpis`, `virtual_purchases`, `level_ups`, `items`, and `social_dynamics`. Directories can have any number of subfolders, for example `purchases/date=16000000000/load_id=fgdhb4gwv34t/purchases.csv` (Hive-partitioned directory structure). If using a flat directory structure (files right in the root directories), please include a timestamp or some other time-based UUID in the filenames. For example, `purchases/purchases_1600089751.csv`, `purchases/purchases_1600089777.csv`, etc.
 
+<aside class="notice">
 Ensure that 12traits can access the storage.
+</aside>
 
 #### AWS S3
 
@@ -449,13 +451,13 @@ Ensure that 12traits can access the storage.
 
 #### Google Storage
 
-- Set appropriate IAM (list, get) for 12traits' GCP user (service account ID), or
+- Set IAM policy for 12traits' GCP service account (will be provided to you) enabling LIST and GET operations on the contents of the GCS bucket, or
 - Share service account key in JSON format
 
 #### Microsoft Azure Storage
 
 - Make sure that your storage account’s firewall settings [allow connectivity](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#change-the-default-network-access-rule)
-- Share a [Shared Access Token (SAS)](https://docs.microsoft.com/en-us/azure/storage/blobs/security-recommendations) with list and get ACL on your files with 12traits
+- Share a [Shared Access Token (SAS)](https://docs.microsoft.com/en-us/azure/storage/blobs/security-recommendations) with LIST and GET ACL on your files with 12traits
 
 12traits will attempt to connect to your cloud storage, test connectivity, and validate file contents. We will send a notification in case of error:
 
