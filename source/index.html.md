@@ -81,7 +81,7 @@ https://api.12traits.com/v1/survey-data/csv
 
 > Response
 
-```js
+```json
 {
     "code": 201,
     "message": "ingestion has been started",
@@ -107,7 +107,7 @@ https://api.12traits.com/v1/kpis/csv
 
 > Response
 
-```js
+```json
 {
     "code": 201,
     "message": "ingestion has been started",
@@ -152,7 +152,7 @@ value|string|Yes|Action param value
 
 > Example response
 
-```js
+```json
 {
   "code": 201,
   "message": "50 actions have been successfully ingested",
@@ -191,7 +191,7 @@ last_login_timestamp|Timestamp||YYYY-MM-DD HH:MM:SS in UTC
 
 > Example response
 
-```js
+```json
 {
   "code": 201,
   "message": "50 users have been successfully ingested",
@@ -226,7 +226,7 @@ platform|string||Platform user is using, e.g. Steam
 
 > Example response
 
-```js
+```json
 {
   "code": 201,
   "message": "50 purchases have been successfully ingested",
@@ -263,7 +263,7 @@ currency|string|Yes|Currency of the purchase, e.g. "gold","tokens","crowns"
 
 > Example response
 
-```js
+```json
 {
   "code": 201,
   "message": "50 virtual purchases have been successfully ingested",
@@ -295,7 +295,7 @@ level|int|Yes|New level after level-up
 
 > Example response
 
-```js
+```json
 {
   "code": 201,
   "message": "50 level-ups have been successfully ingested",
@@ -329,7 +329,7 @@ type|string||Item type, e.g. "weapon"
 
 > Example response
 
-```js
+```json
 {
   "code": 201,
   "message": "50 items have been successfully ingested",
@@ -363,7 +363,7 @@ interaction|string|Yes|"friend" or "party"
 
 > Example response
 
-```js
+```json
 {
   "code": 201,
   "message": "50 social dynamics have been successfully ingested",
@@ -401,7 +401,7 @@ https://api.12traits.com/v1/assessment/user/status?id=:userid
 
 > Response
 
-```js
+```json
 {
     "code": 200,
     "message": "",
@@ -434,6 +434,164 @@ Delete user data permanently. This endpoint can be used if a given user requeste
 
 <aside class="notice">
 Replace <b>$user_id</b> with exactly the same encrypted ID you used to send user to the survey or you used to send behavioural data for.
+</aside>
+
+# Get Segment / Persona User IDs
+
+> Request
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: application/json" \
+https://api.12traits.com/v1/segments/:segment_id/personas/:persona/users
+```
+
+> Response
+
+```json
+{
+    "code": 200,
+    "message": "",
+    "data": {
+        "ids": ["1001", "1002"]
+    }
+}
+```
+
+Get the list of Segment / Persona user IDs.
+
+<aside class="notice">
+Replace <b>:segment_id</b> with a valid ID of the segment which you can find on your dashboard. Use <b>default</b> for default segment.
+</aside>
+
+<aside class="notice">
+Replace <b>:persona</b> with a persona index (starting with 1). Use <b>all</b> to fetch all personas.
+</aside>
+
+# Get Segment / Persona traits
+
+> Request
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: application/json" \
+https://api.12traits.com/v1/segments/:segment_id/personas/:persona/traits
+```
+
+> Response
+
+```json
+{
+    "code": 200,
+    "message": "",
+    "data": {
+        "agreeableness": {
+            "Altruism": 64.83333587646484,
+            "Modesty": 48.00000762939453,
+            "Trust": 62.00000762939453
+        },
+        "communication": {
+            "Feeler": 54.00000762939453,
+            "Intuitor": 39,
+            "Sensor": 62.66666793823242,
+            "Thinker": 43.99999237060547
+        },
+        "competitiveness": {
+            "Avoidant": 44.33332824707031,
+            "Collaborative": 61.66666793823242,
+            "Competitive affectivity": 37,
+            "Dependent": 48.83332824707031,
+            "Dominant": 43.499996185302734,
+            "General competitiveness": 44.833343505859375,
+            "Independent": 58.666656494140625,
+            "Personal enhancement": 54.000003814697266
+        },
+        "conscientiousness": {
+            "Achievement striving": 60.48037338256836,
+            "Competence": 51.666664123535156,
+            "Self-discipline": 66.1666488647461
+        },
+        "coreMotivations": {
+            "Autonomy": 50.83333206176758,
+            "Mastery": 67.1666488647461,
+            "Purpose": 60.33332824707031
+        },
+        "culture": {
+            "Individualism": 58.00001525878906,
+            "Indulgence": 51.99998474121094,
+            "Long term orientation": 58.66665267944336,
+            "Masculinity": 45.666664123535156,
+            "Power distance": 53.50000762939453,
+            "Uncertainty avoidance": 57.33333969116211
+        },
+        "extraversion": {
+            "Activity": 52.33333206176758,
+            "Assertiveness": 52.499996185302734,
+            "Warmth": 48.666664123535156
+        },
+        "motivations": {
+            "Compensatory effort": 63.666664123535156,
+            "Competitiveness": 37,
+            "Confidence in success": 64.33332824707031,
+            "Difficult tasks": 58.16666030883789,
+            "Dominance": 59.50001525878906,
+            "Eagerness to learn": 66.33333587646484,
+            "Engagement": 55.16666030883789,
+            "Fearlessness": 61.66666030883789,
+            "Flexibility": 41.166656494140625,
+            "Flow": 75.66666412353516,
+            "Goal setting": 46.666664123535156,
+            "Independence": 58.999996185302734,
+            "Internality": 57.833335876464844,
+            "Persistence": 70,
+            "Pride in productivity": 77.99999237060547,
+            "Self-control": 72.00001525878906,
+            "Status orientation": 62.00000762939453
+        },
+        "neuroticism": {
+            "Anxiety": 56.16666793823242,
+            "Impulsiveness": 39.33333206176758,
+            "Vulnerability": 38.5
+        },
+        "openness": {
+            "Actions": 41.166656494140625,
+            "Empathy": 62.16666793823242,
+            "Fantasy": 56.999961853027344
+        },
+        "personality": {
+            "Agreeableness": 58.499996185302734,
+            "Conscientiousness": 59.000003814697266,
+            "Extraversion": 51.83332443237305,
+            "Neuroticism": 45.000003814697266,
+            "Openness": 51
+        },
+        "wellBeing": {
+            "Autonomy": 50.83333206176758,
+            "Bounded reciprocity": 61,
+            "Grit": 64.33332824707031,
+            "Mastery": 67.1666488647461,
+            "Physical activity level": 50.16667175292969,
+            "Physical well-being": 45.16667175292969,
+            "Psychological well-being": 56.16666793823242,
+            "Purpose": 60.33332824707031,
+            "Resilience": 62.83333969116211,
+            "Sleep": 40.16666030883789,
+            "Social well-being": 58.999996185302734
+        }
+    }
+}
+```
+
+Get main aggregated Persona traits split by categories.
+
+<aside class="notice">
+Replace <b>:segment_id</b> with a valid ID of the segment which you can find on your dashboard. Use <b>default</b> for default segment.
+</aside>
+
+<aside class="notice">
+Replace <b>:persona</b> with a persona index (starting with 1). Use <b>all</b> to fetch all personas.
 </aside>
 
 # Behavioural Data Integration
