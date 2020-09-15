@@ -444,7 +444,7 @@ Replace <b>$user_id</b> with exactly the same encrypted ID you used to send user
 curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
-https://api.12traits.com/v1/segments/:segment_id/personas/:persona/users
+https://api.12traits.com/v1/segments/:segment_id/personas/:persona/user-ids
 ```
 
 > Response
@@ -462,14 +462,14 @@ https://api.12traits.com/v1/segments/:segment_id/personas/:persona/users
 Get the list of Segment / Persona user IDs.
 
 <aside class="notice">
-Replace <b>:segment_id</b> with a valid ID of the segment which you can find on your dashboard. Use <b>default</b> for default segment.
+Replace <b>:segment_id</b> with a valid ID of the segment which you can find in your dashboard. Use <b>default</b> for default segment.
 </aside>
 
 <aside class="notice">
 Replace <b>:persona</b> with a persona index (starting with 1). Use <b>all</b> to fetch all personas.
 </aside>
 
-# Get Segment / Persona traits
+# Get Segment / Persona Traits
 
 > Request
 
@@ -584,10 +584,10 @@ https://api.12traits.com/v1/segments/:segment_id/personas/:persona/traits
 }
 ```
 
-Get main aggregated Persona traits split by categories.
+Get main aggregated Persona traits split by category.
 
 <aside class="notice">
-Replace <b>:segment_id</b> with a valid ID of the segment which you can find on your dashboard. Use <b>default</b> for default segment.
+Replace <b>:segment_id</b> with a valid ID of the segment which you can find in your dashboard. Use <b>default</b> for default segment.
 </aside>
 
 <aside class="notice">
