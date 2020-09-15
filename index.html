@@ -323,6 +323,15 @@
             <a href="#get-assessment-response-status" class="toc-h1 toc-link" data-title="Get Assessment Response Status">Get Assessment Response Status</a>
           </li>
           <li>
+            <a href="#remove-user-data" class="toc-h1 toc-link" data-title="Remove User Data">Remove User Data</a>
+          </li>
+          <li>
+            <a href="#get-segment-persona-user-ids" class="toc-h1 toc-link" data-title="Get Segment / Persona User IDs">Get Segment / Persona User IDs</a>
+          </li>
+          <li>
+            <a href="#get-segment-persona-traits" class="toc-h1 toc-link" data-title="Get Segment / Persona traits">Get Segment / Persona traits</a>
+          </li>
+          <li>
             <a href="#behavioural-data-integration" class="toc-h1 toc-link" data-title="Behavioural Data Integration">Behavioural Data Integration</a>
               <ul class="toc-list-h2">
                   <li>
@@ -427,14 +436,14 @@ https://api.12traits.com/v1/survey-data/csv
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-    <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-    <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"ingestion has been started"</span><span class="p">,</span>
-    <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"estimated_time_to_complete"</span><span class="p">:</span> <span class="mi">125</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ingestion has been started"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"estimated_time_to_complete"</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>You can send any custom data from your own surveys by uploading a CSV file in the <a href="https://storage.googleapis.com/12traits/12traits_custom_data_template.csv">following format</a>.</p>
 <h1 id='push-kpis-as-csv'>Push KPIs as CSV</h1>
 <blockquote>
@@ -449,14 +458,14 @@ https://api.12traits.com/v1/kpis/csv
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-    <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-    <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"ingestion has been started"</span><span class="p">,</span>
-    <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"estimated_time_to_complete"</span><span class="p">:</span> <span class="mi">125</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ingestion has been started"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"estimated_time_to_complete"</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>You can combine daily KPIs for all users in a single CSV file and send it at once. The CSV file should follow the <a href="https://storage.googleapis.com/12traits/kpis_template.csv">following format</a>.</p>
 <h1 id='push-user-actions'>Push User Actions</h1>
 <p>Push user actions. This can be any set of actions that your app generates.</p>
@@ -535,12 +544,12 @@ https://api.12traits.com/v1/actions
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 actions have been successfully ingested"</span><span class="p">,</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
-<span class="p">}</span>
-</code></pre><h1 id='push-logins'>Push Logins</h1>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 actions have been successfully ingested"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='push-logins'>Push Logins</h1>
 <p>Push information when users log into the app.</p>
 
 <blockquote>
@@ -625,12 +634,12 @@ https://api.12traits.com/v1/logins
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 users have been successfully ingested"</span><span class="p">,</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
-<span class="p">}</span>
-</code></pre><h1 id='push-purchases'>Push Purchases</h1>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 users have been successfully ingested"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='push-purchases'>Push Purchases</h1>
 <p>Push information related to the real-money purchases made by each user.</p>
 
 <blockquote>
@@ -691,12 +700,12 @@ https://api.12traits.com/v1/purchases
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 purchases have been successfully ingested"</span><span class="p">,</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
-<span class="p">}</span>
-</code></pre><h1 id='push-virtual-purchases'>Push Virtual Purchases</h1>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 purchases have been successfully ingested"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='push-virtual-purchases'>Push Virtual Purchases</h1>
 <p>Push information related to in-app virtual currency purchases made by each user.</p>
 
 <p>Please note: If an item is bought by first converting real money to in-app money, it should appear in both purchases and virtual purchases.</p>
@@ -759,12 +768,12 @@ https://api.12traits.com/v1/virtual-purchases
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 virtual purchases have been successfully ingested"</span><span class="p">,</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
-<span class="p">}</span>
-</code></pre><h1 id='push-level-ups'>Push Level Ups</h1>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 virtual purchases have been successfully ingested"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='push-level-ups'>Push Level Ups</h1>
 <p>Push level-ups for each user. Levels refer to app-content levels, i.e. levels that represent the progress of a user through the app. These can have different names (tiers/stages/progress/ranks, etc.), these should always be increasing.</p>
 
 <blockquote>
@@ -807,12 +816,12 @@ https://api.12traits.com/v1/level-ups
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 level-ups have been successfully ingested"</span><span class="p">,</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
-<span class="p">}</span>
-</code></pre><h1 id='push-items'>Push Items</h1>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 level-ups have been successfully ingested"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='push-items'>Push Items</h1>
 <p>Push detailed information about each item.</p>
 
 <blockquote>
@@ -867,12 +876,12 @@ https://api.12traits.com/v1/items
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 items have been successfully ingested"</span><span class="p">,</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
-<span class="p">}</span>
-</code></pre><h1 id='push-social-dynamics'>Push Social Dynamics</h1>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 items have been successfully ingested"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='push-social-dynamics'>Push Social Dynamics</h1>
 <p>Push information on the social dynamics of the user, i.e. interactions between users.</p>
 
 <blockquote>
@@ -927,12 +936,12 @@ https://api.12traits.com/v1/social-dynamics
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-  <span class="s2">"code"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"50 social dynamics have been successfully ingested"</span><span class="p">,</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="kc">null</span>
-<span class="p">}</span>
-</code></pre><h1 id='playfab-webhook-integration'>PlayFab Webhook Integration</h1>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 social dynamics have been successfully ingested"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='playfab-webhook-integration'>PlayFab Webhook Integration</h1>
 <p>If you are using PlayFab you are able to integrate it with 12traits by using <a href="https://api.playfab.com/docs/tutorials/landing-analytics/webhooks">PlayFab Webhooks</a>. You can simply configure PlayFab to send all events to 12traits by using this endpoint.</p>
 
 <blockquote>
@@ -958,19 +967,184 @@ https://api.12traits.com/v1/assessment/user/status?id<span class="o">=</span>:us
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="p">{</span>
-    <span class="s2">"code"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-    <span class="s2">"message"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"completed"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="s2">"completed_at"</span><span class="p">:</span> <span class="mi">1585806949</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585806949</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>This endpoint allows you to check if user has completed survey or not.</p>
 
 <aside class="notice">
 Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
+</aside>
+<h1 id='remove-user-data'>Remove User Data</h1>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
+-H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-d <span class="s1">'{ "id": "$user_id" }'</span> <span class="se">\</span>
+https://api.12traits.com/v1/user-data
+</code></pre>
+<p>Delete user data permanently. This endpoint can be used if a given user requested data deletion.</p>
+
+<aside class="notice">
+Replace <b>$user_id</b> with exactly the same encrypted ID you used to send user to the survey or you used to send behavioural data for.
+</aside>
+<h1 id='get-segment-persona-user-ids'>Get Segment / Persona User IDs</h1>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
+-H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+https://api.12traits.com/v1/segments/:segment_id/personas/:persona/users
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get the list of Segment / Persona user IDs.</p>
+
+<aside class="notice">
+Replace <b>:segment_id</b> with a valid ID of the segment which you can find on your dashboard. Use <b>default</b> for default segment.
+</aside>
+
+<aside class="notice">
+Replace <b>:persona</b> with a persona index (starting with 1). Use <b>all</b> to fetch all personas.
+</aside>
+<h1 id='get-segment-persona-traits'>Get Segment / Persona traits</h1>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
+-H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+https://api.12traits.com/v1/segments/:segment_id/personas/:persona/traits
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"agreeableness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Altruism"</span><span class="p">:</span><span class="w"> </span><span class="mf">64.83333587646484</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Modesty"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.00000762939453</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Trust"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.00000762939453</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"communication"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Feeler"</span><span class="p">:</span><span class="w"> </span><span class="mf">54.00000762939453</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Intuitor"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Sensor"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.66666793823242</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Thinker"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.99999237060547</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"competitiveness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Avoidant"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.33332824707031</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Collaborative"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.66666793823242</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Competitive affectivity"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Dependent"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.83332824707031</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Dominant"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.499996185302734</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"General competitiveness"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.833343505859375</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Independent"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.666656494140625</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Personal enhancement"</span><span class="p">:</span><span class="w"> </span><span class="mf">54.000003814697266</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"conscientiousness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Achievement striving"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.48037338256836</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Competence"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.666664123535156</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Self-discipline"</span><span class="p">:</span><span class="w"> </span><span class="mf">66.1666488647461</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"coreMotivations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Autonomy"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.83333206176758</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Mastery"</span><span class="p">:</span><span class="w"> </span><span class="mf">67.1666488647461</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Purpose"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.33332824707031</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"culture"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Individualism"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.00001525878906</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Indulgence"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.99998474121094</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Long term orientation"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.66665267944336</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Masculinity"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.666664123535156</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Power distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.50000762939453</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Uncertainty avoidance"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.33333969116211</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"extraversion"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Activity"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.33333206176758</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Assertiveness"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.499996185302734</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Warmth"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.666664123535156</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"motivations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Compensatory effort"</span><span class="p">:</span><span class="w"> </span><span class="mf">63.666664123535156</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Competitiveness"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Confidence in success"</span><span class="p">:</span><span class="w"> </span><span class="mf">64.33332824707031</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Difficult tasks"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.16666030883789</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Dominance"</span><span class="p">:</span><span class="w"> </span><span class="mf">59.50001525878906</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Eagerness to learn"</span><span class="p">:</span><span class="w"> </span><span class="mf">66.33333587646484</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Engagement"</span><span class="p">:</span><span class="w"> </span><span class="mf">55.16666030883789</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fearlessness"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.66666030883789</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Flexibility"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.166656494140625</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Flow"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.66666412353516</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Goal setting"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.666664123535156</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Independence"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.999996185302734</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Internality"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.833335876464844</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Persistence"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Pride in productivity"</span><span class="p">:</span><span class="w"> </span><span class="mf">77.99999237060547</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Self-control"</span><span class="p">:</span><span class="w"> </span><span class="mf">72.00001525878906</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Status orientation"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.00000762939453</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"neuroticism"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Anxiety"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.16666793823242</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Impulsiveness"</span><span class="p">:</span><span class="w"> </span><span class="mf">39.33333206176758</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Vulnerability"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.5</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"openness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Actions"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.166656494140625</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Empathy"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.16666793823242</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fantasy"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.999961853027344</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"personality"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Agreeableness"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.499996185302734</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Conscientiousness"</span><span class="p">:</span><span class="w"> </span><span class="mf">59.000003814697266</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Extraversion"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.83332443237305</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Neuroticism"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.000003814697266</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Openness"</span><span class="p">:</span><span class="w"> </span><span class="mi">51</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"wellBeing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Autonomy"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.83333206176758</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Bounded reciprocity"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Grit"</span><span class="p">:</span><span class="w"> </span><span class="mf">64.33332824707031</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Mastery"</span><span class="p">:</span><span class="w"> </span><span class="mf">67.1666488647461</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Physical activity level"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.16667175292969</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Physical well-being"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.16667175292969</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Psychological well-being"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.16666793823242</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Purpose"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.33332824707031</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Resilience"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.83333969116211</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Sleep"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.16666030883789</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Social well-being"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.999996185302734</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get main aggregated Persona traits split by categories.</p>
+
+<aside class="notice">
+Replace <b>:segment_id</b> with a valid ID of the segment which you can find on your dashboard. Use <b>default</b> for default segment.
+</aside>
+
+<aside class="notice">
+Replace <b>:persona</b> with a persona index (starting with 1). Use <b>all</b> to fetch all personas.
 </aside>
 <h1 id='behavioural-data-integration'>Behavioural Data Integration</h1>
 <p>In order to support larger data volumes, 12traits provides support for cloud-based object storage technologies. These solutions are optimized, cost-effective, and secure ways of storing and sharing arbitrarily large datasets (Big Data).</p>
