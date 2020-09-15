@@ -418,6 +418,24 @@ This endpoint allows you to check if user has completed survey or not.
 Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
 </aside>
 
+# Remove User Data
+
+> Request
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: application/json" \
+-d '{ "id": "$user_id" }' \
+https://api.12traits.com/v1/user-data
+```
+
+Delete user data permanently. This endpoint can be used if a given user requested data deletion.
+
+<aside class="notice">
+Replace <b>$user_id</b> with exactly the same encrypted ID you used to send user to the survey or you used to send behavioural data for.
+</aside>
+
 # Behavioural Data Integration
 
 In order to support larger data volumes, 12traits provides support for cloud-based object storage technologies. These solutions are optimized, cost-effective, and secure ways of storing and sharing arbitrarily large datasets (Big Data).
