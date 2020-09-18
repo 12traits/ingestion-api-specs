@@ -441,7 +441,7 @@ Replace <b>$user_id</b> with exactly the same encrypted ID you used to send user
 > Request
 
 ```shell
-curl -XPOST \
+curl -XGET \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 https://api.12traits.com/v1/segments/:segment_id/personas/:persona/user-ids
@@ -474,7 +474,7 @@ Replace <b>:persona</b> with a persona index (starting with 1). Use <b>all</b> t
 > Request
 
 ```shell
-curl -XPOST \
+curl -XGET \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 https://api.12traits.com/v1/segments/:segment_id/personas/:persona/traits
