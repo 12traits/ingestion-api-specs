@@ -1161,7 +1161,22 @@ Replace <b>:persona</b> with a persona index (starting with 1). Use <b>all</b> t
 <li>Parquet</li>
 </ul>
 <h2 id='integration-steps'>Integration steps</h2><h3 id='configure-access'>Configure access</h3>
-<p>Store your files separated by their category in the cloud object storage of your choice. Please include separate root directories for the various data types: <code>purchases</code>, <code>logins</code>, <code>actions</code>, <code>kpis</code>, <code>virtual_purchases</code>, <code>level_ups</code>, <code>items</code>, and <code>social_dynamics</code>. Directories can have any number of subfolders, for example <code>purchases/date=16000000000/load_id=fgdhb4gwv34t/purchases.csv</code> (Hive-partitioned directory structure). If using a flat directory structure (files right in the root directories), please include a timestamp or some other time-based UUID in the filenames. For example, <code>purchases/purchases_1600089751.csv</code>, <code>purchases/purchases_1600089777.csv</code>, etc.</p>
+<p>Store your files separated by their category in the cloud object storage of your choice.</p>
+
+<p>Bucket structure:</p>
+
+<ul>
+<li>Please include separate root directories for the various data types: <code>purchases</code>, <code>logins</code>, <code>actions</code>, <code>kpis</code>, <code>virtual_purchases</code>, <code>level_ups</code>, <code>items</code>, and <code>social_dynamics</code>.</li>
+<li>Directories can have any number of subfolders, for example <code>purchases/date=16000000000/load_id=fgdhb4gwv34t/purchases.csv</code> (Hive-partitioned directory structure).</li>
+<li>If using a flat directory structure (files right in the root directories), please include a timestamp or some other time-based UUID in the filenames. For example, <code>purchases/purchases_1600089751.csv</code>, <code>purchases/purchases_1600089777.csv</code>, etc.</li>
+<li>Please indicate the file format for each filename:
+
+<ul>
+<li>Files with the prefix <code>.json</code> are assumed to be newline-delimited JSON files</li>
+<li>Files with the prefix <code>.csv</code> are assumed to be CSV files</li>
+<li>Files with the prefix <code>.parquet</code> are assumed to be Parquet files</li>
+</ul></li>
+</ul>
 
 <aside class="notice">
 Ensure that 12traits can access the storage.
