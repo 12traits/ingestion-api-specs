@@ -614,7 +614,17 @@ In order to support larger data volumes, 12traits provides support for cloud-bas
 
 ### Configure access
 
-Store your files separated by their category in the cloud object storage of your choice. Please include separate root directories for the various data types: `purchases`, `logins`, `actions`, `kpis`, `virtual_purchases`, `level_ups`, `items`, and `social_dynamics`. Directories can have any number of subfolders, for example `purchases/date=16000000000/load_id=fgdhb4gwv34t/purchases.csv` (Hive-partitioned directory structure). If using a flat directory structure (files right in the root directories), please include a timestamp or some other time-based UUID in the filenames. For example, `purchases/purchases_1600089751.csv`, `purchases/purchases_1600089777.csv`, etc.
+Store your files separated by their category in the cloud object storage of your choice.
+
+Bucket structure:
+
+- Please include separate root directories for the various data types: `purchases`, `logins`, `actions`, `kpis`, `virtual_purchases`, `level_ups`, `items`, and `social_dynamics`.
+- Directories can have any number of subfolders, for example `purchases/date=16000000000/load_id=fgdhb4gwv34t/purchases.csv` (Hive-partitioned directory structure).
+- If using a flat directory structure (files right in the root directories), please include a timestamp or some other time-based UUID in the filenames. For example, `purchases/purchases_1600089751.csv`, `purchases/purchases_1600089777.csv`, etc.
+- Please indicate the file format for each filename:
+  - Files with the prefix `.json` are assumed to be newline-delimited JSON files
+  - Files with the prefix `.csv` are assumed to be CSV files
+  - Files with the prefix `.parquet` are assumed to be Parquet files
 
 <aside class="notice">
 Ensure that 12traits can access the storage.
