@@ -608,7 +608,6 @@ In order to support larger data volumes, 12traits provides support for cloud-bas
 
 - [Newline delimited JSON](http://ndjson.org/) (Preferred by 12traits): The individual lines in the file (separated by `\n`) are valid JSON objects, but the complete file may not be
 - Comma-separated values (CSV)
-- Parquet
 
 ## Integration steps
 
@@ -624,7 +623,6 @@ Bucket structure:
 - Please indicate the file format for each filename:
   - Files with the prefix `.json` are assumed to be newline-delimited JSON files
   - Files with the prefix `.csv` are assumed to be CSV files
-  - Files with the prefix `.parquet` are assumed to be Parquet files
 
 <aside class="notice">
 Ensure that 12traits can access the storage.
