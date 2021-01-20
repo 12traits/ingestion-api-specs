@@ -15,24 +15,9 @@ search: true
 
 # Introduction
 
-Welcome to the 12traits Ingestion API!
+Welcome to the 12traits API!
 
 The 12traits API is a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API, which accepts and returns JSON-encoded data, and uses standard HTTP response codes, authentication, and verbs.
-
-# REST API Endpoints
-
-We value security, so only HTTPS is supported.
-
-## Production
-
-[https://api.12traits.com](https://api.12traits.com)
-
-## Sandbox
-
-[https://sandbox.api.12traits.com](https://sandbox.api.12traits.com)
-
-- Use the Sandbox endpoint during the implementation phase.
-- Switch to the Production endpoint once the testing is completed.
 
 # Authentication
 
@@ -62,7 +47,7 @@ curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/...
 
 ### 12traits API variables
 
-- **BASE_URL** - Production - https://api.12traits.com, or sandbox - https://sandbox.api.12traits.com
+- **BASE_URL** - https://api.12traits.com
 - **API_KEY** - Paste your own API Key here
 
 Now you are ready to test 12traits API endpoints from Postman!
