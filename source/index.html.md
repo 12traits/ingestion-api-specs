@@ -320,11 +320,11 @@ We expect only new changes to the data to be shared (incremental load pattern) i
 
 Expected folder: `actions/`
 
-Purpose: track arbitrary user actions. This data type provides a flexible structure to identify a wide variety of actions or activities that the user may take in the game. The differentiation between different actions (on top of setting their specific ID, name, and associated parameters) is completely up to you, but we advise you to keep the actions small, granular, and easy to associate with a specific player.
+Purpose: track arbitrary user actions. This data type provides a flexible structure to identify a wide variety of actions or activities that the user may take in the game. The differentiation between different actions (on top of setting their specific ID, name, and associated parameters) is completely up to you, but we advise you to keep the actions small, granular, and easy to associate with a specific user.
 
 Please provide a real-time, event-based collection of the data instead of aggregates if possible.
 
-> An action indicating a fight won by a player (with ID 1001) against an enemy player (with ID 5005).
+> An action indicating a fight won by a user (with ID 1001) against an enemy user (with ID 5005).
 
 ```json
 {
@@ -337,7 +337,7 @@ Please provide a real-time, event-based collection of the data instead of aggreg
 
 ```
 
-> An action indicating that a player (with ID 1001) chose to equip a new skin with ID 345344.
+> An action indicating that a user (with ID 1001) chose to equip a new skin with ID 345344.
 
 ```json
 {
@@ -349,7 +349,7 @@ Please provide a real-time, event-based collection of the data instead of aggreg
 }
 ```
 
-> An action indicating that the player with ID 1001 (fast-)traveled on the game’s map from Kingdom A (located on the map by the following 2D coordinates: X 12.3111 and Y 44.3111) to Kingdom B (X 33.4543 and Y 43.222).
+> An action indicating that the user with ID 1001 (fast-)traveled on the game’s map from Kingdom A (located on the map by the following 2D coordinates: X 12.3111 and Y 44.3111) to Kingdom B (X 33.4543 and Y 43.222).
 
 ```json
 {
@@ -380,7 +380,7 @@ Please provide a real-time, event-based collection of the data instead of aggreg
 }
 ```
 
-> An action indicating that player has died.
+> An action indicating that user has died.
 
 ```json
 {
@@ -657,7 +657,7 @@ Purpose: track information on the social dynamics of the user, i.e. interactions
 
 Expected folder: `kpis/`
 
-Purpose: track detailed KPI data associated with a particular player. Any time granularity is supported, but we encourage at least daily KPIs.
+Purpose: track detailed KPI data associated with a particular user. Any time granularity is supported, but we encourage at least daily KPIs.
 
 > KPIs example
 
