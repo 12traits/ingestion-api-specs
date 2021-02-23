@@ -42,7 +42,7 @@
 .highlight .cs {
   color: #75715e;
 }
-.highlight .c, .highlight .cd {
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
   color: #75715e;
 }
 .highlight .err {
@@ -126,7 +126,7 @@
 .highlight .s1 {
   color: #e6db74;
 }
-.highlight .s {
+.highlight .s, .highlight .sa, .highlight .dl {
   color: #e6db74;
 }
 .highlight .na {
@@ -141,41 +141,52 @@
 .highlight .ne {
   color: #a6e22e;
 }
-.highlight .nf {
+.highlight .nf, .highlight .fm {
   color: #a6e22e;
 }
 .highlight .vc {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .nn {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .nl {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .ni {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .bp {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .vg {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .vi {
   color: #ffffff;
+  background-color: #272822;
 }
-.highlight .nv {
+.highlight .nv, .highlight .vm {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .w {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .n, .highlight .py, .highlight .nx {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .ow {
   color: #f92672;
@@ -205,11 +216,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar.png" alt="" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/logo.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
@@ -305,27 +316,27 @@
 <blockquote>
 <p>Send your API Key with the request.</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -XPOST -H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com/v1/...
-</code></pre><h1 id='get-assessment-response-status'>Get Assessment Response Status</h1>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-XPOST</span> <span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com/v1/...
+</code></pre></div><h1 id='get-assessment-response-status'>Get Assessment Response Status</h1>
 <blockquote>
 <p>Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -XGET <span class="se">\</span>
--H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-XGET</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
 https://api.12traits.com/v1/assessment/user/status?id<span class="o">=</span>:userid
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585806949</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585806949</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>This endpoint allows you to check if user has completed survey or not.</p>
 
 <aside class="notice">
@@ -335,12 +346,12 @@ Replace <b>:userid</b> with exactly the same encrypted ID you used to send user 
 <blockquote>
 <p>Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -XPOST <span class="se">\</span>
--H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--d <span class="s1">'{ "id": "$user_id" }'</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-XPOST</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+<span class="nt">-d</span> <span class="s1">'{ "id": "$user_id" }'</span> <span class="se">\</span>
 https://api.12traits.com/v1/user-data
-</code></pre>
+</code></pre></div>
 <p>Delete user data permanently. This endpoint can be used if a given user requested data deletion.</p>
 
 <aside class="notice">
@@ -350,22 +361,22 @@ Replace <b>$user_id</b> with exactly the same encrypted ID you used to send user
 <blockquote>
 <p>Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -XGET <span class="se">\</span>
--H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-XGET</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 https://api.12traits.com/v1/segments/:segment_id/personas/:persona/user-ids
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>Get the list of Segment / Persona user IDs.</p>
 
 <aside class="notice">
@@ -379,114 +390,114 @@ Replace <b>:persona</b> with a persona index (starting with 1). Use <b>all</b> t
 <blockquote>
 <p>Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -XGET <span class="se">\</span>
--H <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-XGET</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 https://api.12traits.com/v1/segments/:segment_id/personas/:persona/traits
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"agreeableness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Altruism"</span><span class="p">:</span><span class="w"> </span><span class="mf">64.83333587646484</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Modesty"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.00000762939453</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Trust"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.00000762939453</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"agreeableness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Altruism"</span><span class="p">:</span><span class="w"> </span><span class="mf">64.83333587646484</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Modesty"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.00000762939453</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Trust"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.00000762939453</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"communication"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Feeler"</span><span class="p">:</span><span class="w"> </span><span class="mf">54.00000762939453</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Intuitor"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Sensor"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.66666793823242</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Thinker"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.99999237060547</span><span class="w">
+        </span><span class="nl">"communication"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Feeler"</span><span class="p">:</span><span class="w"> </span><span class="mf">54.00000762939453</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Intuitor"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Sensor"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.66666793823242</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Thinker"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.99999237060547</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"competitiveness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Avoidant"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.33332824707031</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Collaborative"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.66666793823242</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Competitive affectivity"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Dependent"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.83332824707031</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Dominant"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.499996185302734</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"General competitiveness"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.833343505859375</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Independent"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.666656494140625</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Personal enhancement"</span><span class="p">:</span><span class="w"> </span><span class="mf">54.000003814697266</span><span class="w">
+        </span><span class="nl">"competitiveness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Avoidant"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.33332824707031</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Collaborative"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.66666793823242</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Competitive affectivity"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Dependent"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.83332824707031</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Dominant"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.499996185302734</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"General competitiveness"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.833343505859375</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Independent"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.666656494140625</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Personal enhancement"</span><span class="p">:</span><span class="w"> </span><span class="mf">54.000003814697266</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"conscientiousness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Achievement striving"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.48037338256836</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Competence"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.666664123535156</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Self-discipline"</span><span class="p">:</span><span class="w"> </span><span class="mf">66.1666488647461</span><span class="w">
+        </span><span class="nl">"conscientiousness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Achievement striving"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.48037338256836</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Competence"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.666664123535156</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Self-discipline"</span><span class="p">:</span><span class="w"> </span><span class="mf">66.1666488647461</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"coreMotivations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Autonomy"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.83333206176758</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Mastery"</span><span class="p">:</span><span class="w"> </span><span class="mf">67.1666488647461</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Purpose"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.33332824707031</span><span class="w">
+        </span><span class="nl">"coreMotivations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Autonomy"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.83333206176758</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Mastery"</span><span class="p">:</span><span class="w"> </span><span class="mf">67.1666488647461</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Purpose"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.33332824707031</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"culture"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Individualism"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.00001525878906</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Indulgence"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.99998474121094</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Long term orientation"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.66665267944336</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Masculinity"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.666664123535156</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Power distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.50000762939453</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Uncertainty avoidance"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.33333969116211</span><span class="w">
+        </span><span class="nl">"culture"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Individualism"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.00001525878906</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Indulgence"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.99998474121094</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Long term orientation"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.66665267944336</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Masculinity"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.666664123535156</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Power distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.50000762939453</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Uncertainty avoidance"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.33333969116211</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"extraversion"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Activity"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.33333206176758</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Assertiveness"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.499996185302734</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Warmth"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.666664123535156</span><span class="w">
+        </span><span class="nl">"extraversion"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Activity"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.33333206176758</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Assertiveness"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.499996185302734</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Warmth"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.666664123535156</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"motivations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Compensatory effort"</span><span class="p">:</span><span class="w"> </span><span class="mf">63.666664123535156</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Competitiveness"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Confidence in success"</span><span class="p">:</span><span class="w"> </span><span class="mf">64.33332824707031</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Difficult tasks"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.16666030883789</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Dominance"</span><span class="p">:</span><span class="w"> </span><span class="mf">59.50001525878906</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Eagerness to learn"</span><span class="p">:</span><span class="w"> </span><span class="mf">66.33333587646484</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Engagement"</span><span class="p">:</span><span class="w"> </span><span class="mf">55.16666030883789</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fearlessness"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.66666030883789</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Flexibility"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.166656494140625</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Flow"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.66666412353516</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Goal setting"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.666664123535156</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Independence"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.999996185302734</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Internality"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.833335876464844</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Persistence"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Pride in productivity"</span><span class="p">:</span><span class="w"> </span><span class="mf">77.99999237060547</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Self-control"</span><span class="p">:</span><span class="w"> </span><span class="mf">72.00001525878906</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Status orientation"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.00000762939453</span><span class="w">
+        </span><span class="nl">"motivations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Compensatory effort"</span><span class="p">:</span><span class="w"> </span><span class="mf">63.666664123535156</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Competitiveness"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Confidence in success"</span><span class="p">:</span><span class="w"> </span><span class="mf">64.33332824707031</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Difficult tasks"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.16666030883789</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Dominance"</span><span class="p">:</span><span class="w"> </span><span class="mf">59.50001525878906</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Eagerness to learn"</span><span class="p">:</span><span class="w"> </span><span class="mf">66.33333587646484</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Engagement"</span><span class="p">:</span><span class="w"> </span><span class="mf">55.16666030883789</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fearlessness"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.66666030883789</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Flexibility"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.166656494140625</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Flow"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.66666412353516</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Goal setting"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.666664123535156</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Independence"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.999996185302734</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Internality"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.833335876464844</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Persistence"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Pride in productivity"</span><span class="p">:</span><span class="w"> </span><span class="mf">77.99999237060547</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Self-control"</span><span class="p">:</span><span class="w"> </span><span class="mf">72.00001525878906</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Status orientation"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.00000762939453</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"neuroticism"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Anxiety"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.16666793823242</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Impulsiveness"</span><span class="p">:</span><span class="w"> </span><span class="mf">39.33333206176758</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Vulnerability"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.5</span><span class="w">
+        </span><span class="nl">"neuroticism"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Anxiety"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.16666793823242</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Impulsiveness"</span><span class="p">:</span><span class="w"> </span><span class="mf">39.33333206176758</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Vulnerability"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.5</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"openness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Actions"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.166656494140625</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Empathy"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.16666793823242</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fantasy"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.999961853027344</span><span class="w">
+        </span><span class="nl">"openness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Actions"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.166656494140625</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Empathy"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.16666793823242</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fantasy"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.999961853027344</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"personality"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Agreeableness"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.499996185302734</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Conscientiousness"</span><span class="p">:</span><span class="w"> </span><span class="mf">59.000003814697266</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Extraversion"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.83332443237305</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Neuroticism"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.000003814697266</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Openness"</span><span class="p">:</span><span class="w"> </span><span class="mi">51</span><span class="w">
+        </span><span class="nl">"personality"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Agreeableness"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.499996185302734</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Conscientiousness"</span><span class="p">:</span><span class="w"> </span><span class="mf">59.000003814697266</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Extraversion"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.83332443237305</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Neuroticism"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.000003814697266</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Openness"</span><span class="p">:</span><span class="w"> </span><span class="mi">51</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"wellBeing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Autonomy"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.83333206176758</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Bounded reciprocity"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Grit"</span><span class="p">:</span><span class="w"> </span><span class="mf">64.33332824707031</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Mastery"</span><span class="p">:</span><span class="w"> </span><span class="mf">67.1666488647461</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Physical activity level"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.16667175292969</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Physical well-being"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.16667175292969</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Psychological well-being"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.16666793823242</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Purpose"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.33332824707031</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Resilience"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.83333969116211</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Sleep"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.16666030883789</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Social well-being"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.999996185302734</span><span class="w">
+        </span><span class="nl">"wellBeing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Autonomy"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.83333206176758</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Bounded reciprocity"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Grit"</span><span class="p">:</span><span class="w"> </span><span class="mf">64.33332824707031</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Mastery"</span><span class="p">:</span><span class="w"> </span><span class="mf">67.1666488647461</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Physical activity level"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.16667175292969</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Physical well-being"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.16667175292969</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Psychological well-being"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.16666793823242</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Purpose"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.33332824707031</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Resilience"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.83333969116211</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Sleep"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.16666030883789</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Social well-being"</span><span class="p">:</span><span class="w"> </span><span class="mf">58.999996185302734</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>Get main aggregated Persona traits split by category.</p>
 
 <aside class="notice">
@@ -502,8 +513,8 @@ Replace <b>:persona</b> with a persona index (starting with 1). Use <b>all</b> t
 <blockquote>
 <p>Endpoint URL. Replace <strong>:api_key</strong> with your own API Key.</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>https://api.12traits.com/v1/playfab?api_key<span class="o">=</span>:api_key
-</code></pre><h3 id='how-to-configure-a-playfab-webhook'>How to configure a PlayFab webhook</h3>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>https://api.12traits.com/v1/playfab?api_key<span class="o">=</span>:api_key
+</code></pre></div><h3 id='how-to-configure-a-playfab-webhook'>How to configure a PlayFab webhook</h3>
 <ol>
 <li>Go to PlayFab Analytics</li>
 <li>Open &quot;Webhooks&quot; tab</li>
@@ -575,177 +586,177 @@ Ensure that 12traits can access the storage.
 <h2 id='user-actions'>User Actions</h2>
 <p>Expected folder: <code>actions/</code></p>
 
-<p>Purpose: track arbitrary user actions. This data type provides a flexible structure to identify a wide variety of actions or activities that the user may take in the game. The differentiation between different actions (on top of setting their specific ID, name, and associated parameters) is completely up to you, but we advise you to keep the actions small, granular, and easy to associate with a specific player.</p>
+<p>Purpose: track arbitrary user actions. This data type provides a flexible structure to identify a wide variety of actions or activities that the user may take in the game. The differentiation between different actions (on top of setting their specific ID, name, and associated parameters) is completely up to you, but we advise you to keep the actions small, granular, and easy to associate with a specific user.</p>
 
 <p>Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
 
 <blockquote>
-<p>An action indicating a fight won by a player (with ID 1001) against an enemy player (with ID 5005).</p>
+<p>An action indicating a fight won by a user (with ID 1001) against an enemy user (with ID 5005).</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_win"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5005"</span><span class="w"> </span><span class="p">}]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_win"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5005"</span><span class="w"> </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
-<p>An action indicating that a player (with ID 1001) chose to equip a new skin with ID 345344.</p>
+<p>An action indicating that a user (with ID 1001) chose to equip a new skin with ID 345344.</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4322"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_equipped"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345344"</span><span class="w"> </span><span class="p">}]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4322"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_equipped"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345344"</span><span class="w"> </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
-<p>An action indicating that the player with ID 1001 (fast-)traveled on the game’s map from Kingdom A (located on the map by the following 2D coordinates: X 12.3111 and Y 44.3111) to Kingdom B (X 33.4543 and Y 43.222).</p>
+<p>An action indicating that the user with ID 1001 (fast-)traveled on the game’s map from Kingdom A (located on the map by the following 2D coordinates: X 12.3111 and Y 44.3111) to Kingdom B (X 33.4543 and Y 43.222).</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6765"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fast_travel"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from_x"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.3111"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from_y"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44.3111"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to_x"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33.4543"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to_y"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43.222"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from_location_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kingdom_a"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to_location_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kingdom_b"</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6765"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fast_travel"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from_x"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.3111"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from_y"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44.3111"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to_x"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33.4543"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to_y"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43.222"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from_location_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kingdom_a"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to_location_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kingdom_b"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>An action indicating that the user has used a certain item (ID: 34454).</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3222"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_used"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34454"</span><span class="w"> </span><span class="p">}]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3222"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_used"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34454"</span><span class="w"> </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
-<p>An action indicating that player has died.</p>
+<p>An action indicating that user has died.</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3222"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_died"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"died_reason"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blunt-trauma"</span><span class="w"> </span><span class="p">}]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3222"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_died"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"died_reason"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blunt-trauma"</span><span class="w"> </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>These example demonstrate multiple actions captured during a sample PvP fight:</p>
 
 <p>User 1001 equipped a medieval knight armour skin</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3222"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_equipped"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"654"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medieval-knight-armor"</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3222"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_equipped"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"654"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skin_name"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medieval-knight-armor"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>User 1001 used a health potion that restored 100 health points</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:11:11"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_used"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"232"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"health-potion"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"potion_strength"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:11:11"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_used"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"232"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_name"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"health-potion"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"potion_strength"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>User 1001 started a fight against user 1033</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:30"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8000"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_started"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_health"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456354345"</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:30"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_started"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_health"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456354345"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>User 1033 used a weapon against user 1001</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:33"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"use_weapon"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"damage"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:33"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"use_weapon"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"damage"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>User 1001 suffered a large damage and died</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:35"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6661"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_died"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"died_reason"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blunt-trauma"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"killed_by_user"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:35"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6661"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_died"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"died_reason"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blunt-trauma"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"killed_by_user"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>User 1001 lost the fight</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:35"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8005"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_lost"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_health"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456354345"</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:35"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8005"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_lost"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_health"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456354345"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>User 1033 won the fight</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:35"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8006"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_won"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_health"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456354345"</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:12:35"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1033"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8006"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_won"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enemy_health"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fight_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456354345"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='logins'>Logins</h2>
+</span></code></pre></div><h2 id='logins'>Logins</h2>
 <p>Expected folder: <code>logins/</code></p>
 
 <p>Purpose: track user log ins and information about users.</p>
@@ -753,19 +764,19 @@ Ensure that 12traits can access the storage.
 <blockquote>
 <p>User logged in:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"clan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iPhone X"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en-US"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"register_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-14"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"last_login_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 11:10:06"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"clan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iPhone X"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en-US"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"register_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-14"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_login_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 11:10:06"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='purchases'>Purchases</h2>
+</span></code></pre></div><h2 id='purchases'>Purchases</h2>
 <p>Expected folder: <code>purchases/</code></p>
 
 <p>Track real-money purchases. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
@@ -773,15 +784,15 @@ Ensure that 12traits can access the storage.
 <blockquote>
 <p>User made in-app purchase:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Steam"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Steam"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='virtual-purchases'>Virtual Purchases</h2>
+</span></code></pre></div><h2 id='virtual-purchases'>Virtual Purchases</h2>
 <p>Expected folder: <code>virtual_purchases/</code></p>
 
 <p>Track virtual purchases. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
@@ -789,15 +800,15 @@ Ensure that 12traits can access the storage.
 <blockquote>
 <p>User made in-app virtual purchase:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"virtual_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gold"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"virtual_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gold"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='level-ups'>Level Ups</h2>
+</span></code></pre></div><h2 id='level-ups'>Level Ups</h2>
 <p>Expected folder: <code>level_ups/</code></p>
 
 <p>Purpose: track level-ups for each user. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
@@ -805,8 +816,8 @@ Ensure that 12traits can access the storage.
 <blockquote>
 <p>Initial user level:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='items'>Items</h2>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w"> </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w"> </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='items'>Items</h2>
 <p>Expected folder: <code>items/</code></p>
 
 <p>Purpose: track detailed information about each item.</p>
@@ -814,14 +825,14 @@ Ensure that 12traits can access the storage.
 <blockquote>
 <p>Weapon example:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Axe"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"weapon"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Axe"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"weapon"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='social-dynamics'>Social Dynamics</h2>
+</span></code></pre></div><h2 id='social-dynamics'>Social Dynamics</h2>
 <p>Expected folder: <code>social_dynamics/</code></p>
 
 <p>Purpose: track information on the social dynamics of the user, i.e. interactions between users. Please provide a real-time, event-based collection of the data instead of aggregates if possible.</p>
@@ -829,79 +840,79 @@ Ensure that 12traits can access the storage.
 <blockquote>
 <p>User sent a message to another user:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message_sent"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message_body"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hey! How are you? Long time no see!"</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message_sent"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message_body"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hey! How are you? Long time no see!"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>User befriended another user:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added_as_friend"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added_as_friend"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>User removed another user from their friends list:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unfriend"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unfriend"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <blockquote>
 <p>User gifted an item to another user:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gift_sent"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54645"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thanks for helping out the another day!"</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 15:04:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"target_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gift_sent"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"interaction_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item_id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54645"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thanks for helping out the another day!"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='kpis'>KPIs</h2>
+</span></code></pre></div><h2 id='kpis'>KPIs</h2>
 <p>Expected folder: <code>kpis/</code></p>
 
-<p>Purpose: track detailed KPI data associated with a particular player. Any time granularity is supported, but we encourage at least daily KPIs.</p>
+<p>Purpose: track detailed KPI data associated with a particular user. Any time granularity is supported, but we encourage at least daily KPIs.</p>
 
 <blockquote>
 <p>KPIs example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-12 00:00:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"register_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-18"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"churn_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"kpi_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_count"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-12 00:00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"register_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-18"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"churn_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"kpi_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_count"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='errors'>Errors</h1>
+</span></code></pre></div><h1 id='errors'>Errors</h1>
 <blockquote>
 <p>Error Response Format</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"code"</span>: 400,
     <span class="s2">"message"</span>: <span class="s2">"bad request"</span>,
     <span class="s2">"errors"</span>: <span class="o">{</span>
         <span class="s2">"price"</span>: <span class="s2">"price must have a positive float value"</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre>
+</code></pre></div>
 <p>12traits API uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the <code>2xx</code> range indicate success. Codes in the <code>4xx</code> range indicate an error that failed given the information provided. Codes in the <code>5xx</code> range indicate an error with 12traits servers (these are rare).</p>
 
 <p>The 12traits Ingestion API uses the following error codes:</p>
