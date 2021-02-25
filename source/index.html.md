@@ -69,7 +69,7 @@ curl -XPOST \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 -d '{ "id": "$user_id" }' \
-https://api.12traits.com/v1/user-data
+https://api.12traits.com/v1/userData
 ```
 
 Delete user data permanently. This endpoint can be used if a given user requested data deletion.
