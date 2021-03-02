@@ -65,7 +65,7 @@ Replace <b>:userid</b> with exactly the same encrypted ID you used to send user 
 > Request
 
 ```shell
-curl -XPOST \
+curl -XDELETE \
 -H "Authorization: Bearer <API_KEY>" \
 -H "Content-Type: application/json" \
 -d '{ "id": "$user_id" }' \
