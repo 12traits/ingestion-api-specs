@@ -30,7 +30,7 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
 ```shell
 curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/...
 ```
-# Register User for Survey
+# [NEW] Register User for Survey
 
 > Request
 
