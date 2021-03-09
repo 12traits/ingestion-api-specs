@@ -30,6 +30,33 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
 ```shell
 curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/...
 ```
+# [NEW] Register User for Survey
+
+> Request
+
+```shell
+curl -XPOST \
+-H "Authorization: Bearer <API_KEY>" \
+-H "Content-Type: application/json" \
+-d '{ "id": "$user_id" }' \
+https://api.12traits.com/v1/assessment/user/register
+```
+
+> Response
+
+```json
+{
+    "code": 200,
+    "message": "",
+    "data": {
+        "expires_at": 1615369460,
+        "token": "df430aa33c765e5bff12aa646560fa764310317a",
+        "status": "requested"
+    }
+}
+```
+
+This endpoint let you register users who can access the survey, the token provided should be used to pass as `?playerid=` into the survey link. 
 
 # Get Assessment Response Status
 
@@ -60,6 +87,45 @@ This endpoint allows you to check if user has completed survey or not.
 Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
 </aside>
 
+# Get Survey Details
+
+> Request
+
+```shell
+curl -XGET \
+-H "Authorization: Bearer <API_KEY>" \
+https://api.12traits.com/v1/assessment
+```
+
+> Response
+
+```json
+{
+    "code": 200,
+    "message": "survey details",
+    "data": {
+        "result_ok": true,
+        "data": {
+            "status": "Launched",
+            "created_on": "2021-03-05 04:43:56",
+            "modified_on": "2021-03-08 15:44:54",
+            "completed_at": 0,
+            "type": "Standard Survey",
+            "title": "12traits Survey",
+            "internal_title": "12traits Survey",
+            "statistics": {
+                "Partial": 2,
+                "Disqualified": 1,
+                "Complete": 7
+            }
+        }
+    }
+}
+```
+
+This endpoint allows you to check the Survey status, it can be either "Launched", "Closed", "Deleted".
+
+
 # Remove User Data
 
 > Request
@@ -75,7 +141,7 @@ https://api.12traits.com/v1/userData
 Delete user data permanently. This endpoint can be used if a given user requested data deletion.
 
 <aside class="notice">
-Replace <b>$user_id</b> with exactly the same encrypted ID you used to send user to the survey or you used to send behavioural data for.
+Replace <b>$user_id</b> with exactly the same ID you used to send user to the survey or you used to send behavioural data for.
 </aside>
 
 # Get Segment / Persona User IDs
