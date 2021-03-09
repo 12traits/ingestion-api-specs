@@ -1,5 +1,5 @@
 steps:
-    - name: ruby:2.3.3
+    - name: ruby:3.0.0
       entrypoint: 'bash'
       args:
         - '-c'
