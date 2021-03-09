@@ -58,10 +58,6 @@ https://api.12traits.com/v1/assessment/user/register
 
 This endpoint let you register users who can access the survey, the token provided should be used to pass as `?playerid=` into the survey link. 
 
-<aside class="notice">
-Replace <b>$user_id</b> with exactly the same ID you used to send user to the survey or you used to send behavioural data for.
-</aside>
-
 # Get Assessment Response Status
 
 > Request
