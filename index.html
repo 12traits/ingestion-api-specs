@@ -236,7 +236,13 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
+            <a href="#new-register-user-for-survey" class="toc-h1 toc-link" data-title="[NEW] Register User for Survey">[NEW] Register User for Survey</a>
+          </li>
+          <li>
             <a href="#get-assessment-response-status" class="toc-h1 toc-link" data-title="Get Assessment Response Status">Get Assessment Response Status</a>
+          </li>
+          <li>
+            <a href="#get-survey-details" class="toc-h1 toc-link" data-title="Get Survey Details">Get Survey Details</a>
           </li>
           <li>
             <a href="#remove-user-data" class="toc-h1 toc-link" data-title="Remove User Data">Remove User Data</a>
@@ -317,7 +323,31 @@
 <p>Send your API Key with the request.</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-XPOST</span> <span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> https://api.12traits.com/v1/...
-</code></pre></div><h1 id='get-assessment-response-status'>Get Assessment Response Status</h1>
+</code></pre></div><h1 id='new-register-user-for-survey'>[NEW] Register User for Survey</h1>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-XPOST</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+<span class="nt">-d</span> <span class="s1">'{ "id": "$user_id" }'</span> <span class="se">\</span>
+https://api.12traits.com/v1/assessment/user/register
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"expires_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1615369460</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"df430aa33c765e5bff12aa646560fa764310317a"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requested"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint let you register users who can access the survey, the token provided should be used to pass as <code>?playerid=</code> into the survey link. </p>
+<h1 id='get-assessment-response-status'>Get Assessment Response Status</h1>
 <blockquote>
 <p>Request</p>
 </blockquote>
@@ -342,6 +372,40 @@ https://api.12traits.com/v1/assessment/user/status?id<span class="o">=</span>:us
 <aside class="notice">
 Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
 </aside>
+<h1 id='get-survey-details'>Get Survey Details</h1>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-XGET</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+https://api.12traits.com/v1/assessment
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey details"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"result_ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Launched"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-05 04:43:56"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"modified_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-08 15:44:54"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standard Survey"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12traits Survey"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"internal_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12traits Survey"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"statistics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Partial"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Disqualified"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Complete"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint allows you to check the Survey status, it can be either &quot;Launched&quot;, &quot;Closed&quot;, &quot;Deleted&quot;.</p>
 <h1 id='remove-user-data'>Remove User Data</h1>
 <blockquote>
 <p>Request</p>
@@ -355,7 +419,7 @@ https://api.12traits.com/v1/userData
 <p>Delete user data permanently. This endpoint can be used if a given user requested data deletion.</p>
 
 <aside class="notice">
-Replace <b>$user_id</b> with exactly the same encrypted ID you used to send user to the survey or you used to send behavioural data for.
+Replace <b>$user_id</b> with exactly the same ID you used to send user to the survey or you used to send behavioural data for.
 </aside>
 <h1 id='get-segment-persona-user-ids'>Get Segment / Persona User IDs</h1>
 <blockquote>
