@@ -14,6 +14,12 @@ steps:
           && gsutil -m cp -r ./build/* gs://$$BUCKET/docs-api/ || echo "skipping docker staging deployment"
       env:
         - 'BUCKET=12traits-cdn-staging'
+    - name: gcr.io/cloud-builders/gcloud
+      entrypoint: 'bash'
+      args:
+      - '-c'
+      - |
+        [[ "$BRANCH_NAME" == "develop" ]] && gcloud compute url-maps invalidate-cdn-cache lb-cdn  --path '/docs-api/*' --async --host cdn.staging.12traits.com || echo "skipping staging cache invalidation"
     - name: ruby:2.5.0
       entrypoint: 'bash'
       args:
