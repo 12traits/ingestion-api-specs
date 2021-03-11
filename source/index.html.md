@@ -91,7 +91,7 @@ https://api.12traits.com/v1/assessment/users?page=1
 }
 ```
 
-Here you can get list of users that completed the survey while it's live. You can pass a ?page=x parameter, and each page contains maximum 500 users. This endpoint has a cache of one hour. 
+Here you can get the list of users that completed the survey. You can use a ?page=x parameter, and each page contains maximum 500 users. This endpoint has a cache of one hour. 
 
 
 
