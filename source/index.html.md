@@ -58,7 +58,7 @@ https://api.12traits.com/v1/assessment/user/register
 
 This endpoint let you register users who can access the survey, the token provided should be used to pass as `?playerid=` into the survey link. 
 
-# Get Assessment users list
+# [NEW] Get Assessment Users List
 
 > Request
 
@@ -124,7 +124,7 @@ This endpoint allows you to check if user has completed survey or not.
 Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
 </aside>
 
-# Get Survey Details
+# [NEW] Get Survey Details
 
 > Request
 
