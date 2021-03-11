@@ -239,10 +239,13 @@
             <a href="#new-register-user-for-survey" class="toc-h1 toc-link" data-title="[NEW] Register User for Survey">[NEW] Register User for Survey</a>
           </li>
           <li>
+            <a href="#new-get-assessment-users-list" class="toc-h1 toc-link" data-title="[NEW] Get Assessment Users List">[NEW] Get Assessment Users List</a>
+          </li>
+          <li>
             <a href="#get-assessment-response-status" class="toc-h1 toc-link" data-title="Get Assessment Response Status">Get Assessment Response Status</a>
           </li>
           <li>
-            <a href="#get-survey-details" class="toc-h1 toc-link" data-title="Get Survey Details">Get Survey Details</a>
+            <a href="#new-get-survey-details" class="toc-h1 toc-link" data-title="[NEW] Get Survey Details">[NEW] Get Survey Details</a>
           </li>
           <li>
             <a href="#remove-user-data" class="toc-h1 toc-link" data-title="Remove User Data">Remove User Data</a>
@@ -347,6 +350,49 @@ https://api.12traits.com/v1/assessment/user/register
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint let you register users who can access the survey, the token provided should be used to pass as <code>?playerid=</code> into the survey link. </p>
+<h1 id='new-get-assessment-users-list'>[NEW] Get Assessment Users List</h1>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-XGET</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;API_KEY&gt;"</span> <span class="se">\</span>
+https://api.12traits.com/v1/assessment/users?page<span class="o">=</span>1
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">":user_id1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-25 03:51:11 EST"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">":user_id2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-02 14:05:22 EST"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">":user_id3"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-02 15:44:17 EST"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">":user_id4"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-02 22:51:59 EST"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">":user_id5"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-03 00:50:16 EST"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Here you can get the list of users that completed the survey. You can use a ?page=x parameter, and each page contains maximum 500 users. This endpoint has a cache of one hour. </p>
 <h1 id='get-assessment-response-status'>Get Assessment Response Status</h1>
 <blockquote>
 <p>Request</p>
@@ -372,7 +418,7 @@ https://api.12traits.com/v1/assessment/user/status?id<span class="o">=</span>:us
 <aside class="notice">
 Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
 </aside>
-<h1 id='get-survey-details'>Get Survey Details</h1>
+<h1 id='new-get-survey-details'>[NEW] Get Survey Details</h1>
 <blockquote>
 <p>Request</p>
 </blockquote>
