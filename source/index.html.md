@@ -76,17 +76,29 @@ https://api.12traits.com/v1/assessment/users?page=1
     "message": "",
     "data": {
         "current_page": 1,
-        "total_pages": 1,
-        "users": {
-            ":user1": "2021-03-03 20:19:19 EST",
-            ":user2": "2021-03-07 00:45:30 EST",
-            ":user3": "2021-03-04 00:54:34 EST",
-            ":user4": "2021-03-10 11:38:48 EST",
-            ":user5": "2021-03-06 00:30:19 EST",
-            ":user6": "2021-03-08 16:04:43 EST",
-            ":user7": "2021-03-03 14:28:15 EST",
-            ":user8": "2021-03-03 08:18:39 EST"
-        }
+        "total_pages": 8,
+        "users": [
+            {
+                "id": ":user_id1",
+                "completed_at": "2021-02-25 03:51:11 EST"
+            },
+            {
+                "id": ":user_id2",
+                "completed_at": "2021-03-02 14:05:22 EST"
+            },
+            {
+                "id": ":user_id3",
+                "completed_at": "2021-03-02 15:44:17 EST"
+            },
+            {
+                "id": ":user_id4",
+                "completed_at": "2021-03-02 22:51:59 EST"
+            },
+            {
+                "id": ":user_id5",
+                "completed_at": "2021-03-03 00:50:16 EST"
+            }
+        ]
     }
 }
 ```
