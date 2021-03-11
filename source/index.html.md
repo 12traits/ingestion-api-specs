@@ -58,6 +58,43 @@ https://api.12traits.com/v1/assessment/user/register
 
 This endpoint let you register users who can access the survey, the token provided should be used to pass as `?playerid=` into the survey link. 
 
+# [NEW] Get Assessment Users List
+
+> Request
+
+```shell
+curl -XGET \
+-H "Authorization: Bearer <API_KEY>" \
+https://api.12traits.com/v1/assessment/users?page=1
+```
+
+> Response
+
+```json
+{
+    "code": 200,
+    "message": "",
+    "data": {
+        "current_page": 1,
+        "total_pages": 1,
+        "users": {
+            ":user1": "2021-03-03 20:19:19 EST",
+            ":user2": "2021-03-07 00:45:30 EST",
+            ":user3": "2021-03-04 00:54:34 EST",
+            ":user4": "2021-03-10 11:38:48 EST",
+            ":user5": "2021-03-06 00:30:19 EST",
+            ":user6": "2021-03-08 16:04:43 EST",
+            ":user7": "2021-03-03 14:28:15 EST",
+            ":user8": "2021-03-03 08:18:39 EST"
+        }
+    }
+}
+```
+
+Here you can get the list of users that completed the survey. You can use a ?page=x parameter, and each page contains maximum 500 users. This endpoint has a cache of one hour. 
+
+
+
 # Get Assessment Response Status
 
 > Request
@@ -87,7 +124,7 @@ This endpoint allows you to check if user has completed survey or not.
 Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
 </aside>
 
-# Get Survey Details
+# [NEW] Get Survey Details
 
 > Request
 
