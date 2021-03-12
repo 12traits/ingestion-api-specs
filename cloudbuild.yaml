@@ -4,7 +4,8 @@ steps:
       args:
         - '-c'
         - | 
-          gem install bundler -v 2.2.14 && export BUNDLER_VERSION=2.2.14 && bundle install && bundle exec middleman build --clean
+          gem install bundler -v 2.2.14 && export BUNDLER_VERSION=2.2.14 && bundle install && bundle exec middleman build --clean && ([[ "$BRANCH_NAME" == "master" ]] \
+          && ./deploy.sh) || echo "skipping doc prod deployment"
     - name: gcr.io/cloud-builders/gsutil
       entrypoint: 'bash'
       args:
@@ -20,10 +21,3 @@ steps:
       - '-c'
       - |
         [[ "$BRANCH_NAME" == "develop" ]] && gcloud compute url-maps invalidate-cdn-cache lb-cdn  --path '/docs-api/*' --async --host cdn.staging.12traits.com || echo "skipping staging cache invalidation"
-    - name: ruby:2.5.0
-      entrypoint: 'bash'
-      args:
-        - '-c'
-        - |
-          [[ "$BRANCH_NAME" == "master" ]] \
-          && ./deploy.sh || echo "skipping docker staging deployment"

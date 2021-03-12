@@ -105,8 +105,6 @@ https://api.12traits.com/v1/assessment/users?page=1
 
 Here you can get the list of users that completed the survey. You can use a ?page=x parameter, and each page contains maximum 500 users. This endpoint has a cache of one hour. 
 
-
-
 # Get Assessment Response Status
 
 > Request
