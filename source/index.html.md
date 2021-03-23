@@ -30,7 +30,7 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
 ```shell
 curl -XPOST -H "Authorization: Bearer <API_KEY>" https://api.12traits.com/v1/...
 ```
-# [NEW] Register User for Survey
+# Register User for Survey
 
 > Request
 
@@ -58,7 +58,7 @@ https://api.12traits.com/v1/assessment/user/register
 
 This endpoint let you register users who can access the survey, the token provided should be used to pass as `?playerid=` into the survey link. 
 
-# [NEW] Get Assessment Users List
+# Get Assessment Users List
 
 > Request
 
@@ -105,8 +105,6 @@ https://api.12traits.com/v1/assessment/users?page=1
 
 Here you can get the list of users that completed the survey. You can use a ?page=x parameter, and each page contains maximum 500 users. This endpoint has a cache of one hour. 
 
-
-
 # Get Assessment Response Status
 
 > Request
@@ -136,7 +134,7 @@ This endpoint allows you to check if user has completed survey or not.
 Replace <b>:userid</b> with exactly the same encrypted ID you used to send user to the survey.
 </aside>
 
-# [NEW] Get Survey Details
+# Get Survey Details
 
 > Request
 
