@@ -242,98 +242,13 @@ https://api.12traits.com/v1/segments/:segment_id/personas/:persona/traits
     "code": 200,
     "message": "",
     "data": {
-        "agreeableness": {
-            "Altruism": 64.83333587646484,
-            "Modesty": 48.00000762939453,
-            "Trust": 62.00000762939453
+        "category1": {
+          "trait1": 62.34,
+          "trait2": 13.15
         },
-        "communication": {
-            "Feeler": 54.00000762939453,
-            "Intuitor": 39,
-            "Sensor": 62.66666793823242,
-            "Thinker": 43.99999237060547
-        },
-        "competitiveness": {
-            "Avoidant": 44.33332824707031,
-            "Collaborative": 61.66666793823242,
-            "Competitive affectivity": 37,
-            "Dependent": 48.83332824707031,
-            "Dominant": 43.499996185302734,
-            "General competitiveness": 44.833343505859375,
-            "Independent": 58.666656494140625,
-            "Personal enhancement": 54.000003814697266
-        },
-        "conscientiousness": {
-            "Achievement striving": 60.48037338256836,
-            "Competence": 51.666664123535156,
-            "Self-discipline": 66.1666488647461
-        },
-        "coreMotivations": {
-            "Autonomy": 50.83333206176758,
-            "Mastery": 67.1666488647461,
-            "Purpose": 60.33332824707031
-        },
-        "culture": {
-            "Individualism": 58.00001525878906,
-            "Indulgence": 51.99998474121094,
-            "Long term orientation": 58.66665267944336,
-            "Masculinity": 45.666664123535156,
-            "Power distance": 53.50000762939453,
-            "Uncertainty avoidance": 57.33333969116211
-        },
-        "extraversion": {
-            "Activity": 52.33333206176758,
-            "Assertiveness": 52.499996185302734,
-            "Warmth": 48.666664123535156
-        },
-        "motivations": {
-            "Compensatory effort": 63.666664123535156,
-            "Competitiveness": 37,
-            "Confidence in success": 64.33332824707031,
-            "Difficult tasks": 58.16666030883789,
-            "Dominance": 59.50001525878906,
-            "Eagerness to learn": 66.33333587646484,
-            "Engagement": 55.16666030883789,
-            "Fearlessness": 61.66666030883789,
-            "Flexibility": 41.166656494140625,
-            "Flow": 75.66666412353516,
-            "Goal setting": 46.666664123535156,
-            "Independence": 58.999996185302734,
-            "Internality": 57.833335876464844,
-            "Persistence": 70,
-            "Pride in productivity": 77.99999237060547,
-            "Self-control": 72.00001525878906,
-            "Status orientation": 62.00000762939453
-        },
-        "neuroticism": {
-            "Anxiety": 56.16666793823242,
-            "Impulsiveness": 39.33333206176758,
-            "Vulnerability": 38.5
-        },
-        "openness": {
-            "Actions": 41.166656494140625,
-            "Empathy": 62.16666793823242,
-            "Fantasy": 56.999961853027344
-        },
-        "personality": {
-            "Agreeableness": 58.499996185302734,
-            "Conscientiousness": 59.000003814697266,
-            "Extraversion": 51.83332443237305,
-            "Neuroticism": 45.000003814697266,
-            "Openness": 51
-        },
-        "wellBeing": {
-            "Autonomy": 50.83333206176758,
-            "Bounded reciprocity": 61,
-            "Grit": 64.33332824707031,
-            "Mastery": 67.1666488647461,
-            "Physical activity level": 50.16667175292969,
-            "Physical well-being": 45.16667175292969,
-            "Psychological well-being": 56.16666793823242,
-            "Purpose": 60.33332824707031,
-            "Resilience": 62.83333969116211,
-            "Sleep": 40.16666030883789,
-            "Social well-being": 58.999996185302734
+        "category2": {
+          "trait3": 12.45,
+          "trait4": 78.98
         }
     }
 }
